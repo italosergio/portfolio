@@ -6,7 +6,7 @@ function Projects() {
 
   return (
     <>
-      <Header />
+      <Header page='/projects'/>
       <SideNavBar />
     </>
   );

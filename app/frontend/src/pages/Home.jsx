@@ -6,7 +6,7 @@ function Home() {
 
   return (
     <>
-      <Header />
+      <Header page='/home' />
       <SideNavBar />
     </>
   );
