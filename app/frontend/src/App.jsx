@@ -3,6 +3,7 @@ import React from 'react';
 import './styles/app.css';
 import {Home, NotFoundPage, Projects} from './pages';
 import AppProvider from './context/AppProvider';
+import Contact from './pages/Contact';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Route exact path="/" element={ <Navigate to="/home" /> } />
         <Route path="/home" element={ <Home /> } />
         <Route path="/projects" element={ <Projects /> } />
+        <Route path="/contact" element={ <Contact /> } />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </AppProvider>
