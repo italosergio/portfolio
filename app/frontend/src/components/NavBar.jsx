@@ -6,9 +6,9 @@ function Navbar() {
   return (
     <>
       <nav className='navbar'>
-        <a href='/home'>HOME</a>
-        <a href='/projetos'>PROJETOS</a>
-        <a href='/contato'>CONTATO</a>
+        <a href='/home'>INÍCIO</a>
+        <a href='/projects'>PROJETOS</a>
+        <a href='/contact'>CONTATO</a>
       </nav>
       <button className='hamburger' onClick={() => setNavBarListOn(!navBarListOn)}>☰</button>
     </>

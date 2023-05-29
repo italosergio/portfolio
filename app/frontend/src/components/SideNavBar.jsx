@@ -7,8 +7,8 @@ function SideNavBar() {
   return (
     <nav className={`navbar-list ${!navBarListOn && 'show-sidebar'}`} onClick={() => setNavBarListOn(false)}>
       <a href='/home' onClick={() => setNavBarListOn(false)}>INÍCIO</a>
-      <a href='/projetos' onClick={() => setNavBarListOn(false)}>PROJETOS</a>
-      <a href='/contato' onClick={() => setNavBarListOn(false)}>CONTATO</a>
+      <a href='/projects' onClick={() => setNavBarListOn(false)}>PROJETOS</a>
+      <a href='/contact' onClick={() => setNavBarListOn(false)}>CONTATO</a>
       <span style={{ fontSize: '15px' }}>{'>'}</span>
     </nav>
   );
