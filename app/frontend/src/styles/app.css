@@ -60,6 +60,10 @@ a {
   transform: translateX(101%);
 }
 
+.navbar-list a{
+  padding-bottom: 50px;
+}
+
 .show-sidebar {
   transform: translateX(200%);
 }
