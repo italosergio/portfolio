@@ -5,7 +5,7 @@ function Header() {
   return (
     <header className='header'>
       <div className='header-title'>
-        <h1>Italo Sergio</h1>
+        <h1>Ítalo Chaves</h1>
         <span>Desenvolvedor Full Stack</span>
       </div>
       <NavBar />
