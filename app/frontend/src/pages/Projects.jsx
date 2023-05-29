@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../components/Header'
 import SideNavBar from '../components/SideNavBar';
 
-function Home() {
+function Projects() {
 
   return (
     <>
@@ -12,4 +12,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Projects;

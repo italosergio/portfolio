@@ -10,7 +10,7 @@ export function AppProvider({ children }) {
 
   const state = {
     navBarListOn,
-    setNavBarListOn
+    setNavBarListOn,
   }
   
   return (
