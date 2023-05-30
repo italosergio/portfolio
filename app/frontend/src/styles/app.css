@@ -2,10 +2,27 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  background-color: black;
 }
 
 #root {
   min-width: max-content;
+}
+
+video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.projects-video {
+  filter: blur(3px) brightness(30%);
+  width: calc(100% + 10px);
+  height: calc(100% + 10px);
+  margin: -2px;
 }
 
 a {
@@ -13,16 +30,23 @@ a {
   color: inherit;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
 .header {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   font-family: 'Roboto', sans-serif;
   font-size: 80%;
   font-weight: lighter;
   padding: 10px;
-  background-color: rgb(7, 0, 50);
-  color: cadetblue;
+  background-color: rgba(18, 11, 59, 0.504);
+  backdrop-filter: blur(7px);
+  color: rgba(0, 255, 170, 0.85);
+}
+
+.header * {
+  background-color: transparent;
 }
 
 .header h1 {
@@ -30,15 +54,21 @@ a {
   font-weight: lighter;
 }
 
+.header-title {
+  padding-left: 30px;
+}
+
 .navbar {
   display: flex;
   width: 50%;
   justify-content: space-around;
+  max-width: 600px;
 }
 
 .navbar a {
   display: flex;
   padding: 5px;
+  font-size: 16px;
 }
 
 .hamburger {
@@ -57,15 +87,20 @@ a {
   top: 0;
   height: 100%;
   width: 50%;
-  background: linear-gradient(to bottom, rgba(15, 0, 58, 0.836), rgba(0, 0, 0, 0.926));
+  background: linear-gradient(to bottom, rgba(15, 0, 58, 0.421), rgba(0, 0, 0, 0));
   color: cadetblue;
   border: none;
-  backdrop-filter: blur(7px);
+  backdrop-filter: blur(10px);
   transition: transform 0.5s ease-in-out;
   transform: translateX(101%);
+  z-index: 9999;
 }
 
-.navbar-list a{
+.navbar-list * {
+  background-color: transparent;
+}
+
+.navbar-list a {
   display: flex;
   padding-top: 25px;
   padding-bottom: 25px;
@@ -73,7 +108,7 @@ a {
   padding-right: 25px;
 }
 
-.navbar-list span{
+.navbar-list span {
   padding-top: 50px;
 }
 
@@ -85,6 +120,70 @@ a {
 
 .show-sidebar {
   transform: translateX(200%);
+}
+
+.home-content {
+  display: flex;
+  align-items: center;
+  background-color: rgba(7, 255, 152, 0);
+  justify-content: space-between;
+  height: 88vh;
+  width: 100%;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;900&family=Raleway:wght@100;700&display=swap');
+
+.home-text {
+  display: flex;
+  position: fixed;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 30px;
+  height: 90%;
+  width: 60%;
+  background-color: rgba(7, 44, 255, 0);
+  font-family: 'Raleway', sans-serif;
+  font-size: 200%;
+  font-weight: lighter;
+  color: rgba(0, 255, 170, 0.85);
+  z-index: 99;
+}
+
+.home-text h1 {
+  background-color: transparent;
+}
+
+.home-text p {
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  background-color: transparent;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  filter: brightness(77%);
+  margin-right: 10%;
+  height: 70%;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.782);
+  border-radius: 50%;
+  position: fixed;
+  right: 0;
+  height: 70vh;
+}
+
+.projects-button {
+  display: flex;
+  padding: 10px;
+  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 10px;
+  cursor: pointer;
+  background: rgba(143, 255, 180, 0.708);
+  color: black;
+  width: 130px;
 }
 
 @media (max-width: 500px) {
@@ -104,6 +203,31 @@ a {
     font-size: 33px;
     border: none;
     outline: none;
-    color: cadetblue;
+    color: rgb(88, 160, 125);
+  }
+
+  .home-content {
+    flex-direction: column;
+  }
+
+  .avatar {
+    padding-top: 10px;
+    padding-bottom: 15px;
+    height: 40%;
+    position: inherit;
+    margin-right: 0;
+  }
+
+  .home-text {
+    font-size: 100%;
+    width: 80%;
+    margin-left: 0;
+    margin-right: 10px;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 1000px) {
+  .avatar {
+    margin-right: -15%;
   }
 }
