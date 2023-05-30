@@ -6,6 +6,10 @@ function Home() {
 
   return (
     <>
+      <video autoPlay muted loop>
+        <source src={video} type="video/mp4" />
+        Seu navegador não suporta a reprodução de vídeo.
+      </video>
       <Header page='/home' />
       <SideNavBar />
     </>
