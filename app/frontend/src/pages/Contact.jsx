@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../components/Header'
 import SideNavBar from '../components/SideNavBar';
+import Developing from '../components/Developing';
 import video from '../video/contact-bg.mp4'
 
 function Contact() {
@@ -13,6 +14,7 @@ function Contact() {
       </video>
       <Header page='/contact' />
       <SideNavBar />
+      <Developing />
     </>
   );
 }
