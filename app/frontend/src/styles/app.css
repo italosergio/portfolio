@@ -25,6 +25,7 @@ video {
 }
 
 .home-video {
+  filter: blur(1px) brightness(50%);
   width: calc(100% + 10px);
   height: calc(100% + 10px);
   margin: -2px;
@@ -38,6 +39,7 @@ video {
 }
 
 .contact-video {
+  filter: blur(1px) brightness(70%);
   width: calc(100% + 10px);
   height: calc(100% + 10px);
   margin: -2px;
