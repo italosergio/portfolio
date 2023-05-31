@@ -3,7 +3,7 @@ import programming from "../images/programming.gif";
 
 function Developing() {
   return (
-    <div className='developing'>
+    <div className='developing fade-in'>
       <h1>{`< Desenvolvendo />`}</h1>
       <div class="loading-dots">
         <div class="dot"></div>

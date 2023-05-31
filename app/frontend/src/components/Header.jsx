@@ -3,7 +3,7 @@ import NavBar from './NavBar';
 
 function Header(props) {
   return (
-    <header className='header'>
+    <header className='header fade-in'>
       <div className='header-title'>
         <h1>Ítalo Chaves</h1>
         <span>Desenvolvedor Full Stack</span>
