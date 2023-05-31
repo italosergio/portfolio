@@ -7,7 +7,7 @@ function Contact() {
 
   return (
     <>
-      <video autoPlay muted loop>
+      <video autoPlay muted loop className='contact-video fade-in'>
         <source src={video} type="video/mp4" />
         Seu navegador não suporta a reprodução de vídeo.
       </video>

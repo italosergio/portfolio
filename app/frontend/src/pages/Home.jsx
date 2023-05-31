@@ -17,7 +17,7 @@ function Home() {
 
   return (
     <>
-      <video autoPlay muted loop>
+      <video autoPlay muted loop className='home-video fade-in'>
         <source src={video} type="video/mp4" />
         Seu navegador não suporta a reprodução de vídeo.
       </video>
