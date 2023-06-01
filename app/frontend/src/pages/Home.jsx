@@ -34,9 +34,9 @@ function Home() {
                       <h1>Desenvolvedor Web</h1>
                       <h1>Full Stack</h1>
                       <p>Transformando ideias em soluções inovadoras</p><br />
-                      <button href='/projects' className="glow-on-hover">
-                        Projetos  ➜
-                      </button>
+                      <a href='/contact' className="glow-on-hover">
+                        Contato  ➜
+                      </a>
                     </div>
                     <img src={image} className='avatar fade-in' alt='My avatar'></img>
                   </div>
