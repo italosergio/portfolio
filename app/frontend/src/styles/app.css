@@ -737,13 +737,15 @@ textarea::placeholder {
     top: 110px;
     width: 82%;
     height: 460px;
+    top: 90px;
     left: 9%;
   }
 
   .contact-content {
     top: 130px;
-    height: 300px;
+    height: 460px;
     width: 82%;
+    top: 80px;
     left: 9%;
     align-items: flex-start;
   }
@@ -755,6 +757,7 @@ textarea::placeholder {
   .contact-message-button {
     width: 70%;
     left: 15%;
+    top: 600px
   }
 
   .message-form-bg {
