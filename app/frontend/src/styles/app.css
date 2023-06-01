@@ -757,7 +757,7 @@ textarea::placeholder {
   .contact-message-button {
     width: 70%;
     left: 15%;
-    top: 600px
+    top: 600px;
   }
 
   .message-form-bg {
@@ -784,6 +784,10 @@ textarea::placeholder {
 
   .sucess-message{
     height: 40px;
+  }
+
+  .message-form-container {
+    height: 500px;
   }
 }
 
