@@ -31,6 +31,9 @@ const sendEmail = (event, body, func) => {
       return;
     } else {
       func.setSucess('Mensagem enviada com sucesso! Obrigado pelo contato!');
+      func.setName('')
+      func.setEmail('')
+      func.setMessage('')
     }
   });
   func.setError(false);
