@@ -72,7 +72,7 @@ a {
 }
 
 .header-title {
-  width: 500px;
+  width: 350px;
   margin-left: 20px;
   display: flex;
   flex-direction: row;
@@ -221,7 +221,7 @@ a {
   align-items: center;
   justify-content: center;
   position: fixed;
-  top: 410px;
+  top: 424px;
   left: 640px;
   overflow: hidden;
   white-space: nowrap;
@@ -239,10 +239,10 @@ a {
 
 @keyframes deslizar {
   0% {
-    transform: translateX(50%);
+    transform: translateX(53%);
     opacity:0;
   }
-  1% {
+  3% {
     opacity: 1;
   }
   85% {
@@ -738,7 +738,16 @@ textarea::placeholder {
   .header {
     width: 100%;
     padding: 10px;
-    font-size: 16px;
+  }
+
+  .header h1 {
+    font-size: 1px;
+  }
+
+  .header-title {
+    width: 350px;
+    margin-left: 5px;
+    align-items: center;
   }
 
   .hamburger {
@@ -864,6 +873,10 @@ textarea::placeholder {
   .message-form-container {
     height: 500px;
   }
+
+  .texto-loop {
+    display: none;
+  }
 }
 
 @media (min-width: 500px) and (max-width: 1000px) {
@@ -871,6 +884,19 @@ textarea::placeholder {
     margin-right: -15%;
   }
 
+
+  .navbar {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+    background: transparent;
+    font-size: 40px;
+    border: none;
+    outline: none;
+    color: rgb(88, 160, 125);
+  }
 
   .gif-404-container {
     flex-direction: column;
@@ -895,6 +921,10 @@ textarea::placeholder {
   .contact-button {
     margin-left: 50px;
     margin-right: 50px;
+  }
+
+  .texto-loop {
+    display: none;
   }
 }
 
