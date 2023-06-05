@@ -48,28 +48,52 @@ a {
   color: inherit;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
-
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: 'Roboto', sans-serif;
-  font-size: 80%;
-  font-weight: lighter;
   padding: 10px;
   background-color: rgba(18, 11, 59, 0.141);
   backdrop-filter: blur(7px);
-  color: rgba(0, 255, 170, 0.85);
+  color: rgba(10, 255, 202, 0.462);
 }
 
-.header h1 {
-  font-size: 33px;
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;900&family=Orbitron&family=Raleway:wght@100;700&family=Six+Caps&display=swap');
+
+.header div h1 {
+  font-size: 15px;
+  font-family: 'Orbitron', sans-serif;
   font-weight: lighter;
 }
 
+.header span {
+  font-size: 10px;
+  font-family: 'Orbitron', sans-serif;
+}
+
 .header-title {
-  padding-left: 30px;
+  width: 500px;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  margin-right: 15px;
+  opacity: 0.7;
+  border-radius: 30px;
+}
+
+.header-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-right: 5px;
+  letter-spacing: 7px;
 }
 
 .navbar {
@@ -80,9 +104,11 @@ a {
 }
 
 .navbar a {
+  font-family: 'Orbitron', sans-serif;
+  font-size: small;
+  color: #01ffcc7c;
   display: flex;
   padding: 5px;
-  font-size: 16px;
 }
 
 .hamburger {
@@ -176,16 +202,60 @@ a {
 
 .avatar {
   display: flex;
+  opacity: 0.7;
   align-items: center;
   filter: brightness(77%);
   margin-right: 10%;
   height: 70%;
   background-color: transparent;
-  color: rgba(255, 255, 255, 0.782);
   border-radius: 50%;
   position: fixed;
   right: 0;
   height: 70vh;
+}
+
+.texto-loop {
+  width: 360px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 410px;
+  left: 640px;
+  overflow: hidden;
+  white-space: nowrap;
+  color: rgba(0, 255, 145, 0.219);
+  font-size: 100px;
+  font-weight: lighter;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.texto-loop span {
+  display: inline-block;
+  white-space: nowrap;
+  animation: deslizar 30s linear infinite;
+}
+
+@keyframes deslizar {
+  0% {
+    transform: translateX(50%);
+    opacity:0;
+  }
+  1% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+    transform: translateX(-45%);
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-60%);
+  }
 }
 
 .glow-on-hover {
@@ -267,14 +337,17 @@ a {
   flex-direction: column;
   align-items: center;
   background-color: transparent;
-  color: #408755;
   margin-top: 100px;
   z-index: 99999;
 }
 
 .developing h1 {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Orbitron', sans-serif;
   font-weight: lighter;
+  color: #beffb16a;
+  letter-spacing: 10px;
+  font-size: 20px;
+  margin-bottom: 25px;
 }
 
 .loading-dots {
@@ -638,6 +711,7 @@ textarea::placeholder {
   font-size: small;
   font-weight: bold;
 }
+
 .submmit-message-btn {
   align-self: center;
   width: 100px;
@@ -686,6 +760,7 @@ textarea::placeholder {
     height: 40%;
     position: inherit;
     margin-right: 0;
+    opacity: 0.5;
   }
 
   .home-text {
@@ -778,11 +853,11 @@ textarea::placeholder {
     font-size: larger;
   }
 
-  .error-message{
+  .error-message {
     height: 40px;
   }
 
-  .sucess-message{
+  .sucess-message {
     height: 40px;
   }
 

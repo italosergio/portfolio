@@ -29,7 +29,7 @@ function Home() {
               renderOthers && (
                 <>
                   <SideNavBar />
-                  <div className='home-content fade-in'>
+                  <div className='fade-in home-content'>
                     <div className='home-text'>
                       <h1>Desenvolvedor Web</h1>
                       <h1>Full Stack</h1>
@@ -38,7 +38,8 @@ function Home() {
                         Contato  ➜
                       </a>
                     </div>
-                    <img src={image} className='avatar fade-in' alt='My avatar'></img>
+                    <img src={image} className='avatar' alt='My avatar'></img>
+                    <div className='texto-loop'><span>React.js | Node.js | Typescript | Python | Docker | MySQL | MongoDB | Testes | Deploy | CI/CD</span></div>
                   </div>
                 </>
               )
