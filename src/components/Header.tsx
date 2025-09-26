@@ -33,21 +33,21 @@ const Header = () => {
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 ${
         scrolled ? "bg-background/80 backdrop-blur-md shadow-lg" : "bg-background/60 backdrop-blur-sm"
       }`}
     >
-      <nav className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
+      <nav className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-4">
+        <div className="flex items-center justify-between w-full min-w-0">
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="text-2xl font-bold gradient-text"
+            className="text-lg sm:text-xl md:text-2xl font-bold gradient-text flex-shrink-0"
           >
             {"<Ítalo />"}
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-4 lg:space-x-8">
             {navItems.map((item) => (
               <motion.a
                 key={item.name}
@@ -68,15 +68,18 @@ const Header = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center gap-2">
-            <ThemeToggle />
-            <LanguageSelector />
+          <div className="md:hidden flex items-center gap-1 flex-shrink-0">
+            <div className="flex items-center">
+              <ThemeToggle />
+              <LanguageSelector />
+            </div>
             <Button
               variant="ghost"
               size="icon"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="ml-1 flex-shrink-0"
             >
-              {isMenuOpen ? <X /> : <Menu />}
+              {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </Button>
           </div>
         </div>
@@ -86,7 +89,7 @@ const Header = () => {
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="md:hidden mt-4 pb-4"
+            className="md:hidden mobile-menu"
           >
             {navItems.map((item) => (
               <a
@@ -98,7 +101,7 @@ const Header = () => {
                 {item.name}
               </a>
             ))}
-            <Button className="gradient-bg text-white mt-4 w-full" asChild>
+            <Button className="gradient-bg text-white mt-4 w-full text-sm" asChild>
               <a href="https://drive.google.com/file/d/1UMO-Zxa0N_8MbGmQo0_ItnOoGuAu7heA/view?usp=sharing" target="_blank" rel="noopener noreferrer">
                 {t("downloadCV")}
               </a>

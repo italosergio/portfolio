@@ -19,6 +19,7 @@ export const metadata: Metadata = {
   description: "Portfolio de Ítalo, desenvolvedor full stack com 5+ anos de experiência especializado em React, Next.js, Node.js e tecnologias modernas.",
   keywords: ["desenvolvedor", "full stack", "react", "nextjs", "nodejs", "typescript", "remix", "wordpress", "elementor"],
   authors: [{ name: "Ítalo" }],
+  viewport: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no",
   icons: {
     icon: '/favicon.svg',
   },

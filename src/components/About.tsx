@@ -32,7 +32,7 @@ const About = () => {
 
   return (
     <section id="about" className="py-20 bg-secondary/30">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -48,16 +48,16 @@ const About = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="relative">
-              <div className="w-80 h-80 mx-auto bg-gradient-to-br from-blue-900 to-indigo-800 dark:from-blue-400 dark:to-indigo-400 rounded-full opacity-20 dark:opacity-10 absolute -top-4 -left-4"></div>
-              <div className="w-80 h-80 mx-auto bg-secondary rounded-full flex items-center justify-center relative overflow-hidden">
+            <div className="relative flex justify-center">
+              <div className="w-64 h-64 sm:w-80 sm:h-80 bg-gradient-to-br from-blue-900 to-indigo-800 dark:from-blue-400 dark:to-indigo-400 rounded-full opacity-20 dark:opacity-10 absolute -top-4 -left-4"></div>
+              <div className="w-64 h-64 sm:w-80 sm:h-80 bg-secondary rounded-full flex items-center justify-center relative overflow-hidden">
                 <img 
                   src="/profile.png" 
                   alt="Ítalo - Desenvolvedor Full Stack" 

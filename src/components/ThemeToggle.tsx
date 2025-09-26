@@ -15,7 +15,7 @@ const ThemeToggle = () => {
       variant="ghost"
       size="icon"
       onClick={toggleTheme}
-      className="relative"
+      className="relative w-8 h-8 p-0"
       title={theme === "light" ? t("darkMode") : t("lightMode")}
     >
       <motion.div
@@ -27,7 +27,7 @@ const ThemeToggle = () => {
         transition={{ duration: 0.2 }}
         className="absolute"
       >
-        <Sun className="w-5 h-5" />
+        <Sun className="w-4 h-4" />
       </motion.div>
       <motion.div
         initial={false}
@@ -38,7 +38,7 @@ const ThemeToggle = () => {
         transition={{ duration: 0.2 }}
         className="absolute"
       >
-        <Moon className="w-5 h-5" />
+        <Moon className="w-4 h-4" />
       </motion.div>
     </Button>
   )

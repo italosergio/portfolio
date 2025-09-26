@@ -31,7 +31,7 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-20">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -47,7 +47,7 @@ const Contact = () => {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -89,23 +89,23 @@ const Contact = () => {
               <p className="text-muted-foreground mb-4">
                 {t("quickChat")}
               </p>
-              <div className="flex space-x-4">
-                <Button variant="outline" size="sm" asChild>
+              <div className="flex flex-wrap gap-2">
+                <Button variant="outline" size="sm" className="text-xs" asChild>
                   <a href="https://linkedin.com/in/italosergio" target="_blank" rel="noopener noreferrer">
                     LinkedIn
                   </a>
                 </Button>
-                <Button variant="outline" size="sm" asChild>
+                <Button variant="outline" size="sm" className="text-xs" asChild>
                   <a href="https://github.com/italosergio" target="_blank" rel="noopener noreferrer">
                     GitHub
                   </a>
                 </Button>
-                <Button variant="outline" size="sm" asChild>
+                <Button variant="outline" size="sm" className="text-xs" asChild>
                   <a href="https://instagram.com/italosergio" target="_blank" rel="noopener noreferrer">
                     Instagram
                   </a>
                 </Button>
-                <Button variant="outline" size="sm" asChild>
+                <Button variant="outline" size="sm" className="text-xs" asChild>
                   <a href="https://t.me/italosergio" target="_blank" rel="noopener noreferrer">
                     Telegram
                   </a>
@@ -123,7 +123,7 @@ const Contact = () => {
             className="bg-card rounded-xl p-8 shadow-lg"
           >
             <form className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium mb-2">
                     {t("name")}

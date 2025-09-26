@@ -26,12 +26,11 @@ const LanguageSelector = () => {
     <div className="relative">
       <Button
         variant="ghost"
-        size="sm"
+        size="icon"
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2"
+        className="flex items-center justify-center w-8 h-8 p-0"
       >
-        <Globe className="w-4 h-4" />
-        <span className="hidden sm:inline">
+        <span className="text-sm">
           {languages.find(lang => lang.code === language)?.flag}
         </span>
       </Button>
@@ -41,7 +40,8 @@ const LanguageSelector = () => {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
-          className="absolute top-full right-0 mt-2 bg-card border rounded-lg shadow-lg p-2 min-w-[150px] z-50"
+          className="absolute top-full right-0 mt-2 bg-card border rounded-lg shadow-lg p-2 min-w-[120px] z-[60]"
+          style={{ position: 'fixed', top: '60px', right: '16px' }}
         >
           {languages.map((lang) => (
             <button
