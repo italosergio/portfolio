@@ -75,7 +75,11 @@ const Projects = () => {
             >
               <div className={`${project.featured ? "md:flex" : ""}`}>
                 <div className={`relative overflow-hidden ${project.featured ? "md:w-1/2" : ""}`}>
-                  <div className="aspect-video bg-gradient-to-br from-purple-400 to-pink-400 opacity-80"></div>
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
                 </div>
                 
