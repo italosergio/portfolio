@@ -3,8 +3,10 @@
 import { motion } from "framer-motion"
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react"
 import { Button } from "./ui/button"
+import { useLanguage } from "@/contexts/LanguageContext"
 
 const Hero = () => {
+  const { t } = useLanguage()
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Background Animation */}
@@ -26,7 +28,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
-            Olá, eu sou{" "}
+            {t("heroTitle")}{" "}
             <span className="gradient-text">Ítalo</span>
           </motion.h1>
 
@@ -36,8 +38,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
           >
-            Desenvolvedor Full Stack apaixonado por criar experiências digitais 
-            incríveis e soluções inovadoras que fazem a diferença.
+            {t("heroSubtitle")}
           </motion.p>
 
           <motion.div
@@ -47,10 +48,10 @@ const Hero = () => {
             transition={{ delay: 0.6 }}
           >
             <Button size="lg" className="gradient-bg text-white glow-effect">
-              Ver Meus Projetos
+              {t("viewProjects")}
             </Button>
             <Button variant="outline" size="lg">
-              Entre em Contato
+              {t("getInTouch")}
             </Button>
           </motion.div>
 

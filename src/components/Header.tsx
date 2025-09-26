@@ -5,10 +5,12 @@ import { motion } from "framer-motion"
 import { Menu, X } from "lucide-react"
 import { Button } from "./ui/button"
 import LanguageSelector from "./LanguageSelector"
+import { useLanguage } from "@/contexts/LanguageContext"
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const { t } = useLanguage()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,11 +21,11 @@ const Header = () => {
   }, [])
 
   const navItems = [
-    { name: "Início", href: "#home" },
-    { name: "Sobre", href: "#about" },
-    { name: "Projetos", href: "#projects" },
-    { name: "Skills", href: "#skills" },
-    { name: "Contato", href: "#contact" }
+    { name: t("home"), href: "#home" },
+    { name: t("about"), href: "#about" },
+    { name: t("projects"), href: "#projects" },
+    { name: t("skills"), href: "#skills" },
+    { name: t("contact"), href: "#contact" }
   ]
 
   return (
@@ -58,7 +60,7 @@ const Header = () => {
             <LanguageSelector />
             <Button className="gradient-bg text-white" asChild>
               <a href="https://drive.google.com/file/d/1UMO-Zxa0N_8MbGmQo0_ItnOoGuAu7heA/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-                Download CV
+                {t("downloadCV")}
               </a>
             </Button>
           </div>
@@ -95,7 +97,7 @@ const Header = () => {
             ))}
             <Button className="gradient-bg text-white mt-4 w-full" asChild>
               <a href="https://drive.google.com/file/d/1UMO-Zxa0N_8MbGmQo0_ItnOoGuAu7heA/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-                Download CV
+                {t("downloadCV")}
               </a>
             </Button>
           </motion.div>

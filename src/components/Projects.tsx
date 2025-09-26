@@ -3,8 +3,10 @@
 import { motion } from "framer-motion"
 import { ExternalLink, Github } from "lucide-react"
 import { Button } from "./ui/button"
+import { useLanguage } from "@/contexts/LanguageContext"
 
 const Projects = () => {
+  const { t } = useLanguage()
   const projects = [
     {
       title: "Ameciclo.org",
@@ -52,11 +54,10 @@ const Projects = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Meus <span className="gradient-text">Projetos</span>
+            {t("projectsTitle").split(" ")[0]} <span className="gradient-text">{t("projectsTitle").split(" ").slice(1).join(" ")}</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Aqui estão alguns dos projetos que desenvolvi e colaborei no desenvolvimento, 
-            demonstrando minhas habilidades em diferentes tecnologias e áreas de desenvolvimento.
+            {t("projectsDescription")}
           </p>
         </motion.div>
 
@@ -101,13 +102,13 @@ const Projects = () => {
                     <Button variant="outline" size="sm" asChild>
                       <a href={project.github} target="_blank" rel="noopener noreferrer">
                         <Github className="w-4 h-4 mr-2" />
-                        Código
+                        {t("code")}
                       </a>
                     </Button>
                     <Button size="sm" className="gradient-bg text-white" asChild>
                       <a href={project.demo} target="_blank" rel="noopener noreferrer">
                         <ExternalLink className="w-4 h-4 mr-2" />
-                        Demo
+                        {t("demo")}
                       </a>
                     </Button>
                   </div>
@@ -125,7 +126,7 @@ const Projects = () => {
           className="text-center mt-12"
         >
           <Button variant="outline" size="lg">
-            Ver Todos os Projetos
+            {t("viewAllProjects")}
           </Button>
         </motion.div>
       </div>

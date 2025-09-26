@@ -1,11 +1,14 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { useLanguage } from "@/contexts/LanguageContext"
 
 const Skills = () => {
+  const { t } = useLanguage()
+  
   const skillCategories = [
     {
-      title: "Frontend",
+      title: t("frontend"),
       skills: [
         "React",
         "Next.js",
@@ -15,7 +18,7 @@ const Skills = () => {
       ]
     },
     {
-      title: "Backend", 
+      title: t("backend"), 
       skills: [
         "Node.js",
         "Python",
@@ -25,7 +28,7 @@ const Skills = () => {
       ]
     },
     {
-      title: "Database",
+      title: t("database"),
       skills: [
         "PostgreSQL",
         "MongoDB",
@@ -35,7 +38,7 @@ const Skills = () => {
       ]
     },
     {
-      title: "Tools & CMS",
+      title: t("toolsCMS"),
       skills: [
         "Git",
         "Docker",
@@ -57,11 +60,10 @@ const Skills = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Minhas <span className="gradient-text">Skills</span>
+            {t("skillsTitle").split(" ")[0]} <span className="gradient-text">{t("skillsTitle").split(" ").slice(1).join(" ")}</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Tecnologias e ferramentas que domino e utilizo no desenvolvimento 
-            de soluções completas e eficientes.
+            {t("skillsDescription")}
           </p>
         </motion.div>
 
@@ -107,19 +109,19 @@ const Skills = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-2xl mx-auto">
             <div className="text-center">
               <div className="text-3xl font-bold gradient-text">5+</div>
-              <div className="text-sm text-muted-foreground">Anos de Experiência</div>
+              <div className="text-sm text-muted-foreground">{t("yearsExp")}</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold gradient-text">50+</div>
-              <div className="text-sm text-muted-foreground">Projetos Concluídos</div>
+              <div className="text-sm text-muted-foreground">{t("projectsCompleted")}</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold gradient-text">100+</div>
-              <div className="text-sm text-muted-foreground">Clientes Satisfeitos</div>
+              <div className="text-sm text-muted-foreground">{t("happyClients")}</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold gradient-text">35+</div>
-              <div className="text-sm text-muted-foreground">Tecnologias</div>
+              <div className="text-sm text-muted-foreground">{t("technologies")}</div>
             </div>
           </div>
         </motion.div>

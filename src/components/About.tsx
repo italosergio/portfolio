@@ -2,27 +2,30 @@
 
 import { motion } from "framer-motion"
 import { Code, Database, Globe, Smartphone } from "lucide-react"
+import { useLanguage } from "@/contexts/LanguageContext"
 
 const About = () => {
+  const { t } = useLanguage()
+  
   const skills = [
     {
       icon: <Code className="w-8 h-8" />,
-      title: "Frontend Development",
+      title: t("frontendDev"),
       description: "React, Next.js, TypeScript, Tailwind CSS"
     },
     {
       icon: <Database className="w-8 h-8" />,
-      title: "Backend Development", 
+      title: t("backendDev"), 
       description: "Node.js, Python, PostgreSQL, MongoDB"
     },
     {
       icon: <Globe className="w-8 h-8" />,
-      title: "Web Technologies",
+      title: t("webTech"),
       description: "REST APIs, GraphQL, WebSockets"
     },
     {
       icon: <Smartphone className="w-8 h-8" />,
-      title: "Mobile Development",
+      title: t("mobileDev"),
       description: "React Native, Flutter"
     }
   ]
@@ -38,14 +41,10 @@ const About = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Sobre <span className="gradient-text">Mim</span>
+            {t("aboutTitle").split(" ")[0]} <span className="gradient-text">{t("aboutTitle").split(" ").slice(1).join(" ")}</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Sou um desenvolvedor full stack com mais de 5 anos de experiência, 
-            especializado em criar aplicações web e mobile modernas. Tenho paixão 
-            por tecnologia e sempre busco aprender novas ferramentas e metodologias 
-            para entregar soluções de alta qualidade. Hoje também trabalho com 
-            consultoria e treinamento de pessoas iniciantes na programação.
+            {t("aboutDescription")}
           </p>
         </motion.div>
 
@@ -75,7 +74,7 @@ const About = () => {
             viewport={{ once: true }}
             className="space-y-6"
           >
-            <h3 className="text-2xl font-bold mb-6">Minhas Especialidades</h3>
+            <h3 className="text-2xl font-bold mb-6">{t("mySpecialties")}</h3>
             
             {skills.map((skill, index) => (
               <motion.div
@@ -102,11 +101,7 @@ const About = () => {
               className="mt-8"
             >
               <p className="text-muted-foreground">
-                Quando não estou codando, gosto de andar de bicicleta, acampar na praia 
-                e tocar violão. Utilizo Claude Sonnet 4.0 junto ao Gemini para maioria das 
-                minhas aplicações no desenvolvimento e sempre me aprofundo nos conceitos 
-                teóricos para ter melhores resultados no uso de IA. Sempre aberto a novos 
-                desafios e oportunidades de colaboração!
+                {t("aboutHobbies")}
               </p>
             </motion.div>
           </motion.div>

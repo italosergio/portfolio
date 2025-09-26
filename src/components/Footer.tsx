@@ -2,9 +2,11 @@
 
 import { motion } from "framer-motion"
 import { Heart } from "lucide-react"
+import { useLanguage } from "@/contexts/LanguageContext"
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
+  const { t } = useLanguage()
 
   return (
     <footer className="bg-secondary/50 py-8">
@@ -26,22 +28,22 @@ const Footer = () => {
           </div>
           
           <p className="text-muted-foreground mb-4">
-            Desenvolvedor Full Stack apaixonado por criar experiências digitais incríveis
+            {t("footerDescription")}
           </p>
           
           <div className="flex items-center justify-center space-x-2 text-sm text-muted-foreground">
-            <span>© {currentYear} Feito com</span>
+            <span>© {currentYear} {t("madeWith")}</span>
             <motion.div
               animate={{ scale: [1, 1.2, 1] }}
               transition={{ repeat: Infinity, duration: 1.5 }}
             >
               <Heart className="w-4 h-4 text-red-500 fill-current" />
             </motion.div>
-            <span>por Ítalo</span>
+            <span>{t("by")} Ítalo</span>
           </div>
           
           <div className="mt-4 text-xs text-muted-foreground">
-            <p>Desenvolvido com Next.js, TypeScript e Tailwind CSS</p>
+            <p>{t("builtWith")}</p>
           </div>
         </motion.div>
       </div>

@@ -4,22 +4,22 @@ import { useState } from "react"
 import { motion } from "framer-motion"
 import { Globe } from "lucide-react"
 import { Button } from "./ui/button"
+import { useLanguage } from "@/contexts/LanguageContext"
+import { Language } from "@/lib/translations"
 
 const LanguageSelector = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const [currentLang, setCurrentLang] = useState("pt")
+  const { language, setLanguage } = useLanguage()
 
   const languages = [
-    { code: "pt", name: "Português", flag: "🇧🇷" },
-    { code: "en", name: "English", flag: "🇺🇸" },
-    { code: "es", name: "Español", flag: "🇪🇸" }
+    { code: "pt" as Language, name: "Português", flag: "🇧🇷" },
+    { code: "en" as Language, name: "English", flag: "🇺🇸" },
+    { code: "es" as Language, name: "Español", flag: "🇪🇸" }
   ]
 
-  const handleLanguageChange = (langCode: string) => {
-    setCurrentLang(langCode)
+  const handleLanguageChange = (langCode: Language) => {
+    setLanguage(langCode)
     setIsOpen(false)
-    // Aqui você implementaria a lógica de mudança de idioma
-    console.log(`Idioma alterado para: ${langCode}`)
   }
 
   return (
@@ -32,7 +32,7 @@ const LanguageSelector = () => {
       >
         <Globe className="w-4 h-4" />
         <span className="hidden sm:inline">
-          {languages.find(lang => lang.code === currentLang)?.flag}
+          {languages.find(lang => lang.code === language)?.flag}
         </span>
       </Button>
 
@@ -48,7 +48,7 @@ const LanguageSelector = () => {
               key={lang.code}
               onClick={() => handleLanguageChange(lang.code)}
               className={`w-full text-left px-3 py-2 rounded-md hover:bg-accent transition-colors flex items-center gap-2 ${
-                currentLang === lang.code ? "bg-accent" : ""
+                language === lang.code ? "bg-accent" : ""
               }`}
             >
               <span>{lang.flag}</span>

@@ -3,24 +3,27 @@
 import { motion } from "framer-motion"
 import { Mail, Phone, MapPin, Send } from "lucide-react"
 import { Button } from "./ui/button"
+import { useLanguage } from "@/contexts/LanguageContext"
 
 const Contact = () => {
+  const { t } = useLanguage()
+  
   const contactInfo = [
     {
       icon: <Mail className="w-6 h-6" />,
-      title: "Email",
+      title: t("email"),
       value: "italosergio@mail.com",
       href: "mailto:italosergio@mail.com"
     },
     {
       icon: <Phone className="w-6 h-6" />,
-      title: "WhatsApp", 
+      title: t("whatsapp"), 
       value: "+55 (88) 99469-3031",
       href: "https://wa.me/5588994693031"
     },
     {
       icon: <MapPin className="w-6 h-6" />,
-      title: "Localização",
+      title: t("location"),
       value: "Brasil",
       href: "#"
     }
@@ -37,11 +40,10 @@ const Contact = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Entre em <span className="gradient-text">Contato</span>
+            {t("contactTitle").split(" ").slice(0, 2).join(" ")} <span className="gradient-text">{t("contactTitle").split(" ").slice(2).join(" ")}</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Tem um projeto em mente? Vamos conversar! Estou sempre aberto a 
-            discutir novas oportunidades e colaborações interessantes.
+            {t("contactDescription")}
           </p>
         </motion.div>
 
@@ -54,7 +56,7 @@ const Contact = () => {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            <h3 className="text-2xl font-bold mb-8">Vamos nos conectar!</h3>
+            <h3 className="text-2xl font-bold mb-8">{t("letsConnect")}</h3>
             
             {contactInfo.map((info, index) => (
               <motion.a
@@ -85,7 +87,7 @@ const Contact = () => {
               className="mt-8"
             >
               <p className="text-muted-foreground mb-4">
-                Prefere uma conversa mais rápida? Me encontre nas redes sociais:
+                {t("quickChat")}
               </p>
               <div className="flex space-x-4">
                 <Button variant="outline" size="sm" asChild>
@@ -124,55 +126,55 @@ const Contact = () => {
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium mb-2">
-                    Nome
+                    {t("name")}
                   </label>
                   <input
                     type="text"
                     id="name"
                     className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
-                    placeholder="Seu nome"
+                    placeholder={t("yourName")}
                   />
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium mb-2">
-                    Email
+                    {t("email")}
                   </label>
                   <input
                     type="email"
                     id="email"
                     className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
-                    placeholder="seu@email.com"
+                    placeholder={t("yourEmail")}
                   />
                 </div>
               </div>
               
               <div>
                 <label htmlFor="subject" className="block text-sm font-medium mb-2">
-                  Assunto
+                  {t("subject")}
                 </label>
                 <input
                   type="text"
                   id="subject"
                   className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
-                  placeholder="Sobre o que você gostaria de conversar?"
+                  placeholder={t("subjectPlaceholder")}
                 />
               </div>
               
               <div>
                 <label htmlFor="message" className="block text-sm font-medium mb-2">
-                  Mensagem
+                  {t("message")}
                 </label>
                 <textarea
                   id="message"
                   rows={5}
                   className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:ring-2 focus:ring-primary focus:border-transparent transition-colors resize-none"
-                  placeholder="Conte-me mais sobre seu projeto ou ideia..."
+                  placeholder={t("messagePlaceholder")}
                 />
               </div>
               
               <Button type="submit" className="w-full gradient-bg text-white glow-effect">
                 <Send className="w-4 h-4 mr-2" />
-                Enviar Mensagem
+                {t("sendMessage")}
               </Button>
             </form>
           </motion.div>
