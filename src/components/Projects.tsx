@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { ExternalLink, Github } from "lucide-react"
 import { Button } from "./ui/button"
 import { useLanguage } from "@/contexts/LanguageContext"
+import Link from "next/link"
 
 const Projects = () => {
   const { t } = useLanguage()
@@ -40,6 +41,14 @@ const Projects = () => {
       technologies: ["Next.js", "Tailwind CSS", "Framer Motion"],
       github: "https://github.com/italosergio/lstech-linkinbio",
       demo: "https://www.lstechdigital.com.br"
+    },
+    {
+      title: "Bicicultura.org.br",
+      description: "Portal de conteúdo sobre cultura da bicicleta com artigos, notícias e recursos educativos.",
+      image: "/bicicultura.org.br.png",
+      technologies: ["WordPress", "PHP", "MySQL", "Elementor"],
+      github: "#",
+      demo: "https://bicicultura.org.br"
     }
   ]
 
@@ -129,8 +138,8 @@ const Projects = () => {
           viewport={{ once: true }}
           className="text-center mt-12"
         >
-          <Button variant="outline" size="lg">
-            {t("viewAllProjects")}
+          <Button variant="outline" size="lg" asChild>
+            <Link href="/projects">{t("viewAllProjects")}</Link>
           </Button>
         </motion.div>
       </div>

@@ -48,11 +48,11 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
           >
-            <Button size="lg" className="gradient-bg text-white glow-effect">
-              {t("viewProjects")}
+            <Button size="lg" className="gradient-bg text-white glow-effect" asChild>
+              <a href="#projects">{t("viewProjects")}</a>
             </Button>
-            <Button variant="outline" size="lg">
-              {t("getInTouch")}
+            <Button variant="outline" size="lg" asChild>
+              <a href="#contact">{t("getInTouch")}</a>
             </Button>
           </motion.div>
 

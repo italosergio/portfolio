@@ -14,7 +14,7 @@ const Skills = () => {
         "Next.js",
         "TypeScript",
         "Tailwind CSS",
-        "Remix"
+        "Remix.js"
       ]
     },
     {
@@ -22,7 +22,7 @@ const Skills = () => {
       skills: [
         "Node.js",
         "Python",
-        "Express",
+        "Express.js",
         "FastAPI",
         "GraphQL"
       ]
@@ -85,13 +85,25 @@ const Skills = () => {
                 {category.skills.map((skill, skillIndex) => (
                   <motion.div
                     key={skill}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
                     transition={{ delay: (categoryIndex * 0.1) + (skillIndex * 0.05) }}
                     viewport={{ once: true }}
-                    className="bg-secondary/50 rounded-lg p-3 text-center font-medium hover:bg-accent/50 transition-colors"
+                    className="flex items-center justify-between py-2 border-b border-border/30 last:border-b-0"
                   >
-                    {skill}
+                    <span className="font-medium">{skill}</span>
+                    <div className="flex space-x-1">
+                      {[...Array(5)].map((_, i) => (
+                        <div
+                          key={i}
+                          className={`w-2 h-2 rounded-full ${
+                            i < skill.length % 3 + 3
+                              ? 'bg-gradient-to-r from-blue-500 to-indigo-500'
+                              : 'bg-muted'
+                          }`}
+                        />
+                      ))}
+                    </div>
                   </motion.div>
                 ))}
               </div>

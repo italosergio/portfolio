@@ -7,11 +7,16 @@ import { Button } from "./ui/button"
 import LanguageSelector from "./LanguageSelector"
 import ThemeToggle from "./ThemeToggle"
 import { useLanguage } from "@/contexts/LanguageContext"
+import { usePathname } from "next/navigation"
+import Link from "next/link"
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const { t } = useLanguage()
+  const pathname = usePathname()
+  
+  const isHomePage = pathname === '/'
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,11 +27,11 @@ const Header = () => {
   }, [])
 
   const navItems = [
-    { name: t("home"), href: "#home" },
-    { name: t("about"), href: "#about" },
-    { name: t("projects"), href: "#projects" },
-    { name: t("skills"), href: "#skills" },
-    { name: t("contact"), href: "#contact" }
+    { name: t("home"), href: isHomePage ? "#home" : "/#home" },
+    { name: t("about"), href: isHomePage ? "#about" : "/#about" },
+    { name: t("projects"), href: isHomePage ? "#projects" : "/#projects" },
+    { name: t("skills"), href: isHomePage ? "#skills" : "/#skills" },
+    { name: t("contact"), href: isHomePage ? "#contact" : "/#contact" }
   ]
 
   return (
@@ -39,12 +44,14 @@ const Header = () => {
     >
       <nav className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-4">
         <div className="flex items-center justify-between w-full min-w-0">
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="text-lg sm:text-xl md:text-2xl font-bold gradient-text flex-shrink-0"
-          >
-            {"<Ítalo />"}
-          </motion.div>
+          <Link href={isHomePage ? "#home" : "/"} className="flex-shrink-0">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="text-lg sm:text-xl md:text-2xl font-bold gradient-text cursor-pointer"
+            >
+              {"<Ítalo />"}
+            </motion.div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-4 lg:space-x-8">
@@ -60,8 +67,8 @@ const Header = () => {
             ))}
             <ThemeToggle />
             <LanguageSelector />
-            <Button className="gradient-bg text-white" asChild>
-              <a href="https://drive.google.com/file/d/1UMO-Zxa0N_8MbGmQo0_ItnOoGuAu7heA/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+            <Button className="modern-button shimmer text-white" asChild>
+              <a href="/cv">
                 {t("downloadCV")}
               </a>
             </Button>
@@ -101,8 +108,8 @@ const Header = () => {
                 {item.name}
               </a>
             ))}
-            <Button className="gradient-bg text-white mt-4 w-full text-sm" asChild>
-              <a href="https://drive.google.com/file/d/1UMO-Zxa0N_8MbGmQo0_ItnOoGuAu7heA/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+            <Button className="modern-button shimmer text-white mt-4 w-full text-sm" asChild>
+              <a href="/cv">
                 {t("downloadCV")}
               </a>
             </Button>
