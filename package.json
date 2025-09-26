@@ -1,11 +1,26 @@
 {
   "name": "portfolio",
-  "version": "2.0.0",
-  "description": "My personal portfolio",
-  "main": "index.js",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "compose:up": "(cd app && docker-compose up -d --build)",
-    "compose:down": "(cd app && docker-compose down --remove-orphans)"
+    "dev": "next dev --turbopack",
+    "build": "next build --turbopack",
+    "start": "next start",
+    "lint": "biome check",
+    "format": "biome format --write"
   },
-  "author": "Italo Sergio C Silva"
+  "dependencies": {
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "next": "15.5.4"
+  },
+  "devDependencies": {
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@tailwindcss/postcss": "^4",
+    "tailwindcss": "^4",
+    "@biomejs/biome": "2.2.0"
+  }
 }
