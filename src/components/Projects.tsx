@@ -18,14 +18,7 @@ const Projects = () => {
       demo: "https://ameciclo.org",
       featured: true
     },
-    {
-      title: "LOA Clima",
-      description: "Plataforma observatório dos dados da lei orçamentária anual do estado de Pernambuco consumindo dados abertos da API do estado.",
-      image: "/loaclima.ameciclo.org.png", 
-      technologies: ["React", "Node.js", "Chart.js", "API REST"],
-      github: "https://github.com/Ameciclo/raio",
-      demo: "https://loaclima.ameciclo.org"
-    },
+
     {
       title: "DOM Ameciclo",
       description: "Plataforma de observatório de dados orçamentários em âmbito estadual, similar ao LOA Clima mas com foco estadual.",
@@ -70,7 +63,7 @@ const Projects = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
@@ -78,49 +71,69 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
-              className={`group relative overflow-hidden rounded-xl bg-card border hover:shadow-2xl transition-all duration-300 ${
-                project.featured ? "md:col-span-2" : ""
+              className={`group relative overflow-hidden rounded-lg bg-card border hover:shadow-xl transition-all duration-300 ${
+                project.featured ? "md:col-span-2 lg:col-span-3" : ""
               }`}
             >
-              <div className={`${project.featured ? "md:flex" : ""}`}>
+              <div className={`${project.featured ? "md:flex md:items-center" : ""}`}>
                 <div className={`relative overflow-hidden ${project.featured ? "md:w-1/2" : ""}`}>
                   <img 
                     src={project.image} 
                     alt={project.title}
-                    className="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-300"
+                    className={`w-full object-cover group-hover:scale-102 transition-transform duration-700 ease-out ${
+                      project.featured ? "aspect-video" : "aspect-[4/3]"
+                    }`}
                   />
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-white/70 via-white/30 to-transparent group-hover:from-white/50 group-hover:via-white/20 dark:from-black/70 dark:via-black/30 dark:to-transparent dark:group-hover:from-black/50 dark:group-hover:via-black/20 transition-all duration-200"></div>
                 </div>
                 
-                <div className={`p-6 ${project.featured ? "md:w-1/2 md:flex md:flex-col md:justify-center" : ""}`}>
-                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
+                <div className={`p-4 ${project.featured ? "md:w-1/2 md:p-8" : ""}`}>
+                  <h3 className={`font-bold mb-2 group-hover:text-primary transition-colors ${
+                    project.featured ? "text-xl mb-3" : "text-lg"
+                  }`}>
                     {project.title}
                   </h3>
-                  <p className="text-muted-foreground mb-4">
+                  <p className={`text-muted-foreground mb-3 text-sm ${
+                    project.featured ? "mb-4 text-base" : ""
+                  }`}>
                     {project.description}
                   </p>
                   
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.technologies.map((tech) => (
+                  <div className={`flex flex-wrap gap-1 mb-3 ${
+                    project.featured ? "gap-2 mb-4" : ""
+                  }`}>
+                    {project.technologies.slice(0, project.featured ? 4 : 3).map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1 text-xs bg-secondary rounded-full text-secondary-foreground"
+                        className={`bg-secondary rounded-md text-secondary-foreground ${
+                          project.featured ? "px-3 py-1 text-sm" : "px-2 py-1 text-xs"
+                        }`}
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
 
-                  <div className="flex gap-3">
-                    <Button variant="outline" size="sm" asChild>
+                  <div className={`flex gap-2 ${
+                    project.featured ? "gap-3" : ""
+                  }`}>
+                    <Button variant="outline" size="sm" className={`${
+                      project.featured ? "text-sm px-4 py-2 h-10" : "text-xs px-3 py-1 h-8"
+                    }`} asChild>
                       <a href={project.github} target="_blank" rel="noopener noreferrer">
-                        <Github className="w-4 h-4 mr-2" />
+                        <Github className={`mr-1 ${
+                          project.featured ? "w-4 h-4" : "w-3 h-3"
+                        }`} />
                         {t("code")}
                       </a>
                     </Button>
-                    <Button size="sm" className="gradient-bg text-white" asChild>
+                    <Button size="sm" className={`modern-button text-white ${
+                      project.featured ? "text-sm px-4 py-2 h-10" : "text-xs px-3 py-1 h-8"
+                    }`} asChild>
                       <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="w-4 h-4 mr-2" />
+                        <ExternalLink className={`mr-1 ${
+                          project.featured ? "w-4 h-4" : "w-3 h-3"
+                        }`} />
                         {t("demo")}
                       </a>
                     </Button>
@@ -138,7 +151,7 @@ const Projects = () => {
           viewport={{ once: true }}
           className="text-center mt-12"
         >
-          <Button variant="outline" size="lg" asChild>
+          <Button variant="outline" size="lg" className="modern-button shimmer text-white" asChild>
             <Link href="/projects">{t("viewAllProjects")}</Link>
           </Button>
         </motion.div>
