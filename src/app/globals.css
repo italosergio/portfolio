@@ -76,14 +76,26 @@
 body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .gradient-bg {
   background: linear-gradient(135deg, #000040 0%, #1e3a8a 50%, #3b82f6 100%);
 }
 
+.dark .gradient-bg {
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%);
+}
+
 .gradient-text {
   background: linear-gradient(135deg, #000040 0%, #1e3a8a 50%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dark .gradient-text {
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -102,6 +114,26 @@ body {
   box-shadow: 0 0 20px rgba(0, 0, 64, 0.4);
 }
 
+.dark .glow-effect {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+}
+
 .scroll-smooth {
   scroll-behavior: smooth;
+}
+
+/* Smooth transitions for theme changes */
+* {
+  transition: border-color 0.3s ease;
+}
+
+.bg-card,
+.bg-secondary,
+.bg-accent {
+  transition: background-color 0.3s ease;
+}
+
+.text-foreground,
+.text-muted-foreground {
+  transition: color 0.3s ease;
 }

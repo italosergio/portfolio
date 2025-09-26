@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import { Menu, X } from "lucide-react"
 import { Button } from "./ui/button"
 import LanguageSelector from "./LanguageSelector"
+import ThemeToggle from "./ThemeToggle"
 import { useLanguage } from "@/contexts/LanguageContext"
 
 const Header = () => {
@@ -57,6 +58,7 @@ const Header = () => {
                 {item.name}
               </motion.a>
             ))}
+            <ThemeToggle />
             <LanguageSelector />
             <Button className="gradient-bg text-white" asChild>
               <a href="https://drive.google.com/file/d/1UMO-Zxa0N_8MbGmQo0_ItnOoGuAu7heA/view?usp=sharing" target="_blank" rel="noopener noreferrer">
@@ -67,6 +69,7 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center gap-2">
+            <ThemeToggle />
             <LanguageSelector />
             <Button
               variant="ghost"

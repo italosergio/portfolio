@@ -64,7 +64,11 @@ export const translations = {
     footerDescription: "Desenvolvedor Full Stack apaixonado por criar experiências digitais incríveis",
     madeWith: "Feito com",
     by: "por",
-    builtWith: "Desenvolvido com Next.js, TypeScript e Tailwind CSS"
+    builtWith: "Desenvolvido com Next.js, TypeScript e Tailwind CSS",
+    
+    // Theme
+    lightMode: "Modo Claro",
+    darkMode: "Modo Escuro"
   },
   
   en: {
@@ -132,7 +136,11 @@ export const translations = {
     footerDescription: "Full Stack Developer passionate about creating incredible digital experiences",
     madeWith: "Made with",
     by: "by",
-    builtWith: "Built with Next.js, TypeScript and Tailwind CSS"
+    builtWith: "Built with Next.js, TypeScript and Tailwind CSS",
+    
+    // Theme
+    lightMode: "Light Mode",
+    darkMode: "Dark Mode"
   },
   
   es: {
@@ -200,7 +208,11 @@ export const translations = {
     footerDescription: "Desarrollador Full Stack apasionado por crear experiencias digitales increíbles",
     madeWith: "Hecho con",
     by: "por",
-    builtWith: "Desarrollado con Next.js, TypeScript y Tailwind CSS"
+    builtWith: "Desarrollado con Next.js, TypeScript y Tailwind CSS",
+    
+    // Theme
+    lightMode: "Modo Claro",
+    darkMode: "Modo Oscuro"
   }
 }
 

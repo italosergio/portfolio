@@ -56,7 +56,7 @@ const About = () => {
             viewport={{ once: true }}
           >
             <div className="relative">
-              <div className="w-80 h-80 mx-auto bg-gradient-to-br from-blue-900 to-indigo-800 rounded-full opacity-20 absolute -top-4 -left-4"></div>
+              <div className="w-80 h-80 mx-auto bg-gradient-to-br from-blue-900 to-indigo-800 dark:from-blue-400 dark:to-indigo-400 rounded-full opacity-20 dark:opacity-10 absolute -top-4 -left-4"></div>
               <div className="w-80 h-80 mx-auto bg-secondary rounded-full flex items-center justify-center relative overflow-hidden">
                 <img 
                   src="/profile.png" 
