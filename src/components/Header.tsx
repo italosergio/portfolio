@@ -76,6 +76,11 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center gap-1 flex-shrink-0">
+            <Button className="modern-button shimmer text-white text-xs px-2 py-1 h-8 mr-2" asChild>
+              <a href="/cv">
+                CV
+              </a>
+            </Button>
             <div className="flex items-center">
               <ThemeToggle />
               <LanguageSelector />
@@ -96,23 +101,25 @@ const Header = () => {
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="md:hidden mobile-menu"
+            className="md:hidden mt-4 p-4"
           >
-            {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="block py-2 text-foreground/80 hover:text-foreground transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item.name}
-              </a>
-            ))}
-            <Button className="modern-button shimmer text-white mt-4 w-full text-sm" asChild>
-              <a href="/cv">
-                {t("downloadCV")}
-              </a>
-            </Button>
+            <div className="flex flex-col space-y-3">
+              {navItems.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="block py-2 text-foreground/80 hover:text-foreground transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.name}
+                </a>
+              ))}
+              <Button className="modern-button shimmer text-white mt-4 w-full text-sm" asChild>
+                <a href="/cv">
+                  {t("downloadCV")}
+                </a>
+              </Button>
+            </div>
           </motion.div>
         )}
       </nav>
