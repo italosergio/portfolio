@@ -172,7 +172,20 @@ const Contact = () => {
                 />
               </div>
               
-              <Button type="submit" className="w-full gradient-bg text-white glow-effect">
+              <Button 
+                type="button" 
+                className="w-full gradient-bg text-white glow-effect"
+                onClick={() => {
+                  const name = (document.getElementById('name') as HTMLInputElement)?.value || 'Visitante'
+                  const email = (document.getElementById('email') as HTMLInputElement)?.value || ''
+                  const subject = (document.getElementById('subject') as HTMLInputElement)?.value || ''
+                  const message = (document.getElementById('message') as HTMLTextAreaElement)?.value || ''
+                  
+                  const whatsappMessage = `Olá! Sou ${name}${email ? ` (${email})` : ''}\n\n${subject ? `Assunto: ${subject}\n\n` : ''}${message}`
+                  const whatsappUrl = `https://wa.me/5588994693031?text=${encodeURIComponent(whatsappMessage)}`
+                  window.open(whatsappUrl, '_blank')
+                }}
+              >
                 <Send className="w-4 h-4 mr-2" />
                 {t("sendMessage")}
               </Button>
