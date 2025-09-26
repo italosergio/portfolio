@@ -56,13 +56,17 @@ const About = () => {
             viewport={{ once: true }}
           >
             <div className="relative flex justify-center">
-              <div className="w-64 h-64 sm:w-80 sm:h-80 bg-gradient-to-br from-blue-900 to-indigo-800 dark:from-blue-400 dark:to-indigo-400 rounded-full opacity-20 dark:opacity-10 absolute -top-4 -left-4"></div>
-              <div className="w-64 h-64 sm:w-80 sm:h-80 bg-secondary rounded-full flex items-center justify-center relative overflow-hidden">
+              <div className="relative">
                 <img 
                   src="/profile.png" 
                   alt="Ítalo - Desenvolvedor Full Stack" 
-                  className="w-full h-full object-cover"
+                  className="w-64 h-64 sm:w-80 sm:h-80 object-contain filter drop-shadow-2xl rounded-full"
+                  style={{
+                    filter: 'drop-shadow(0 0 20px rgba(59, 130, 246, 0.5)) drop-shadow(0 0 40px rgba(99, 102, 241, 0.3))',
+                    maskImage: 'linear-gradient(to bottom, white 70%, transparent 100%)'
+                  }}
                 />
+                <div className="absolute inset-0 -z-10 bg-gradient-to-br from-blue-500/10 via-indigo-500/10 to-blue-600/10 blur-3xl animate-pulse scale-110"></div>
               </div>
             </div>
           </motion.div>
@@ -74,7 +78,18 @@ const About = () => {
             viewport={{ once: true }}
             className="space-y-6"
           >
-            <h3 className="text-2xl font-bold mb-6">{t("mySpecialties")}</h3>
+            <h3 className="text-2xl font-bold mb-4">{t("mySpecialties")}</h3>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              viewport={{ once: true }}
+              className="mb-6"
+            >
+              <p className="text-muted-foreground text-sm">
+                {t("aboutHobbies")}
+              </p>
+            </motion.div>
             
             {skills.map((skill, index) => (
               <motion.div
@@ -93,17 +108,7 @@ const About = () => {
               </motion.div>
             ))}
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              viewport={{ once: true }}
-              className="mt-8"
-            >
-              <p className="text-muted-foreground">
-                {t("aboutHobbies")}
-              </p>
-            </motion.div>
+
           </motion.div>
         </div>
       </div>

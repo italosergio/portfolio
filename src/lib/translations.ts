@@ -22,7 +22,7 @@ export const translations = {
     backendDev: "Backend Development",
     webTech: "Web Technologies",
     mobileDev: "Mobile Development",
-    aboutHobbies: "Quando não estou codando, gosto de andar de bicicleta, acampar na praia e tocar violão. Utilizo Claude Sonnet 4.0 junto ao Gemini para maioria das minhas aplicações no desenvolvimento e sempre me aprofundo nos conceitos teóricos para ter melhores resultados no uso de IA. Sempre aberto a novos desafios e oportunidades de colaboração!",
+    aboutHobbies: "Utilizo Claude Sonnet 4.0 junto ao Gemini para maioria das minhas aplicações no desenvolvimento e sempre me aprofundo nos conceitos teóricos para ter melhores resultados no uso de IA. Sempre aberto a novos desafios e oportunidades de colaboração!",
     
     // Projects
     projectsTitle: "Meus Projetos",
@@ -94,7 +94,7 @@ export const translations = {
     backendDev: "Backend Development", 
     webTech: "Web Technologies",
     mobileDev: "Mobile Development",
-    aboutHobbies: "When I'm not coding, I enjoy cycling, beach camping, and playing guitar. I use Claude Sonnet 4.0 along with Gemini for most of my development applications and always deepen my theoretical concepts to achieve better results with AI. Always open to new challenges and collaboration opportunities!",
+    aboutHobbies: "I use Claude Sonnet 4.0 along with Gemini for most of my development applications and always deepen my theoretical concepts to achieve better results with AI. Always open to new challenges and collaboration opportunities!",
     
     // Projects
     projectsTitle: "My Projects",
@@ -166,7 +166,7 @@ export const translations = {
     backendDev: "Desarrollo Backend",
     webTech: "Tecnologías Web",
     mobileDev: "Desarrollo Móvil",
-    aboutHobbies: "Cuando no estoy programando, me gusta andar en bicicleta, acampar en la playa y tocar guitarra. Utilizo Claude Sonnet 4.0 junto con Gemini para la mayoría de mis aplicaciones de desarrollo y siempre profundizo en los conceptos teóricos para obtener mejores resultados con IA. ¡Siempre abierto a nuevos desafíos y oportunidades de colaboración!",
+    aboutHobbies: "Utilizo Claude Sonnet 4.0 junto con Gemini para la mayoría de mis aplicaciones de desarrollo y siempre profundizo en los conceptos teóricos para obtener mejores resultados con IA. ¡Siempre abierto a nuevos desafíos y oportunidades de colaboración!",
     
     // Projects
     projectsTitle: "Mis Proyectos",
