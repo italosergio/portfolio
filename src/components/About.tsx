@@ -60,13 +60,11 @@ const About = () => {
                 <img 
                   src="/profile.png" 
                   alt="Ítalo - Desenvolvedor Full Stack" 
-                  className="w-64 h-64 sm:w-80 sm:h-80 object-contain filter drop-shadow-2xl rounded-full"
+                  className="w-64 h-64 sm:w-80 sm:h-80 object-contain"
                   style={{
-                    filter: 'drop-shadow(0 0 20px rgba(59, 130, 246, 0.5)) drop-shadow(0 0 40px rgba(99, 102, 241, 0.3))',
                     maskImage: 'linear-gradient(to bottom, white 70%, transparent 100%)'
                   }}
                 />
-                <div className="absolute inset-0 -z-10 bg-gradient-to-br from-blue-500/10 via-indigo-500/10 to-blue-600/10 blur-3xl animate-pulse scale-110"></div>
               </div>
             </div>
           </motion.div>
