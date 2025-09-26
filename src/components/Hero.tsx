@@ -4,18 +4,14 @@ import { motion } from "framer-motion"
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react"
 import { Button } from "./ui/button"
 import { useLanguage } from "@/contexts/LanguageContext"
+import AnimatedBackground from "./backgrounds/AnimatedBackground"
 
 const Hero = () => {
   const { t } = useLanguage()
   
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Background Animation */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-900/30 dark:bg-blue-400/20 rounded-full mix-blend-multiply dark:mix-blend-normal filter blur-xl opacity-70 animate-pulse"></div>
-        <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-indigo-800/30 dark:bg-indigo-400/20 rounded-full mix-blend-multiply dark:mix-blend-normal filter blur-xl opacity-70 animate-pulse animation-delay-2000"></div>
-        <div className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-blue-800/30 dark:bg-blue-500/20 rounded-full mix-blend-multiply dark:mix-blend-normal filter blur-xl opacity-70 animate-pulse animation-delay-4000"></div>
-      </div>
+    <AnimatedBackground variant="hero">
+      <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
 
       <div className="container mx-auto px-4 sm:px-6 text-center">
         <motion.div
@@ -98,7 +94,8 @@ const Hero = () => {
           <ArrowDown className="w-6 h-6 text-muted-foreground" />
         </motion.div>
       </div>
-    </section>
+      </section>
+    </AnimatedBackground>
   )
 }
 

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { Code, Database, Globe, Smartphone } from "lucide-react"
 import { useLanguage } from "@/contexts/LanguageContext"
+import AnimatedBackground from "./backgrounds/AnimatedBackground"
 
 const About = () => {
   const { t } = useLanguage()
@@ -31,7 +32,8 @@ const About = () => {
   ]
 
   return (
-    <section id="about" className="py-20 bg-secondary/30">
+    <AnimatedBackground variant="about">
+      <section id="about" className="py-20 bg-secondary/30 relative">
       <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -96,7 +98,7 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="flex items-start space-x-4 p-4 rounded-lg bg-card hover:bg-accent/50 transition-colors"
+                className="flex items-start space-x-4 p-4 rounded-lg glass-morphism backdrop-blur-md bg-white/10 dark:bg-black/20 border border-white/20 dark:border-white/10 hover:bg-white/20 dark:hover:bg-black/30 transition-colors"
               >
                 <div className="text-primary">{skill.icon}</div>
                 <div>
@@ -110,7 +112,8 @@ const About = () => {
           </motion.div>
         </div>
       </div>
-    </section>
+      </section>
+    </AnimatedBackground>
   )
 }
 

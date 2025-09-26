@@ -5,6 +5,7 @@ import { ExternalLink, Github } from "lucide-react"
 import { Button } from "./ui/button"
 import { useLanguage } from "@/contexts/LanguageContext"
 import Link from "next/link"
+import AnimatedBackground from "./backgrounds/AnimatedBackground"
 
 const Projects = () => {
   const { t } = useLanguage()
@@ -46,7 +47,8 @@ const Projects = () => {
   ]
 
   return (
-    <section id="projects" className="py-20">
+    <AnimatedBackground variant="projects">
+      <section id="projects" className="py-20 relative">
       <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -71,7 +73,7 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
-              className={`group relative overflow-hidden rounded-lg bg-card border hover:shadow-xl transition-all duration-300 ${
+              className={`group relative overflow-hidden rounded-lg glass-morphism backdrop-blur-md bg-white/10 dark:bg-black/20 border border-white/20 dark:border-white/10 hover:shadow-xl hover:bg-white/20 dark:hover:bg-black/30 transition-all duration-300 ${
                 project.featured ? "md:col-span-2 lg:col-span-3" : ""
               }`}
             >
@@ -156,7 +158,8 @@ const Projects = () => {
           </Button>
         </motion.div>
       </div>
-    </section>
+      </section>
+    </AnimatedBackground>
   )
 }
 

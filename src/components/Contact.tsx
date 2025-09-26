@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { Mail, Phone, MapPin, Send } from "lucide-react"
 import { Button } from "./ui/button"
 import { useLanguage } from "@/contexts/LanguageContext"
+import AnimatedBackground from "./backgrounds/AnimatedBackground"
 
 const Contact = () => {
   const { t } = useLanguage()
@@ -30,7 +31,8 @@ const Contact = () => {
   ]
 
   return (
-    <section id="contact" className="py-20">
+    <AnimatedBackground variant="contact">
+      <section id="contact" className="py-20 relative">
       <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -67,7 +69,7 @@ const Contact = () => {
                 transition={{ delay: index * 0.1 }}
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.02 }}
-                className="flex items-center space-x-4 p-4 rounded-lg bg-card hover:bg-accent/50 transition-colors group"
+                className="flex items-center space-x-4 p-4 rounded-lg glass-morphism backdrop-blur-md bg-white/10 dark:bg-black/20 border border-white/20 dark:border-white/10 hover:bg-white/20 dark:hover:bg-black/30 transition-colors group"
               >
                 <div className="text-primary group-hover:scale-110 transition-transform">
                   {info.icon}
@@ -132,7 +134,7 @@ const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-card rounded-xl p-8 shadow-lg"
+            className="glass-morphism backdrop-blur-md bg-white/10 dark:bg-black/20 border border-white/20 dark:border-white/10 rounded-xl p-8 shadow-lg"
           >
             <form className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -205,7 +207,8 @@ const Contact = () => {
           </motion.div>
         </div>
       </div>
-    </section>
+      </section>
+    </AnimatedBackground>
   )
 }
 

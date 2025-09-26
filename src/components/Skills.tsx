@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { useLanguage } from "@/contexts/LanguageContext"
+import AnimatedBackground from "./backgrounds/AnimatedBackground"
 
 const Skills = () => {
   const { t } = useLanguage()
@@ -50,7 +51,8 @@ const Skills = () => {
   ]
 
   return (
-    <section id="skills" className="py-20 bg-secondary/30">
+    <AnimatedBackground variant="skills">
+      <section id="skills" className="py-20 bg-secondary/30 relative">
       <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -75,7 +77,7 @@ const Skills = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: categoryIndex * 0.1 }}
               viewport={{ once: true }}
-              className="rounded-xl p-6"
+              className="rounded-xl p-6 glass-morphism backdrop-blur-md bg-white/10 dark:bg-black/20 border border-white/20 dark:border-white/10"
             >
               <h3 className="text-xl font-bold mb-6 text-center gradient-text">
                 {category.title}
@@ -152,7 +154,8 @@ const Skills = () => {
           </div>
         </motion.div>
       </div>
-    </section>
+      </section>
+    </AnimatedBackground>
   )
 }
 
