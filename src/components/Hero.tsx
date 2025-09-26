@@ -9,9 +9,9 @@ const Hero = () => {
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Background Animation */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse"></div>
-        <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse animation-delay-2000"></div>
-        <div className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse animation-delay-4000"></div>
+        <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-900/30 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse"></div>
+        <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-indigo-800/30 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse animation-delay-2000"></div>
+        <div className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-blue-800/30 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse animation-delay-4000"></div>
       </div>
 
       <div className="container mx-auto px-6 text-center">
@@ -27,7 +27,7 @@ const Hero = () => {
             transition={{ delay: 0.2 }}
           >
             Olá, eu sou{" "}
-            <span className="gradient-text">Italo</span>
+            <span className="gradient-text">Ítalo</span>
           </motion.h1>
 
           <motion.p
@@ -61,7 +61,7 @@ const Hero = () => {
             transition={{ delay: 0.8 }}
           >
             <motion.a
-              href="https://github.com/seu-usuario"
+              href="https://github.com/italosergio"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.2, rotate: 5 }}
@@ -70,7 +70,7 @@ const Hero = () => {
               <Github className="w-6 h-6" />
             </motion.a>
             <motion.a
-              href="https://linkedin.com/in/seu-perfil"
+              href="https://linkedin.com/in/italosergio"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.2, rotate: -5 }}
@@ -79,7 +79,7 @@ const Hero = () => {
               <Linkedin className="w-6 h-6" />
             </motion.a>
             <motion.a
-              href="mailto:seu-email@exemplo.com"
+              href="mailto:italosergio@mail.com"
               whileHover={{ scale: 1.2, rotate: 5 }}
               className="p-3 rounded-full bg-secondary hover:bg-accent transition-colors"
             >

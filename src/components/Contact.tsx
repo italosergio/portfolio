@@ -9,19 +9,19 @@ const Contact = () => {
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email",
-      value: "seu-email@exemplo.com",
-      href: "mailto:seu-email@exemplo.com"
+      value: "italosergio@mail.com",
+      href: "mailto:italosergio@mail.com"
     },
     {
       icon: <Phone className="w-6 h-6" />,
-      title: "Telefone", 
-      value: "+55 (11) 99999-9999",
-      href: "tel:+5511999999999"
+      title: "WhatsApp", 
+      value: "+55 (88) 99469-3031",
+      href: "https://wa.me/5588994693031"
     },
     {
       icon: <MapPin className="w-6 h-6" />,
       title: "Localização",
-      value: "São Paulo, SP - Brasil",
+      value: "Brasil",
       href: "#"
     }
   ]
@@ -89,18 +89,23 @@ const Contact = () => {
               </p>
               <div className="flex space-x-4">
                 <Button variant="outline" size="sm" asChild>
-                  <a href="https://linkedin.com/in/seu-perfil" target="_blank" rel="noopener noreferrer">
+                  <a href="https://linkedin.com/in/italosergio" target="_blank" rel="noopener noreferrer">
                     LinkedIn
                   </a>
                 </Button>
                 <Button variant="outline" size="sm" asChild>
-                  <a href="https://github.com/seu-usuario" target="_blank" rel="noopener noreferrer">
+                  <a href="https://github.com/italosergio" target="_blank" rel="noopener noreferrer">
                     GitHub
                   </a>
                 </Button>
                 <Button variant="outline" size="sm" asChild>
-                  <a href="https://twitter.com/seu-usuario" target="_blank" rel="noopener noreferrer">
-                    Twitter
+                  <a href="https://instagram.com/italosergio" target="_blank" rel="noopener noreferrer">
+                    Instagram
+                  </a>
+                </Button>
+                <Button variant="outline" size="sm" asChild>
+                  <a href="https://t.me/italosergio" target="_blank" rel="noopener noreferrer">
+                    Telegram
                   </a>
                 </Button>
               </div>

@@ -21,7 +21,7 @@ const Footer = () => {
               whileHover={{ scale: 1.05 }}
               className="text-2xl font-bold gradient-text inline-block"
             >
-              {"<Italo />"}
+              {"<Ítalo />"}
             </motion.div>
           </div>
           
@@ -37,7 +37,7 @@ const Footer = () => {
             >
               <Heart className="w-4 h-4 text-red-500 fill-current" />
             </motion.div>
-            <span>por Italo</span>
+            <span>por Ítalo</span>
           </div>
           
           <div className="mt-4 text-xs text-muted-foreground">

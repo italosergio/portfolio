@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { Menu, X } from "lucide-react"
 import { Button } from "./ui/button"
+import LanguageSelector from "./LanguageSelector"
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -30,7 +31,7 @@ const Header = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-background/80 backdrop-blur-md shadow-lg" : "bg-transparent"
+        scrolled ? "bg-background/80 backdrop-blur-md shadow-lg" : "bg-background/60 backdrop-blur-sm"
       }`}
     >
       <nav className="container mx-auto px-6 py-4">
@@ -39,7 +40,7 @@ const Header = () => {
             whileHover={{ scale: 1.05 }}
             className="text-2xl font-bold gradient-text"
           >
-            {"<Italo />"}
+            {"<Ítalo />"}
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -54,20 +55,25 @@ const Header = () => {
                 {item.name}
               </motion.a>
             ))}
-            <Button className="gradient-bg text-white">
-              Download CV
+            <LanguageSelector />
+            <Button className="gradient-bg text-white" asChild>
+              <a href="https://drive.google.com/file/d/1UMO-Zxa0N_8MbGmQo0_ItnOoGuAu7heA/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                Download CV
+              </a>
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X /> : <Menu />}
-          </Button>
+          <div className="md:hidden flex items-center gap-2">
+            <LanguageSelector />
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X /> : <Menu />}
+            </Button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
@@ -87,8 +93,10 @@ const Header = () => {
                 {item.name}
               </a>
             ))}
-            <Button className="gradient-bg text-white mt-4 w-full">
-              Download CV
+            <Button className="gradient-bg text-white mt-4 w-full" asChild>
+              <a href="https://drive.google.com/file/d/1UMO-Zxa0N_8MbGmQo0_ItnOoGuAu7heA/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                Download CV
+              </a>
             </Button>
           </motion.div>
         )}

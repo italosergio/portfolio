@@ -13,13 +13,16 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "Italo - Desenvolvedor Full Stack",
-  description: "Portfolio de Italo, desenvolvedor full stack especializado em React, Next.js, Node.js e tecnologias modernas.",
-  keywords: ["desenvolvedor", "full stack", "react", "nextjs", "nodejs", "typescript"],
-  authors: [{ name: "Italo" }],
+  title: "Ítalo - Desenvolvedor Full Stack",
+  description: "Portfolio de Ítalo, desenvolvedor full stack com 5+ anos de experiência especializado em React, Next.js, Node.js e tecnologias modernas.",
+  keywords: ["desenvolvedor", "full stack", "react", "nextjs", "nodejs", "typescript", "remix", "wordpress", "elementor"],
+  authors: [{ name: "Ítalo" }],
+  icons: {
+    icon: '/favicon.svg',
+  },
   openGraph: {
-    title: "Italo - Desenvolvedor Full Stack",
-    description: "Portfolio de Italo, desenvolvedor full stack especializado em React, Next.js, Node.js e tecnologias modernas.",
+    title: "Ítalo - Desenvolvedor Full Stack",
+    description: "Portfolio de Ítalo, desenvolvedor full stack com 5+ anos de experiência especializado em React, Next.js, Node.js e tecnologias modernas.",
     type: "website",
   },
 }

@@ -41,10 +41,11 @@ const About = () => {
             Sobre <span className="gradient-text">Mim</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Sou um desenvolvedor full stack com mais de X anos de experiência, 
+            Sou um desenvolvedor full stack com mais de 5 anos de experiência, 
             especializado em criar aplicações web e mobile modernas. Tenho paixão 
             por tecnologia e sempre busco aprender novas ferramentas e metodologias 
-            para entregar soluções de alta qualidade.
+            para entregar soluções de alta qualidade. Hoje também trabalho com 
+            consultoria e treinamento de pessoas iniciantes na programação.
           </p>
         </motion.div>
 
@@ -56,9 +57,13 @@ const About = () => {
             viewport={{ once: true }}
           >
             <div className="relative">
-              <div className="w-80 h-80 mx-auto bg-gradient-to-br from-purple-400 to-pink-400 rounded-full opacity-20 absolute -top-4 -left-4"></div>
-              <div className="w-80 h-80 mx-auto bg-secondary rounded-full flex items-center justify-center relative">
-                <div className="text-6xl">👨‍💻</div>
+              <div className="w-80 h-80 mx-auto bg-gradient-to-br from-blue-900 to-indigo-800 rounded-full opacity-20 absolute -top-4 -left-4"></div>
+              <div className="w-80 h-80 mx-auto bg-secondary rounded-full flex items-center justify-center relative overflow-hidden">
+                <img 
+                  src="/profile.png" 
+                  alt="Ítalo - Desenvolvedor Full Stack" 
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           </motion.div>
@@ -97,8 +102,10 @@ const About = () => {
               className="mt-8"
             >
               <p className="text-muted-foreground">
-                Quando não estou codando, gosto de [seus hobbies aqui - ex: jogar videogames, 
-                ler livros de tecnologia, praticar esportes, etc.]. Sempre aberto a novos 
+                Quando não estou codando, gosto de andar de bicicleta, acampar na praia 
+                e tocar violão. Utilizo Claude Sonnet 4.0 junto ao Gemini para maioria das 
+                minhas aplicações no desenvolvimento e sempre me aprofundo nos conceitos 
+                teóricos para ter melhores resultados no uso de IA. Sempre aberto a novos 
                 desafios e oportunidades de colaboração!
               </p>
             </motion.div>

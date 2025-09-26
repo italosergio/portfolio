@@ -7,37 +7,37 @@ import { Button } from "./ui/button"
 const Projects = () => {
   const projects = [
     {
-      title: "E-commerce Platform",
-      description: "Plataforma completa de e-commerce com painel administrativo, sistema de pagamentos e gestão de estoque.",
-      image: "/api/placeholder/400/250",
-      technologies: ["Next.js", "TypeScript", "Stripe", "PostgreSQL"],
-      github: "https://github.com/seu-usuario/projeto1",
-      demo: "https://projeto1-demo.com",
+      title: "Ameciclo.org",
+      description: "Colaboração no desenvolvimento e migração do site do framework Next para Remix e fusão de plataformas loaclima, dom e dados em ameciclo.org.",
+      image: "/ameciclo.org.png",
+      technologies: ["Remix", "TypeScript", "Tailwind CSS", "PostgreSQL"],
+      github: "https://github.com/Ameciclo/ameciclo",
+      demo: "https://ameciclo.org",
       featured: true
     },
     {
-      title: "Task Management App",
-      description: "Aplicativo de gerenciamento de tarefas com colaboração em tempo real e notificações push.",
-      image: "/api/placeholder/400/250", 
-      technologies: ["React", "Node.js", "Socket.io", "MongoDB"],
-      github: "https://github.com/seu-usuario/projeto2",
-      demo: "https://projeto2-demo.com"
+      title: "LOA Clima",
+      description: "Plataforma observatório dos dados da lei orçamentária anual do estado de Pernambuco consumindo dados abertos da API do estado.",
+      image: "/loaclima.ameciclo.org.png", 
+      technologies: ["React", "Node.js", "Chart.js", "API REST"],
+      github: "https://github.com/Ameciclo/raio",
+      demo: "https://loaclima.ameciclo.org"
     },
     {
-      title: "Weather Dashboard",
-      description: "Dashboard interativo de clima com previsões detalhadas e mapas meteorológicos.",
-      image: "/api/placeholder/400/250",
-      technologies: ["Vue.js", "Python", "FastAPI", "Chart.js"],
-      github: "https://github.com/seu-usuario/projeto3",
-      demo: "https://projeto3-demo.com"
+      title: "DOM Ameciclo",
+      description: "Plataforma de observatório de dados orçamentários em âmbito estadual, similar ao LOA Clima mas com foco estadual.",
+      image: "/dom.ameciclo.org.png",
+      technologies: ["React", "Node.js", "PostgreSQL", "Chart.js"],
+      github: "https://github.com/Ameciclo/dom",
+      demo: "https://dom.ameciclo.org"
     },
     {
-      title: "Social Media Analytics",
-      description: "Ferramenta de análise de redes sociais com relatórios automatizados e insights em tempo real.",
-      image: "/api/placeholder/400/250",
-      technologies: ["React", "D3.js", "Express", "Redis"],
-      github: "https://github.com/seu-usuario/projeto4",
-      demo: "https://projeto4-demo.com"
+      title: "LS Tech Digital",
+      description: "Site estilo linktree para empresa de Marketing Digital com design moderno e responsivo.",
+      image: "/lstechdigital.com.br.png",
+      technologies: ["Next.js", "Tailwind CSS", "Framer Motion"],
+      github: "https://github.com/italosergio/lstech-linkinbio",
+      demo: "https://www.lstechdigital.com.br"
     }
   ]
 
@@ -55,8 +55,8 @@ const Projects = () => {
             Meus <span className="gradient-text">Projetos</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Aqui estão alguns dos projetos que desenvolvi, demonstrando minhas 
-            habilidades em diferentes tecnologias e áreas de desenvolvimento.
+            Aqui estão alguns dos projetos que desenvolvi e colaborei no desenvolvimento, 
+            demonstrando minhas habilidades em diferentes tecnologias e áreas de desenvolvimento.
           </p>
         </motion.div>
 
