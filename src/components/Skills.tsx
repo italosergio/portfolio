@@ -75,7 +75,7 @@ const Skills = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: categoryIndex * 0.1 }}
               viewport={{ once: true }}
-              className="bg-card rounded-xl p-6 hover:shadow-lg transition-shadow"
+              className="rounded-xl p-6"
             >
               <h3 className="text-xl font-bold mb-6 text-center gradient-text">
                 {category.title}
@@ -93,16 +93,30 @@ const Skills = () => {
                   >
                     <span className="font-medium">{skill}</span>
                     <div className="flex space-x-1">
-                      {[...Array(5)].map((_, i) => (
-                        <div
-                          key={i}
-                          className={`w-2 h-2 rounded-full ${
-                            i < skill.length % 3 + 3
-                              ? 'bg-gradient-to-r from-blue-500 to-indigo-500'
-                              : 'bg-muted'
-                          }`}
-                        />
-                      ))}
+                      {[...Array(5)].map((_, i) => {
+                        const skillLevels: { [key: string]: number } = {
+                          'Git': 5,
+                          'Docker': 4,
+                          'AWS': 3,
+                          'WordPress': 5,
+                          'Elementor': 5,
+                          'Tailwind CSS': 5,
+                          'FastAPI': 3,
+                          'GraphQL': 3,
+                          'Redis': 4
+                        }
+                        const level = skillLevels[skill] || (skill.length % 3 + 3)
+                        return (
+                          <div
+                            key={i}
+                            className={`w-2 h-2 rounded-full ${
+                              i < level
+                                ? 'bg-gradient-to-r from-blue-500 to-indigo-500'
+                                : 'bg-muted'
+                            }`}
+                          />
+                        )
+                      })}
                     </div>
                   </motion.div>
                 ))}
@@ -118,22 +132,22 @@ const Skills = () => {
           viewport={{ once: true }}
           className="mt-12 md:mt-16 text-center"
         >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-2xl mx-auto">
+          <div className="grid grid-cols-4 gap-2 sm:gap-6 md:gap-8 max-w-4xl mx-auto">
             <div className="text-center">
-              <div className="text-3xl font-bold gradient-text">5+</div>
-              <div className="text-sm text-muted-foreground">{t("yearsExp")}</div>
+              <div className="text-2xl sm:text-3xl font-bold gradient-text">5+</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">{t("yearsExp")}</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold gradient-text">50+</div>
-              <div className="text-sm text-muted-foreground">{t("projectsCompleted")}</div>
+              <div className="text-2xl sm:text-3xl font-bold gradient-text">50+</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">{t("projectsCompleted")}</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold gradient-text">100+</div>
-              <div className="text-sm text-muted-foreground">{t("happyClients")}</div>
+              <div className="text-2xl sm:text-3xl font-bold gradient-text">100+</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">{t("happyClients")}</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold gradient-text">35+</div>
-              <div className="text-sm text-muted-foreground">{t("technologies")}</div>
+              <div className="text-2xl sm:text-3xl font-bold gradient-text">35+</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">{t("technologies")}</div>
             </div>
           </div>
         </motion.div>
