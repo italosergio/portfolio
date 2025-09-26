@@ -76,11 +76,6 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center gap-1 flex-shrink-0">
-            <Button className="modern-button shimmer text-white text-xs px-2 py-1 h-8 mr-2" asChild>
-              <a href="/cv">
-                CV
-              </a>
-            </Button>
             <div className="flex items-center">
               <ThemeToggle />
               <LanguageSelector />
