@@ -29,7 +29,7 @@ const Header = () => {
   const navItems = [
     { name: t("home"), href: isHomePage ? "#home" : "/#home" },
     { name: t("about"), href: isHomePage ? "#about" : "/#about" },
-    { name: t("projects"), href: isHomePage ? "#projects" : "/#projects" },
+    // { name: t("projects"), href: isHomePage ? "#projects" : "/#projects" },
     { name: t("skills"), href: isHomePage ? "#skills" : "/#skills" },
     { name: t("contact"), href: isHomePage ? "#contact" : "/#contact" }
   ]
