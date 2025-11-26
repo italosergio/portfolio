@@ -31,18 +31,18 @@ const AnimatedBackground = ({ variant, children }: AnimatedBackgroundProps) => {
                   key={i}
                   className="absolute text-orange-500/20 dark:text-orange-400/30 font-mono text-sm select-none"
                   initial={{ 
-                    x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000),
-                    y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 800),
+                    x: (i * 67) % 1000,
+                    y: (i * 43) % 800,
                     opacity: 0
                   }}
                   animate={{
-                    x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000),
-                    y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 800),
+                    x: ((i * 67) + 200) % 1000,
+                    y: ((i * 43) + 150) % 800,
                     opacity: [0, 0.7, 0],
                     rotate: [0, 360]
                   }}
                   transition={{
-                    duration: 20 + Math.random() * 10,
+                    duration: 20 + (i % 10),
                     repeat: Infinity,
                     delay: i * 0.5
                   }}
@@ -89,16 +89,16 @@ const AnimatedBackground = ({ variant, children }: AnimatedBackgroundProps) => {
                   className="absolute text-orange-500 font-mono text-xs"
                   style={{ left: `${(i * 5) % 100}%` }}
                   animate={{
-                    y: [-100, (typeof window !== 'undefined' ? window.innerHeight : 800) + 100],
+                    y: [-100, 900],
                     opacity: [0, 1, 0]
                   }}
                   transition={{
-                    duration: 8 + Math.random() * 4,
+                    duration: 8 + (i % 4),
                     repeat: Infinity,
                     delay: i * 0.3
                   }}
                 >
-                  {Math.random() > 0.5 ? "1" : "0"}
+                  {i % 2 === 0 ? "1" : "0"}
                 </motion.div>
               ))}
             </div>
@@ -190,10 +190,10 @@ const AnimatedBackground = ({ variant, children }: AnimatedBackgroundProps) => {
               {[...Array(10)].map((_, i) => (
                 <motion.line
                   key={i}
-                  x1={`${Math.random() * 100}%`}
-                  y1={`${Math.random() * 100}%`}
-                  x2={`${Math.random() * 100}%`}
-                  y2={`${Math.random() * 100}%`}
+                  x1={`${(i * 13) % 100}%`}
+                  y1={`${(i * 17) % 100}%`}
+                  x2={`${(i * 23) % 100}%`}
+                  y2={`${(i * 29) % 100}%`}
                   stroke="url(#gradient)"
                   strokeWidth="1"
                   initial={{ pathLength: 0, opacity: 0 }}
@@ -252,7 +252,7 @@ const AnimatedBackground = ({ variant, children }: AnimatedBackgroundProps) => {
                 style={{
                   left: `${10 + (i * 8) % 80}%`,
                   top: `${15 + (i * 7) % 70}%`,
-                  width: `${20 + Math.random() * 40}px`
+                  width: `${20 + (i * 7) % 40}px`
                 }}
                 animate={{
                   scaleX: [0, 1, 0],

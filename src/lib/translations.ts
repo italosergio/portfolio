@@ -22,7 +22,6 @@ export const translations = {
     backendDev: "Backend Development",
     webTech: "Web Technologies",
     mobileDev: "Mobile Development",
-    aboutHobbies: "Utilizo Claude Sonnet 4.0 junto ao Gemini para maioria das minhas aplicações no desenvolvimento e sempre me aprofundo nos conceitos teóricos para ter melhores resultados no uso de IA. Sempre aberto a novos desafios e oportunidades de colaboração!",
     
     // Projects
     projectsTitle: "Meus Projetos",
