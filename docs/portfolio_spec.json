@@ -1,0 +1,396 @@
+{
+  "metadata": {
+    "project_name": "Portfolio v2",
+    "owner": "Italo Sergio",
+    "created_at": "2025-01-23",
+    "last_updated": "2025-01-23",
+    "version": "3.0.0",
+    "purpose": "Documentação completa do portfolio - perfil, conteúdo e especificações"
+  },
+  "professional_info": {
+    "name": "Italo Sergio",
+    "experience_years": 5,
+    "area": "Migração e Desenvolvimento",
+    "focus": "Sustentabilidade, Ativismo, Mobilidade Urbana",
+    "emails": {
+      "primary": "italo@linuxmail.org",
+      "secondary": "italosergio1@gmail.com"
+    },
+    "social_links": {
+      "github": "https://github.com/italosergio",
+      "linkedin": "https://www.linkedin.com/in/italosergio/"
+    }
+  },
+  "project_identity": {
+    "type": "Personal Portfolio",
+    "target_audience": ["Movimentos ativistas", "Empresas contratantes", "Clientes freelance"]
+  },
+  "personality_and_values": {
+    "personality_traits": ["Criativo", "Inovador", "Sustentável"],
+    "desired_feelings": {
+      "admiracao": "Design impactante e memorável",
+      "confianca": "Profissionalismo e qualidade técnica",
+      "carencia_proposito": "Conexão com causas sociais e sustentabilidade"
+    },
+    "core_values": ["Sustentabilidade", "Ativismo", "Inovação tecnológica", "Impacto social", "Propósito"],
+    "work_focus": "Principalmente para movimentos ativistas que acredito",
+    "balance": "Portfolio deve atrair ativismo mas também ser bem visto por empresas e freelance"
+  },
+  "design_system": {
+    "style": {
+      "main": "Minimalista pixelado",
+      "inspiration": "Portfolios backend simples e meio pixelado",
+      "approach": "Não convencional, inovador"
+    },
+    "color_palette": {
+      "primary": {
+        "dark": "#0B5D1E",
+        "light": "#10B981",
+        "name": "Verde floresta/sustentável",
+        "meaning": "Sustentabilidade, natureza, propósito"
+      },
+      "secondary": {
+        "main": "#06B6D4",
+        "dark": "#0891B2",
+        "name": "Azul ciano (piscina)",
+        "meaning": "Tecnologia, inovação, confiança"
+      },
+      "neutral": {
+        "white": "#FFFFFF",
+        "light": "#F9FAFB",
+        "medium": "#6B7280",
+        "dark": "#1F2937"
+      },
+      "accent": {
+        "color": "#34D399",
+        "name": "Verde menta",
+        "usage": "Destaques e CTAs"
+      },
+      "dark_mode": {
+        "background": "#0F172A",
+        "surface": "#1E293B",
+        "primary": "#10B981",
+        "secondary": "#22D3EE"
+      }
+    },
+    "typography": {
+      "display": {
+        "name": "Bitcount Single",
+        "usage": "Títulos",
+        "style": "Pixelado, tech, inovador",
+        "weights": "100-900",
+        "source": "Google Fonts"
+      },
+      "body": {
+        "name": "Karla",
+        "usage": "Corpo de texto, UI",
+        "style": "Limpo, legível, profissional",
+        "weights": "200-800",
+        "source": "Google Fonts"
+      }
+    },
+    "visual_elements": {
+      "borders": {
+        "style": "3px arredondadas",
+        "tailwind": "rounded-sm"
+      },
+      "shadows": {
+        "style": "Pronunciadas",
+        "levels": ["shadow-lg", "shadow-xl", "shadow-2xl"]
+      },
+      "spacing": {
+        "approach": "Médio",
+        "scale": "Padrão Tailwind"
+      },
+      "icons": {
+        "library": "Lucide React",
+        "style": "Outline"
+      },
+      "images": {
+        "type": "Fotos reais",
+        "additional": "Ilustrações quando necessário"
+      }
+    }
+  },
+  "content": {
+    "hero": {
+      "title_suggestions": [
+        "Código para Transformação Social",
+        "Desenvolvedor Full Stack com Propósito",
+        "Tecnologia a Serviço da Sustentabilidade",
+        "Construindo Cidades Mais Humanas com Código"
+      ],
+      "subtitle_suggestions": [
+        "5 anos transformando dados em políticas públicas sustentáveis",
+        "Desenvolvedor especializado em projetos de impacto social",
+        "Frontend, Backend e DevOps para causas que importam"
+      ],
+      "cta_text": "Ver Projetos",
+      "elements": [
+        "Grid pixelado animado no fundo (sutil)",
+        "Gradiente verde → azul (sustentabilidade + tech)",
+        "Título com fonte Bitcount Single",
+        "CTA claro e direto",
+        "Scroll indicator animado"
+      ]
+    },
+    "about": {
+      "layout": "Inovador (não convencional) - Layout assimétrico/diagonal",
+      "elements": [
+        "Foto com borda pixelada/glitch effect",
+        "Texto em camadas sobrepostas",
+        "Elementos geométricos de fundo",
+        "Destaque para valores: sustentabilidade, inovação, impacto social"
+      ]
+    },
+    "featured_projects": {
+      "count": 3,
+      "type": "Apenas profissionais",
+      "projects": [
+        {
+          "id": 1,
+          "name": "ameciclo.org",
+          "slug": "ameciclo",
+          "status": "Projeto mais relevante",
+          "duration": "1 ano",
+          "role": "Frontend Developer",
+          "team": "Dupla (Frontend: Italo / Backend: Parceiro)",
+          "commits": 502,
+          "description": "Projeto Ciclodados - Fusão de múltiplas plataformas (LOA, DOM, Dados) em um único observatório de dados sobre mobilidade urbana sustentável. Migração de Next.js para Remix promovendo autonomia de infraestrutura com framework open source.",
+          "impact": "Observatório que reúne todos os dados da Ameciclo em um só lugar através de mapa interativo",
+          "highlights": [
+            "Migração Next.js → Remix",
+            "Desenvolvimento de componentes frontend inéditos",
+            "Melhorias em sessões existentes",
+            "Página /ciclodados como observatório completo",
+            "502 commits ao longo de 1 ano"
+          ],
+          "tech_stack": ["Remix", "TypeScript", "React", "Tailwind CSS", "DevOps", "APIs de Dados Abertos"],
+          "links": {
+            "demo": "https://ameciclo.org",
+            "ciclodados": "https://ameciclo.org/ciclodados",
+            "code": "A definir"
+          },
+          "story_page": true
+        },
+        {
+          "id": 2,
+          "name": "Bici nos Planos",
+          "slug": "bicinosplanos",
+          "organization": "Coletivo Bici nos Planos",
+          "description": "Plataforma focada em sustentabilidade e promoção da vida através da bicicleta como meio de transporte e alternativa para uma cidade mais humana.",
+          "impact": "Ferramenta para advocacy e promoção de políticas públicas de mobilidade sustentável",
+          "tech_stack": ["A definir"],
+          "links": {
+            "demo": "A definir",
+            "code": "A definir"
+          },
+          "story_page": true
+        },
+        {
+          "id": 3,
+          "name": "bicicultura.org",
+          "slug": "bicicultura",
+          "event": "Bicicultura e 14º Fórum Mundial da Bicicleta",
+          "role": "Designer e Desenvolvedor",
+          "description": "Reconstrução completa do design e desenvolvimento de páginas para evento que reuniu centenas de ciclistas. Acompanhamento do projeto durante e após o evento.",
+          "impact": "Centenas de ciclistas participaram do evento através da plataforma",
+          "highlights": [
+            "Redesign completo do site",
+            "Desenvolvimento de páginas específicas do evento",
+            "Acompanhamento durante e pós-evento"
+          ],
+          "tech_stack": ["A definir"],
+          "links": {
+            "demo": "https://bicicultura.org",
+            "code": "A definir"
+          },
+          "story_page": true,
+          "personal_relevance": "Um dos projetos mais relevantes"
+        }
+      ]
+    },
+    "skills": {
+      "top_5": ["Remix", "TypeScript", "React", "Next.js", "Tailwind CSS"],
+      "categories": {
+        "frontend": ["React", "Remix", "Next.js", "TypeScript", "Tailwind CSS", "React Router"],
+        "backend": ["Node.js", "APIs", "Integração de dados"],
+        "devops": ["Infraestrutura", "Deploy", "CI/CD"],
+        "data": ["APIs de Dados Abertos", "Visualização de dados", "Mapas interativos"]
+      }
+    },
+    "testimonials": {
+      "count": 3,
+      "type": "Placeholders iniciais",
+      "placeholders": [
+        {
+          "company": "Ameciclo",
+          "testimonial": "Placeholder: Trabalho excepcional na migração e desenvolvimento do Ciclodados...",
+          "author": "Nome Placeholder",
+          "role": "Cargo Placeholder"
+        },
+        {
+          "company": "Bici nos Planos",
+          "testimonial": "Placeholder: Profissional dedicado que entende o propósito...",
+          "author": "Nome Placeholder",
+          "role": "Cargo Placeholder"
+        },
+        {
+          "company": "Bicicultura",
+          "testimonial": "Placeholder: Design e desenvolvimento impecáveis para nosso evento...",
+          "author": "Nome Placeholder",
+          "role": "Cargo Placeholder"
+        }
+      ]
+    }
+  },
+  "features": {
+    "header_navbar": {
+      "initial_state": "Transparente na seção Hero",
+      "visibility": "Navbar sempre visível",
+      "logo_animation": "Efeito pixelado/glitch sutil ao scroll",
+      "scroll_behavior": "Muda para fundo sólido ao sair da seção Hero",
+      "toggles": ["Tema (claro/escuro)", "Idioma (PT/EN)"]
+    },
+    "theme_toggle": {
+      "enabled": true,
+      "modes": ["Claro", "Escuro"]
+    },
+    "internationalization": {
+      "enabled": true,
+      "languages": ["PT", "EN"]
+    },
+    "contact_form": {
+      "functional": true,
+      "email_destination": "italo@linuxmail.org",
+      "features": ["Validação de campos", "Feedback visual de envio"]
+    },
+    "project_filters": {
+      "enabled": true,
+      "type": "Por tecnologia",
+      "transitions": "Suaves"
+    },
+    "resume": {
+      "download_button": true,
+      "format": "PDF",
+      "location": "Header e/ou seção de contato"
+    },
+    "footer": {
+      "type": "Completo",
+      "sections": ["Links de navegação", "Redes sociais", "Copyright"],
+      "message": "Construído com 💚 e propósito"
+    }
+  },
+  "ux_features": {
+    "loading_state": {
+      "enabled": true,
+      "type": "Skeleton screens ou spinner minimalista"
+    },
+    "lazy_loading": {
+      "enabled": false
+    },
+    "cursor": {
+      "customized": true,
+      "style": "Minimalista, não intrusivo",
+      "suggestion": "Cursor com pequeno ponto verde ou pixelado sutil"
+    },
+    "animations": {
+      "hover": {
+        "enabled": true,
+        "duration": "duration-300"
+      },
+      "transitions": {
+        "enabled": true,
+        "types": ["fade", "slide"],
+        "style": "Sutis mas perceptíveis"
+      }
+    }
+  },
+  "easter_eggs": {
+    "404_page": {
+      "enabled": true,
+      "name": "Ciclovia Perdida",
+      "description": "Bicicleta animada pedalando em grid pixelado com mensagem 'Rota não encontrada. Vamos voltar para o caminho certo?' + botão 'Voltar para Home'",
+      "elements": ["Grid pixelado de fundo", "Bicicleta animada (CSS ou SVG)", "Mensagem com fonte Bitcount Single", "Botão CTA verde", "Código 404 estilizado"]
+    },
+    "konami_code": {
+      "enabled": true,
+      "sequence": "↑↑↓↓←→←→BA",
+      "name": "Bike Mode",
+      "effect": "Bicicletas pixeladas atravessam a tela da esquerda para direita",
+      "duration": "10 segundos",
+      "quantity": "5-8 bicicletas",
+      "style": "Pixel art, cores verde e azul",
+      "notification": "Toast sutil: 'Bike Mode Ativado! 🚴'"
+    },
+    "logo_triple_click": {
+      "enabled": true,
+      "trigger": "Triplo clique no logo (header)",
+      "effect": "Toast com frase inspiradora",
+      "messages": [
+        "🌱 Cada linha de código pode mudar o mundo",
+        "🚴 A revolução começa pedalando",
+        "💚 Tecnologia com propósito, sempre",
+        "🌍 Código aberto, cidades abertas",
+        "♻️ Sustentabilidade é código de conduta"
+      ],
+      "display": "Toast minimalista com fade in/out",
+      "duration": "3 segundos"
+    },
+    "scroll_to_bottom": {
+      "enabled": true,
+      "trigger": "Scroll até o final da página (footer)",
+      "effect": "Contador animado de CO₂ economizado",
+      "title": "Se todos usassem bicicleta...",
+      "counter": {
+        "start": 0,
+        "end": "Valor calculado (ex: 2.5 toneladas/ano)",
+        "animation": "Count up com easing",
+        "duration": "2 segundos"
+      },
+      "subtitle": "CO₂ economizado por ano em Recife",
+      "style": "Card destacado no footer com ícone de folha"
+    }
+  },
+  "technical_stack": {
+    "node": "Node.js 24.x",
+    "framework": "React Router v7.12.0",
+    "react": "React 19.2.3",
+    "rendering": "SPA (Client-Side Rendering)",
+    "styling": "TailwindCSS 4.1.13",
+    "language": "TypeScript 5.9.2",
+    "build_tool": "Vite 7.1.7",
+    "deployment": "Vercel",
+    "icons": "Lucide React",
+    "utilities": {
+      "isbot": "Detecção de bots",
+      "vite-tsconfig-paths": "Suporte a path aliases"
+    },
+    "dev_tools": "@react-router/dev",
+    "plugins": ["@tailwindcss/vite", "@react-router/node", "@react-router/serve"]
+  },
+  "development_approach": {
+    "responsiveness": "Mobile First",
+    "devices": ["Mobile", "Tablets", "Desktop"],
+    "breakpoints": "Padrão Tailwind",
+    "content_management": {
+      "current": "Hardcoded",
+      "future": "Estrutura preparada para CMS nativo integrado"
+    },
+    "browsers_supported": "Navegadores modernos com suporte a ES6+ (Chrome, Firefox, Safari, Edge)"
+  },
+  "scripts": {
+    "dev": "npm run dev - Inicia servidor de desenvolvimento",
+    "build": "npm run build - Gera build de produção",
+    "start": "npm run start - Inicia servidor de produção",
+    "typecheck": "npm run typecheck - Verifica tipos TypeScript"
+  },
+  "sections_order": [
+    "Hero",
+    "Sobre Mim",
+    "Projetos",
+    "Habilidades/Skills",
+    "Comentários/Testimonials",
+    "Contato"
+  ]
+}
