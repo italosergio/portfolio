@@ -1,0 +1,153 @@
+import { ExternalLink, Github, Sparkles } from "lucide-react";
+
+const projects = [
+  {
+    id: 1,
+    name: "Ciclodados",
+    description: "Observatório que reúne visualização em mapa de todos os dados de pesquisa da Ameciclo num só lugar.",
+    impact: "Plataforma completa de dados sobre mobilidade urbana sustentável",
+    tech: ["Remix", "TypeScript", "React", "Tailwind CSS"],
+    links: {
+      demo: "https://ameciclo.org/dados/ciclodados",
+    },
+  },
+  {
+    id: 2,
+    name: "DOM - Diagnóstico Orçamentário Municipal",
+    description: "Plataforma de análise e diagnóstico de orçamentos municipais voltados para mobilidade.",
+    impact: "Transparência e acompanhamento de investimentos públicos em mobilidade",
+    tech: ["Remix", "TypeScript", "React", "Tailwind CSS"],
+    links: {
+      demo: "https://dom.ameciclo.org",
+    },
+  },
+  {
+    id: 3,
+    name: "Ameciclo",
+    description: "Migração e Desenvolvimento de Plataforma. Migração Next.js → Remix com 502 commits.",
+    impact: "Fusão de múltiplas plataformas em um único observatório interativo",
+    tech: ["Remix", "TypeScript", "React", "Tailwind CSS"],
+    links: {
+      demo: "https://ameciclo.org",
+    },
+  },
+  {
+    id: 4,
+    name: "Bici nos Planos MS",
+    description: "Plataforma de advocacy para políticas públicas de mobilidade sustentável.",
+    impact: "Ferramenta para promoção da bicicleta como meio de transporte",
+    tech: ["React", "TypeScript", "Tailwind CSS"],
+    links: {
+      demo: "https://bicinosplanosms.vercel.app",
+    },
+    inProgress: true,
+  },
+  {
+    id: 5,
+    name: "Bicicultura Brasília 2024 & 14º Fórum Mundial da Bicicleta",
+    description: "Redesign e desenvolvimento para o 14º Fórum Mundial da Bicicleta.",
+    impact: "Centenas de ciclistas participaram através da plataforma",
+    tech: ["React", "TypeScript", "Design"],
+    links: {
+      demo: "https://bicicultura.org.br",
+    },
+  },
+];
+
+export default function Projects() {
+  return (
+    <section id="projetos" className="relative py-20 md:py-32 px-4 bg-white dark:bg-[#0F172A]">
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <div className="inline-block px-4 py-2 bg-[#0B5D1E]/10 dark:bg-[#10B981]/10 rounded-full mb-6">
+            <span className="text-sm font-medium text-[#0B5D1E] dark:text-[#10B981]">
+              Projetos em Destaque
+            </span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-[#1F2937] dark:text-white mb-4">
+            Impacto Social através do Código
+          </h2>
+          <p className="text-lg text-[#6B7280] dark:text-[#94A3B8] max-w-3xl mx-auto">
+            Por cidades mais humanas e sustentáveis através do uso da bicicleta.
+          </p>
+        </div>
+
+        {/* Grid de Projetos */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project) => (
+            <div
+              key={project.id}
+              className="group relative bg-[#F9FAFB] dark:bg-[#1E293B] rounded-sm shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col"
+            >
+              {/* Tag Em Andamento */}
+              {project.inProgress && (
+                <div className="absolute top-4 right-4 z-10">
+                  <span className="px-3 py-1 bg-[#06B6D4] text-white text-xs font-medium rounded-full">
+                    Em Andamento
+                  </span>
+                </div>
+              )}
+              
+              {/* Imagem Placeholder */}
+              <div className="relative h-48 bg-gradient-to-br from-[#0B5D1E]/20 to-[#06B6D4]/20 overflow-hidden">
+                <div className="absolute inset-0 flex items-center justify-center text-6xl font-bold text-[#0B5D1E]/10 dark:text-[#10B981]/10">
+                  {project.name.charAt(0)}
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#F9FAFB] dark:from-[#1E293B] to-transparent opacity-50" />
+              </div>
+
+              {/* Borda animada */}
+              <div className="absolute inset-0 bg-gradient-to-r from-[#0B5D1E] to-[#06B6D4] opacity-0 group-hover:opacity-10 transition-opacity" />
+              
+              <div className="relative p-6 space-y-4 flex-1 flex flex-col">
+                {/* Nome */}
+                <h3 className="text-xl font-bold text-[#1F2937] dark:text-white min-h-[3.5rem]">
+                  {project.name}
+                </h3>
+
+                {/* Descrição */}
+                <p className="text-[#6B7280] dark:text-[#94A3B8] text-sm min-h-[4rem]">
+                  {project.description}
+                </p>
+
+                {/* Impacto */}
+                <div className="p-3 bg-[#0B5D1E]/5 dark:bg-[#10B981]/5 rounded-sm flex items-start gap-2 min-h-[4rem]">
+                  <Sparkles className="w-4 h-4 text-[#0B5D1E] dark:text-[#10B981] flex-shrink-0 mt-0.5" />
+                  <p className="text-xs text-[#0B5D1E] dark:text-[#10B981] font-medium">
+                    {project.impact}
+                  </p>
+                </div>
+
+                {/* Tech Stack */}
+                <div className="flex flex-wrap gap-2">
+                  {project.tech.map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-3 py-1 bg-white dark:bg-[#0F172A] text-xs font-medium text-[#6B7280] dark:text-[#94A3B8] rounded-full"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Links */}
+                <div className="flex gap-3 pt-4 mt-auto">
+                  <a
+                    href={project.links.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#0891B2] to-[#10B981] hover:from-[#06B6D4] hover:to-[#0B5D1E] text-white rounded-sm transition-all text-sm font-medium"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    Ver Projeto
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

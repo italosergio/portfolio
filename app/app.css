@@ -1,5 +1,221 @@
 @import "tailwindcss";
 
+:root {
+  /* Tema Claro */
+  --primary: #0B5D1E;
+  --primary-light: #10B981;
+  --secondary: #06B6D4;
+  --secondary-dark: #0891B2;
+  --neutral-white: #FFFFFF;
+  --neutral-light: #F9FAFB;
+  --neutral: #6B7280;
+  --neutral-dark: #1F2937;
+  --accent: #34D399;
+}
+
+.dark {
+  /* Tema Escuro */
+  --primary: #10B981;
+  --secondary: #22D3EE;
+  --neutral-white: #F9FAFB;
+  --neutral-light: #1E293B;
+  --neutral: #94A3B8;
+  --neutral-dark: #F9FAFB;
+  --bg: #0F172A;
+  --surface: #1E293B;
+}
+
+* {
+  font-family: 'Bitcount Single', system-ui;
+  font-optical-sizing: auto;
+  font-variation-settings: "slnt" 0, "CRSV" 0.5, "ELSH" 0, "ELXP" 0;
+}
+
+.theme-front * {
+  font-family: 'Karla', sans-serif !important;
+  font-variation-settings: normal !important;
+}
+
+.theme-front h1,
+.theme-front h2,
+.theme-front h3,
+.theme-front h4,
+.theme-front h5,
+.theme-front h6 {
+  font-family: 'Karla', sans-serif !important;
+  font-weight: 800 !important;
+}
+
+/* Backgrounds claros */
+.theme-front .bg-white,
+.theme-front .dark\:bg-\[\#0F172A\] {
+  background-color: #FFFFFF !important;
+}
+
+.theme-front .bg-\[\#F9FAFB\],
+.theme-front .dark\:bg-\[\#1E293B\] {
+  background-color: #F8F9FA !important;
+}
+
+.theme-front .bg-\[\#1F2937\] {
+  background-color: #E9ECEF !important;
+}
+
+/* Textos escuros */
+.theme-front .text-white,
+.theme-front .dark\:text-white {
+  color: #1F2937 !important;
+}
+
+.theme-front .text-\[\#6B7280\],
+.theme-front .dark\:text-\[\#94A3B8\] {
+  color: #495057 !important;
+}
+
+.theme-front .text-\[\#94A3B8\] {
+  color: #6B7280 !important;
+}
+
+/* Manter cores de destaque */
+.theme-front .text-\[\#0B5D1E\],
+.theme-front .dark\:text-\[\#10B981\] {
+  color: #0B5D1E !important;
+}
+
+.theme-front .text-\[\#06B6D4\] {
+  color: #0891B2 !important;
+}
+
+/* Bordas */
+.theme-front .border-white\/10 {
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+.theme-front .dark\:border-\[\#374151\] {
+  border-color: #DEE2E6 !important;
+}
+
+/* Botões arredondados */
+.theme-front .rounded-sm {
+  border-radius: 0.75rem !important;
+}
+
+/* Botões com sombra suave no front */
+.theme-front a[class*="bg-gradient"],
+.theme-front button[class*="bg-gradient"] {
+  background: #0891B2 !important;
+  box-shadow: 0 4px 14px rgba(8, 145, 178, 0.25) !important;
+}
+
+.theme-front a[class*="bg-gradient"]:hover,
+.theme-front button[class*="bg-gradient"]:hover {
+  background: #0E7490 !important;
+  box-shadow: 0 6px 20px rgba(8, 145, 178, 0.35) !important;
+  filter: none !important;
+}
+
+.theme-front a[class*="border-2"] {
+  background-color: transparent !important;
+  border-color: #0891B2 !important;
+  color: #0891B2 !important;
+  box-shadow: 0 2px 8px rgba(8, 145, 178, 0.1) !important;
+}
+
+.theme-front a[class*="border-2"]:hover {
+  background-color: #0891B2 !important;
+  color: #FFFFFF !important;
+}
+
+/* Header background */
+.theme-front .bg-white\/90 {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+}
+
+.theme-front .dark\:bg-\[\#0F172A\]\/90 {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* Botões com texto branco */
+.theme-front button .text-white,
+.theme-front a .text-white {
+  color: #FFFFFF !important;
+}
+
+/* Hover cinza nos botões */
+.theme-front button:hover,
+.theme-front a:hover {
+  filter: grayscale(0.3) !important;
+}
+
+/* Hover claro no seletor de tema */
+.theme-front .theme-toggle-btn:hover {
+  background-color: #F0F0F0 !important;
+  filter: none !important;
+}
+
+.theme-front .theme-toggle-btn .bg-\[\#E5E7EB\] {
+  background-color: #D1D5DB !important;
+}
+
+/* Mostrar/ocultar elementos por tema */
+.theme-back .theme-front-only {
+  display: none !important;
+}
+
+.theme-front .theme-back-only {
+  display: none !important;
+}
+
+.theme-front .theme-front-only {
+  display: block !important;
+}
+
+/* Botões de contato mais claros no front */
+.theme-front .contact-btn-whatsapp {
+  background: #4ADE80 !important;
+}
+
+.theme-front .contact-btn-whatsapp:hover {
+  background: #22C55E !important;
+}
+
+.theme-front .contact-btn-email {
+  background: #06B6D4 !important;
+}
+
+.theme-front .contact-btn-email:hover {
+  background: #0891B2 !important;
+}
+
+.theme-front .contact-btn-linkedin {
+  background: #3B82F6 !important;
+}
+
+.theme-front .contact-btn-linkedin:hover {
+  background: #2563EB !important;
+}
+
+.theme-front .contact-btn-github {
+  background: #6B7280 !important;
+}
+
+.theme-front .contact-btn-github:hover {
+  background: #4B5563 !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Bitcount Single', system-ui;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  /* Variação diferente para títulos - mais expandido */
+  font-variation-settings: "slnt" 0, "CRSV" 1, "ELSH" 1, "ELXP" 1;
+}
+
+/* Exceção: título principal do Hero usa Karla */
+.hero-title {
+  font-family: 'Karla', sans-serif !important;
+}
+
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -8,8 +224,80 @@
 html,
 body {
   @apply bg-white dark:bg-gray-950;
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
 
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
   }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  width: 100%;
+}
+
+#root,
+#root > * {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+section {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+@keyframes bike {
+  from {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  to {
+    transform: translateX(calc(100vw + 100px));
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.animate-bike {
+  animation: bike 3s linear forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 0.3s ease-out;
 }

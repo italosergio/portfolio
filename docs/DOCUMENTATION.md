@@ -1,5 +1,8 @@
 # Documentação Geral do Portfolio
 
+**Versão**: 3.0.0  
+**Última atualização**: 2025-01-23
+
 ## 1. Visão Geral
 
 Portfolio pessoal desenvolvido para apresentar projetos, habilidades e experiências profissionais.

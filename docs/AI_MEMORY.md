@@ -47,6 +47,7 @@ export default function ComponentName() {
 - Priorizar Tailwind classes
 - CSS customizado apenas quando necessário em `app.css`
 - Usar variáveis CSS para temas
+- **Ícones**: Usar APENAS Lucide React - nunca SVG inline ou outras bibliotecas
 
 ### Paleta de Cores
 - **Primary**: #0B5D1E (Verde floresta escuro) + #10B981 (Verde sustentável)
@@ -153,6 +154,7 @@ export default function ComponentName() {
 - **Estilo**: Minimalista pixelado (inspiração backend portfolios)
 - **Paleta**: Verde floresta (#0B5D1E) + Azul ciano (#06B6D4) + acentos
 - **Tipografia**: Bitcount Single (títulos) + Karla (corpo)
+- **REGRA IMPORTANTE**: Nunca misturar Bitcount Single e Karla no mesmo elemento ou frase. Cada elemento deve usar apenas uma fonte.
 - **Elementos**: Bordas 3px, sombras pronunciadas, espaçamento médio
 - **Ícones**: Lucide React
 - **Público**: Movimentos ativistas + empresas/freelance
