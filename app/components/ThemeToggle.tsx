@@ -7,7 +7,8 @@ export default function ThemeToggle() {
     <button
       onClick={toggleTheme}
       className="flex items-center gap-1.5 px-2 py-1 bg-transparent hover:bg-[#F9FAFB] dark:hover:bg-[#1E293B] rounded-full transition-colors theme-toggle-btn"
-      aria-label="Toggle theme"
+      aria-label={`Alternar tema para ${theme === "front" ? "Backend" : "Frontend"}`}
+      aria-pressed={theme === "front"}
     >
       <span className={`text-[10px] font-medium transition-colors ${theme === "front" ? "text-[#0B5D1E] dark:text-[#10B981]" : "text-[#9CA3AF]"}`}>
         Frontend

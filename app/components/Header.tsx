@@ -19,13 +19,14 @@ export default function Header() {
 
   return (
     <header
+      role="banner"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? "bg-white/90 dark:bg-[#0F172A]/90 backdrop-blur-md shadow-lg"
           : "bg-transparent"
       }`}
     >
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav aria-label="Navegação principal" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-center h-20 md:h-24 relative">
           {/* Navegação Esquerda */}
           <div className="hidden md:flex items-center gap-8 absolute left-0">
@@ -80,13 +81,15 @@ export default function Header() {
           <button
             onClick={() => setIsMobileMenuOpen(true)}
             className="md:hidden p-2 text-[#1F2937] dark:text-white absolute right-0"
-            aria-label="Menu"
+            aria-label="Abrir menu de navegação"
+            aria-expanded={isMobileMenuOpen}
           >
             <svg
               className="w-6 h-6"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
+              aria-hidden="true"
             >
               <path
                 strokeLinecap="round"
@@ -105,16 +108,24 @@ export default function Header() {
           <div 
             className="fixed inset-0 bg-black/50 z-50 md:hidden"
             onClick={() => setIsMobileMenuOpen(false)}
+            aria-hidden="true"
+            style={{ display: 'block' }}
           />
-          <div className="fixed top-0 right-0 bottom-0 w-full bg-white dark:bg-[#0F172A] z-50 md:hidden animate-slide-in">
+          <div 
+            className="fixed top-0 right-0 bottom-0 w-full bg-white dark:bg-[#0F172A] z-50 md:hidden animate-slide-in"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Menu de navegação"
+            style={{ display: 'block' }}
+          >
             <div className="flex flex-col h-full p-8">
               {/* Close Button */}
               <button
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="self-end p-2 text-[#1F2937] dark:text-white mb-8"
-                aria-label="Fechar menu"
+                aria-label="Fechar menu de navegação"
               >
-                <X className="w-6 h-6" />
+                <X className="w-6 h-6" aria-hidden="true" />
               </button>
 
               {/* Menu Items */}

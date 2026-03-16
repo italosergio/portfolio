@@ -2,7 +2,7 @@ import { Leaf, Bike, Lightbulb, Target } from "lucide-react";
 
 export default function About() {
   return (
-    <section id="sobre" className="about-section relative py-20 md:py-32 px-4 overflow-hidden bg-[#F9FAFB] dark:bg-[#1E293B]">
+    <section id="sobre" aria-labelledby="about-title" className="about-section relative py-20 md:py-32 px-4 overflow-hidden bg-[#F9FAFB] dark:bg-[#1E293B]">
       {/* Grid Pixelado - Azul Ciano */}
       <div className="absolute inset-0 opacity-[0.02] dark:opacity-[0.04]">
         <div 
@@ -50,7 +50,7 @@ export default function About() {
             </div>
 
             {/* Título */}
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+            <h2 id="about-title" className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
               <span className="text-[#1F2937] dark:text-white">
                 Desenvolvedor com Propósito
               </span>
@@ -67,21 +67,21 @@ export default function About() {
             </div>
 
             {/* Valores */}
-            <div className="grid grid-cols-2 gap-4 pt-6">
-              <div className="about-card p-4 bg-white dark:bg-[#0F172A] rounded-sm shadow-lg">
-                <Leaf className="w-8 h-8 mb-2 text-[#0B5D1E] dark:text-[#10B981]" />
+            <div className="grid grid-cols-2 gap-4 pt-6" role="list" aria-label="Valores principais">
+              <div className="about-card p-4 bg-white dark:bg-[#0F172A] rounded-sm shadow-lg" role="listitem">
+                <Leaf className="w-8 h-8 mb-2 text-[#0B5D1E] dark:text-[#10B981]" aria-hidden="true" />
                 <div className="font-bold text-[#1F2937] dark:text-white">Sustentabilidade</div>
               </div>
-              <div className="about-card p-4 bg-white dark:bg-[#0F172A] rounded-sm shadow-lg">
-                <Bike className="w-8 h-8 mb-2 text-[#0B5D1E] dark:text-[#10B981]" />
+              <div className="about-card p-4 bg-white dark:bg-[#0F172A] rounded-sm shadow-lg" role="listitem">
+                <Bike className="w-8 h-8 mb-2 text-[#0B5D1E] dark:text-[#10B981]" aria-hidden="true" />
                 <div className="font-bold text-[#1F2937] dark:text-white">Ativismo</div>
               </div>
-              <div className="about-card p-4 bg-white dark:bg-[#0F172A] rounded-sm shadow-lg">
-                <Lightbulb className="w-8 h-8 mb-2 text-[#0B5D1E] dark:text-[#10B981]" />
+              <div className="about-card p-4 bg-white dark:bg-[#0F172A] rounded-sm shadow-lg" role="listitem">
+                <Lightbulb className="w-8 h-8 mb-2 text-[#0B5D1E] dark:text-[#10B981]" aria-hidden="true" />
                 <div className="font-bold text-[#1F2937] dark:text-white">Inovação</div>
               </div>
-              <div className="about-card p-4 bg-white dark:bg-[#0F172A] rounded-sm shadow-lg">
-                <Target className="w-8 h-8 mb-2 text-[#0B5D1E] dark:text-[#10B981]" />
+              <div className="about-card p-4 bg-white dark:bg-[#0F172A] rounded-sm shadow-lg" role="listitem">
+                <Target className="w-8 h-8 mb-2 text-[#0B5D1E] dark:text-[#10B981]" aria-hidden="true" />
                 <div className="font-bold text-[#1F2937] dark:text-white">Impacto Social</div>
               </div>
             </div>

@@ -2,7 +2,7 @@ import { Github, Linkedin, Mail } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="relative bg-[#1F2937] dark:bg-[#0F172A] text-white py-12 px-4">
+    <footer role="contentinfo" className="relative bg-[#1F2937] dark:bg-[#0F172A] text-white py-12 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Logo e Mensagem */}
@@ -24,7 +24,7 @@ export default function Footer() {
           {/* Navegação */}
           <div>
             <h3 className="font-bold mb-4">Navegação</h3>
-            <nav className="flex flex-col gap-2">
+            <nav aria-label="Navegação do rodapé" className="flex flex-col gap-2">
               <a href="#sobre" className="text-[#94A3B8] hover:text-[#10B981] transition-colors">
                 Sobre
               </a>
@@ -43,31 +43,31 @@ export default function Footer() {
           {/* Redes Sociais */}
           <div>
             <h3 className="font-bold mb-4">Conecte-se</h3>
-            <div className="flex gap-4">
+            <div className="flex gap-4" role="list" aria-label="Redes sociais">
               <a
                 href="https://github.com/italosergio"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 bg-white/10 hover:bg-[#10B981] rounded-sm transition-colors"
-                aria-label="GitHub"
+                aria-label="GitHub - Italo Sergio (abre em nova aba)"
               >
-                <Github className="w-5 h-5" />
+                <Github className="w-5 h-5" aria-hidden="true" />
               </a>
               <a
                 href="https://www.linkedin.com/in/italosergio/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 bg-white/10 hover:bg-[#06B6D4] rounded-sm transition-colors"
-                aria-label="LinkedIn"
+                aria-label="LinkedIn - Italo Sergio (abre em nova aba)"
               >
-                <Linkedin className="w-5 h-5" />
+                <Linkedin className="w-5 h-5" aria-hidden="true" />
               </a>
               <a
                 href="mailto:italo@linuxmail.org"
                 className="p-2 bg-white/10 hover:bg-[#10B981] rounded-sm transition-colors"
-                aria-label="Email"
+                aria-label="Email - italo@linuxmail.org"
               >
-                <Mail className="w-5 h-5" />
+                <Mail className="w-5 h-5" aria-hidden="true" />
               </a>
             </div>
           </div>

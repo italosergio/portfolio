@@ -9,7 +9,7 @@ const skills = {
 
 export default function Skills() {
   return (
-    <section id="skills" className="relative py-20 md:py-32 px-4 bg-[#F9FAFB] dark:bg-[#1E293B]">
+    <section id="skills" aria-labelledby="skills-title" className="relative py-20 md:py-32 px-4 bg-[#F9FAFB] dark:bg-[#1E293B]">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
@@ -18,7 +18,7 @@ export default function Skills() {
               Habilidades
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-[#1F2937] dark:text-white mb-4">
+          <h2 id="skills-title" className="text-4xl md:text-5xl font-bold text-[#1F2937] dark:text-white mb-4">
             Stack Tecnológico
           </h2>
         </div>
