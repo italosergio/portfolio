@@ -233,7 +233,7 @@ function ProjectCard({ project, locale, t }: { project: typeof projects[0]; loca
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Ver projeto ${project.name} (abre em nova aba)`}
-              className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#0891B2] to-[#10B981] hover:from-[#06B6D4] hover:to-[#0B5D1E] text-white rounded-sm transition-all text-sm font-medium"
+              className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#0891B2] to-[#10B981] hover:from-[#06B6D4] hover:to-[#0B5D1E] text-white btn-keep-white rounded-sm transition-all text-sm font-medium"
             >
               <ExternalLink className="w-4 h-4" aria-hidden="true" />
               {t.projects.viewProject}
@@ -245,7 +245,7 @@ function ProjectCard({ project, locale, t }: { project: typeof projects[0]; loca
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`GitHub ${project.name} (abre em nova aba)`}
-              className="flex items-center gap-2 px-4 py-2 bg-[#24292e] hover:bg-[#1a1e22] text-white rounded-sm transition-all text-sm font-medium"
+              className="flex items-center gap-2 px-4 py-2 bg-[#24292e] hover:bg-[#1a1e22] text-white btn-keep-white rounded-sm transition-all text-sm font-medium"
             >
               <Github className="w-4 h-4" aria-hidden="true" />
               GitHub

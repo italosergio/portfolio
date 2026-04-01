@@ -514,7 +514,7 @@ export default function Timeline() {
                             href={m.links.demo}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-1.5 px-3 py-1 bg-gradient-to-r from-[#0891B2] to-[#10B981] hover:brightness-110 text-white rounded-sm transition-all text-xs font-medium"
+                            className="flex items-center gap-1.5 px-3 py-1 bg-gradient-to-r from-[#0891B2] to-[#10B981] hover:brightness-110 text-white btn-keep-white rounded-sm transition-all text-xs font-medium"
                           >
                             <ExternalLink className="w-3 h-3" />
                             Site
@@ -525,7 +525,7 @@ export default function Timeline() {
                             href={m.links.github}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-1.5 px-3 py-1 bg-[#24292e] hover:bg-[#1a1e22] text-white rounded-sm transition-all text-xs font-medium"
+                            className="flex items-center gap-1.5 px-3 py-1 bg-[#24292e] hover:bg-[#1a1e22] text-white btn-keep-white rounded-sm transition-all text-xs font-medium"
                           >
                             <Github className="w-3 h-3" />
                             GitHub

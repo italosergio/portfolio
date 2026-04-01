@@ -61,10 +61,19 @@
   background-color: #E9ECEF !important;
 }
 
+.theme-front .from-white,
+.theme-front .dark\:from-\[\#0F172A\] {
+  --tw-gradient-from: #FFFFFF !important;
+}
+
 /* Textos escuros */
 .theme-front .text-white,
 .theme-front .dark\:text-white {
   color: #1F2937 !important;
+}
+
+.theme-front .btn-keep-white {
+  color: white !important;
 }
 
 .theme-front .text-\[\#6B7280\],

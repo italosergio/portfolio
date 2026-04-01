@@ -21,6 +21,7 @@ export default function Header() {
   const { t } = useLanguage();
 
   return (
+    <>
     <header
       role="banner"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -86,7 +87,7 @@ export default function Header() {
             </a>
           </div>
 
-          {/* Mobile Menu Button - Direita */}
+          {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(true)}
             className="md:hidden p-2 text-[#1F2937] dark:text-white absolute right-0"
@@ -110,79 +111,76 @@ export default function Header() {
           </button>
         </div>
       </nav>
+    </header>
 
-      {/* Mobile Menu Overlay */}
-      {isMobileMenuOpen && (
-        <>
-          <div 
-            className="fixed inset-0 bg-black/50 z-50 md:hidden"
-            onClick={() => setIsMobileMenuOpen(false)}
-            aria-hidden="true"
-            style={{ display: 'block' }}
-          />
-          <div 
-            className="fixed top-0 right-0 bottom-0 w-full bg-white dark:bg-[#0F172A] z-50 md:hidden animate-slide-in"
-            role="dialog"
-            aria-modal="true"
-            aria-label="Menu de navegação"
-            style={{ display: 'block' }}
-          >
-            <div className="flex flex-col h-full p-8">
-              {/* Close Button */}
-              <button
+    {/* Mobile Menu - fora do header */}
+    {isMobileMenuOpen && (
+      <div className="fixed inset-0 z-[60] md:hidden">
+        <div
+          className="absolute inset-0 bg-black/50"
+          onClick={() => setIsMobileMenuOpen(false)}
+          aria-hidden="true"
+        />
+        <div
+          className="absolute inset-0 bg-white dark:bg-[#0F172A] animate-slide-in"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Menu de navegação"
+        >
+          <div className="flex flex-col h-full p-8">
+            <button
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="self-end p-2 text-[#1F2937] dark:text-white mb-8"
+              aria-label="Fechar menu de navegação"
+            >
+              <X className="w-6 h-6" aria-hidden="true" />
+            </button>
+
+            <nav className="flex flex-col gap-6 flex-1">
+              <a
+                href="#sobre"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="self-end p-2 text-[#1F2937] dark:text-white mb-8"
-                aria-label="Fechar menu de navegação"
+                className="text-2xl font-bold text-[#1F2937] dark:text-white hover:text-[#0B5D1E] dark:hover:text-[#10B981] transition-colors py-3"
               >
-                <X className="w-6 h-6" aria-hidden="true" />
-              </button>
+                {t.nav.about}
+              </a>
+              <a
+                href="#projetos"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-2xl font-bold text-[#1F2937] dark:text-white hover:text-[#0B5D1E] dark:hover:text-[#10B981] transition-colors py-3"
+              >
+                {t.nav.projects}
+              </a>
+              <a
+                href="#skills"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-2xl font-bold text-[#1F2937] dark:text-white hover:text-[#0B5D1E] dark:hover:text-[#10B981] transition-colors py-3"
+              >
+                {t.nav.skills}
+              </a>
+              <a
+                href="#trajetoria"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-2xl font-bold text-[#1F2937] dark:text-white hover:text-[#0B5D1E] dark:hover:text-[#10B981] transition-colors py-3"
+              >
+                {t.nav.journey}
+              </a>
+              <a
+                href="#contato"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-2xl font-bold text-[#1F2937] dark:text-white hover:text-[#0B5D1E] dark:hover:text-[#10B981] transition-colors py-3"
+              >
+                {t.nav.contact}
+              </a>
+            </nav>
 
-              {/* Menu Items */}
-              <nav className="flex flex-col gap-6 flex-1">
-                <a
-                  href="#sobre"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-2xl font-bold text-[#1F2937] dark:text-white hover:text-[#0B5D1E] dark:hover:text-[#10B981] transition-colors py-3"
-                >
-                  {t.nav.about}
-                </a>
-                <a
-                  href="#projetos"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-2xl font-bold text-[#1F2937] dark:text-white hover:text-[#0B5D1E] dark:hover:text-[#10B981] transition-colors py-3"
-                >
-                  {t.nav.projects}
-                </a>
-                <a
-                  href="#skills"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-2xl font-bold text-[#1F2937] dark:text-white hover:text-[#0B5D1E] dark:hover:text-[#10B981] transition-colors py-3"
-                >
-                  {t.nav.skills}
-                </a>
-                <a
-                  href="#trajetoria"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-2xl font-bold text-[#1F2937] dark:text-white hover:text-[#0B5D1E] dark:hover:text-[#10B981] transition-colors py-3"
-                >
-                  {t.nav.journey}
-                </a>
-                <a
-                  href="#contato"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-2xl font-bold text-[#1F2937] dark:text-white hover:text-[#0B5D1E] dark:hover:text-[#10B981] transition-colors py-3"
-                >
-                  {t.nav.contact}
-                </a>
-              </nav>
-
-              <div className="mt-auto">
-                <ThemeToggle />
-              </div>
+            <div className="mt-auto">
+              <ThemeToggle />
             </div>
           </div>
-        </>
-      )}
-    </header>
+        </div>
+      </div>
+    )}
+    </>
   );
 }
