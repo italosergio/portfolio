@@ -1,8 +1,33 @@
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail, Download } from "lucide-react";
 import { useLanguage } from "~/lib/LanguageContext";
+import type { Locale } from "~/lib/i18n";
+
+const downloadLabel: Record<Locale, string> = {
+  pt: "Baixar Portfólio PDF",
+  en: "Download Portfolio PDF",
+  es: "Descargar Portafolio PDF",
+};
+
+function DownloadButton({ locale }: { locale: Locale }) {
+  const handleDownload = async () => {
+    const { generatePortfolioPdf } = await import("~/lib/generatePortfolioPdf");
+    generatePortfolioPdf(locale);
+  };
+
+  return (
+    <button
+      onClick={handleDownload}
+      className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#0891B2] to-[#10B981] hover:brightness-110 text-white rounded-sm transition-all text-sm font-medium w-full justify-center"
+      aria-label={downloadLabel[locale]}
+    >
+      <Download className="w-4 h-4" aria-hidden="true" />
+      {downloadLabel[locale]}
+    </button>
+  );
+}
 
 export default function Footer() {
-  const { t } = useLanguage();
+  const { locale, t } = useLanguage();
 
   return (
     <footer role="contentinfo" className="relative bg-[#1F2937] dark:bg-[#0F172A] text-white py-12 px-4">
@@ -19,9 +44,10 @@ export default function Footer() {
                 </span>
               </span>
             </a>
-            <p className="text-[#94A3B8] text-sm">
+            <p className="text-[#94A3B8] text-sm mb-4">
               {t.footer.built} 💚 {t.footer.and} {t.footer.purpose}
             </p>
+            <DownloadButton locale={locale} />
           </div>
 
           {/* Navegação */}
