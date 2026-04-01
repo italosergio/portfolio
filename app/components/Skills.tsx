@@ -1,10 +1,10 @@
 const skills = {
   frontend: ["React", "Remix", "Next.js", "TypeScript", "Tailwind CSS", "React Router"],
-  backend: ["Node.js", "Express", "APIs REST", "Integração de dados", "Banco de dados", "Autenticação"],
-  devops: ["Docker", "Vercel", "GitHub Actions", "Deploy", "CI/CD", "Infraestrutura"],
-  qualidade: ["Testes Unitários", "Testes de Integração", "Code Review", "Debugging", "Documentação"],
-  data: ["APIs de Dados Abertos", "Visualização de dados", "Mapas interativos"],
-  metodologias: ["Metodologias Ágeis", "Sprints", "Trabalho em Grupo", "Colaboração"],
+  backend: ["Node.js", "Firebase", "APIs REST", "Integração de dados", "Firestore", "Autenticação"],
+  dados: ["APIs de Dados Abertos", "Visualização de dados", "MapLibre", "GeoJSON", "Mapas interativos"],
+  devops: ["Docker", "Vercel", "GitHub Actions", "CI/CD", "SSL", "Infraestrutura"],
+  qualidade: ["Acessibilidade (a11y)", "i18n", "Responsividade", "SEO", "Testes", "Code Review"],
+  metodologias: ["Metodologias Ágeis", "Co-design", "Pesquisa com usuários", "Colaboração"],
 };
 
 export default function Skills() {
@@ -33,9 +33,9 @@ export default function Skills() {
               <h3 className="text-xl font-bold text-[#1F2937] dark:text-white mb-4 capitalize">
                 {category === "frontend" && "Frontend"}
                 {category === "backend" && "Backend"}
+                {category === "dados" && "Dados & Mapas"}
                 {category === "devops" && "DevOps"}
-                {category === "qualidade" && "Qualidade"}
-                {category === "data" && "Dados"}
+                {category === "qualidade" && "Qualidade & Acessibilidade"}
                 {category === "metodologias" && "Metodologias"}
               </h3>
               <div className="flex flex-wrap gap-2">
