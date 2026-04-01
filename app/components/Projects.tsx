@@ -4,8 +4,8 @@ const projects = [
   {
     id: 1,
     name: "Ciclodados",
-    description: "Observatório que reúne visualização em mapa de todos os dados de pesquisa da Ameciclo num só lugar.",
-    impact: "Plataforma completa de dados sobre mobilidade urbana sustentável",
+    description: "Observatório de dados abertos sobre mobilidade urbana com mapas interativos, tabelas dinâmicas e visualização geográfica de pesquisas.",
+    impact: "Dados públicos transformados em ferramentas para políticas de mobilidade",
     tech: ["Remix", "TypeScript", "React", "Tailwind CSS"],
     image: "/projects/ciclodados.png",
     links: {
@@ -15,8 +15,8 @@ const projects = [
   {
     id: 2,
     name: "Ciclista Denuncie",
-    description: "Mapeamento colaborativo de violência no trânsito contra ciclistas, dando visibilidade ao que ciclistas vivem nas ruas.",
-    impact: "Ferramenta de denúncia e conscientização sobre segurança viária para ciclistas",
+    description: "Mapeamento colaborativo de violência no trânsito com autenticação, mapa interativo, moderação e histórico de edições.",
+    impact: "Ferramenta de denúncia e conscientização sobre segurança viária",
     tech: ["React Router", "TypeScript", "Firebase", "Tailwind CSS"],
     image: "/projects/ciclistadenuncie.png",
     links: {
@@ -26,8 +26,8 @@ const projects = [
   {
     id: 3,
     name: "Ameciclo",
-    description: "Migração Next.js → Remix com melhorias de UX, performance, acessibilidade, filtros, busca e adaptação de mapas e tabelas das plataformas de dados.",
-    impact: "Fusão de múltiplas plataformas em um único observatório interativo",
+    description: "Migração Next.js → Remix com melhorias de UX, performance, acessibilidade, filtros, busca e adaptação de mapas e tabelas de dados públicos.",
+    impact: "Múltiplas plataformas de dados unificadas em um observatório interativo",
     tech: ["Remix", "TypeScript", "React", "Tailwind CSS"],
     image: "/projects/ameciclo.png",
     links: {
@@ -37,8 +37,8 @@ const projects = [
   {
     id: 4,
     name: "Bici nos Planos MS",
-    description: "Plataforma de advocacy para políticas públicas de mobilidade sustentável.",
-    impact: "Ferramenta para promoção da bicicleta como meio de transporte",
+    description: "Plataforma de advocacy com visualização de dados e mapas para políticas públicas de mobilidade sustentável.",
+    impact: "Ferramenta de articulação e promoção da mobilidade ativa",
     tech: ["React Router", "TypeScript", "Tailwind CSS"],
     image: "/projects/bicinosplanos.png",
     links: {
@@ -49,8 +49,8 @@ const projects = [
   {
     id: 5,
     name: "DOM - Diagnóstico Orçamentário Municipal",
-    description: "Plataforma de análise e diagnóstico de orçamentos municipais voltados para mobilidade.",
-    impact: "Transparência e acompanhamento de investimentos públicos em mobilidade",
+    description: "Plataforma de análise e diagnóstico de orçamentos municipais com dados abertos voltados para mobilidade.",
+    impact: "Transparência orçamentária e acompanhamento de investimentos públicos",
     tech: ["React", "Tailwind CSS"],
     image: "/projects/dom.png",
     links: {
@@ -60,8 +60,8 @@ const projects = [
   {
     id: 6,
     name: "Bicicultura Brasília 2024 & 14º Fórum Mundial da Bicicleta",
-    description: "Redesign e desenvolvimento para o 14º Fórum Mundial da Bicicleta.",
-    impact: "Centenas de ciclistas participaram através da plataforma",
+    description: "Desenvolvimento da plataforma para o 14º Fórum Mundial da Bicicleta com gestão de conteúdo e inscrições.",
+    impact: "Centenas de participantes inscritos e engajados através da plataforma",
     tech: ["WordPress", "Divi", "MySQL"],
     image: "/projects/bicicultura.png",
     links: {

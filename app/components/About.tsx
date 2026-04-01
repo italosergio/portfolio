@@ -1,4 +1,4 @@
-import { Leaf, Bike, Lightbulb, Target } from "lucide-react";
+import { Leaf, Bike, Database, Target } from "lucide-react";
 
 export default function About() {
   return (
@@ -60,10 +60,10 @@ export default function About() {
             {/* Descrição */}
             <div className="space-y-4 text-lg text-[#6B7280] dark:text-[#94A3B8]">
               <p>
-                5 anos de experiência em <strong className="text-[#0B5D1E] dark:text-[#10B981]">migração e desenvolvimento</strong> de plataformas que transformam dados em políticas públicas sustentáveis.
+                5 anos de experiência em <strong className="text-[#0B5D1E] dark:text-[#10B981]">desenvolvimento de plataformas</strong> que transformam dados públicos em ferramentas para políticas públicas sustentáveis.
               </p>
               <p>
-                Especializado em projetos de <strong className="text-[#0B5D1E] dark:text-[#10B981]">impacto social</strong>, trabalhando principalmente para movimentos ativistas focados em sustentabilidade e mobilidade urbana.
+                Especializado em <strong className="text-[#0B5D1E] dark:text-[#10B981]">mapas interativos, visualização de dados e acessibilidade</strong>, atuando com movimentos e organizações focados em mobilidade urbana e impacto social.
               </p>
             </div>
 
@@ -78,8 +78,8 @@ export default function About() {
                 <div className="font-bold text-[#1F2937] dark:text-white">Ativismo</div>
               </div>
               <div className="about-card p-4 bg-white dark:bg-[#0F172A] rounded-sm shadow-lg" role="listitem">
-                <Lightbulb className="w-8 h-8 mb-2 text-[#0B5D1E] dark:text-[#10B981]" aria-hidden="true" />
-                <div className="font-bold text-[#1F2937] dark:text-white">Inovação</div>
+                <Database className="w-8 h-8 mb-2 text-[#0B5D1E] dark:text-[#10B981]" aria-hidden="true" />
+                <div className="font-bold text-[#1F2937] dark:text-white">Dados Públicos</div>
               </div>
               <div className="about-card p-4 bg-white dark:bg-[#0F172A] rounded-sm shadow-lg" role="listitem">
                 <Target className="w-8 h-8 mb-2 text-[#0B5D1E] dark:text-[#10B981]" aria-hidden="true" />
