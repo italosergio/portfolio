@@ -1,6 +1,7 @@
 import type { MetaFunction } from "react-router";
 import { useState, useCallback } from "react";
 import { ThemeProvider } from "~/lib/ThemeContext";
+import { LanguageProvider, useLanguage } from "~/lib/LanguageContext";
 import Header from "~/components/Header";
 import About from "~/components/About";
 import Projects from "~/components/Projects";
@@ -11,20 +12,31 @@ import BikeAnimation from "~/components/BikeAnimation";
 import MatrixRain from "~/components/MatrixRain";
 import Toast from "~/components/Toast";
 import { useKonamiCode } from "~/lib/useKonamiCode";
+import LanguageSelector from "~/components/LanguageSelector";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Italo Sergio - Desenvolvedor Full Stack com Propósito" },
+    { title: "Ítalo Sérgio - Desenvolvedor Full Stack com Propósito" },
     { name: "description", content: "5 anos transformando dados em políticas públicas sustentáveis" },
   ];
 };
 
 export default function Index() {
+  return (
+    <LanguageProvider>
+      <ThemeProvider>
+        <PageContent />
+      </ThemeProvider>
+    </LanguageProvider>
+  );
+}
+
+function PageContent() {
+  const { t } = useLanguage();
   const [showBikes, setShowBikes] = useState(false);
   const [fadeOut, setFadeOut] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
 
-  // Konami Code Easter Egg
   useKonamiCode(
     useCallback(() => {
       setShowBikes(true);
@@ -36,8 +48,9 @@ export default function Index() {
   );
 
   return (
-    <ThemeProvider>
+    <>
       <Header />
+      <LanguageSelector />
       {showBikes && (
         <div className={`transition-opacity duration-1000 ${fadeOut ? 'opacity-0' : 'opacity-100'}`}>
           <MatrixRain />
@@ -114,7 +127,7 @@ export default function Index() {
             <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#0B5D1E]/10 dark:bg-[#10B981]/10 rounded-full border border-[#0B5D1E]/20 dark:border-[#10B981]/20">
               <span className="w-1.5 h-1.5 bg-[#10B981] rounded-full animate-pulse" />
               <span className="text-[10px] font-medium text-[#0B5D1E] dark:text-[#10B981]">
-                Disponível para novos projetos
+                {t.hero.available}
               </span>
             </div>
           </div>
@@ -122,16 +135,16 @@ export default function Index() {
           {/* Título Principal */}
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-5 tracking-tight" style={{ fontFamily: 'Karla, sans-serif' }}>
             <span className="block text-[#1F2937] dark:text-white mb-2">
-              Tecnologia e
+              {t.hero.title1}
             </span>
             <span className="block bg-gradient-to-r from-[#0B5D1E] via-[#10B981] to-[#06B6D4] bg-clip-text text-transparent">
-              Mobilidade
+              {t.hero.title2}
             </span>
           </h1>
           
           {/* Subtítulo */}
           <p className="text-base sm:text-lg md:text-xl mb-8 text-[#6B7280] dark:text-[#94A3B8] max-w-3xl mx-auto leading-relaxed">
-            Por <strong className="text-[#0B5D1E] dark:text-[#10B981]">cidades mais humanas</strong> e <strong className="text-[#0B5D1E] dark:text-[#10B981]">sustentáveis</strong> através do uso da bicicleta.
+            {t.hero.subtitle} <strong className="text-[#0B5D1E] dark:text-[#10B981]">{t.hero.subtitleBold1}</strong> {t.hero.subtitleAnd} <strong className="text-[#0B5D1E] dark:text-[#10B981]">{t.hero.subtitleBold2}</strong> {t.hero.subtitleEnd}
           </p>
 
           {/* CTAs */}
@@ -140,7 +153,7 @@ export default function Index() {
               href="#projetos"
               className="hero-cta-primary group px-6 py-2.5 bg-gradient-to-r from-[#0891B2] to-[#10B981] hover:brightness-110 text-white rounded-sm shadow-lg hover:shadow-xl transition-all duration-300 font-medium flex items-center gap-2 text-sm"
             >
-              Ver Projetos
+              {t.hero.cta1}
               <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
@@ -149,14 +162,23 @@ export default function Index() {
               href="#contato"
               className="px-6 py-2.5 bg-transparent hover:bg-[#F9FAFB] dark:hover:bg-[#1E293B] text-[#1F2937] dark:text-white border-2 border-[#1F2937] dark:border-white rounded-sm transition-all duration-300 font-medium text-sm"
             >
-              Entrar em Contato
+              {t.hero.cta2}
             </a>
           </div>
         </div>
 
         {/* Links Discretos de Projetos - Fundo do Hero */}
         <div className="absolute bottom-14 sm:bottom-20 left-0 right-0 flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-[9px] sm:text-[10px] text-[#6B7280] dark:text-[#94A3B8] px-4 max-w-full">
-          <span className="opacity-60">Projetos:</span>
+          <span className="opacity-60">{t.hero.projectsLabel}</span>
+          <a 
+            href="https://ameciclo.org/dados/ciclodados" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="hover:text-[#0B5D1E] dark:hover:text-[#10B981] transition-colors underline decoration-dotted underline-offset-4 whitespace-nowrap"
+          >
+            Ciclodados
+          </a>
+          <span className="opacity-30">|</span>
           <a 
             href="https://ameciclo.org" 
             target="_blank" 
@@ -167,12 +189,12 @@ export default function Index() {
           </a>
           <span className="opacity-30">|</span>
           <a 
-            href="https://bicinosplanosms.vercel.app" 
+            href="https://dom.ameciclo.org" 
             target="_blank" 
             rel="noopener noreferrer"
             className="hover:text-[#0B5D1E] dark:hover:text-[#10B981] transition-colors underline decoration-dotted underline-offset-4 whitespace-nowrap"
           >
-            Bici nos Planos MS
+            DOM
           </a>
           <span className="opacity-30">|</span>
           <a 
@@ -182,6 +204,15 @@ export default function Index() {
             className="hover:text-[#0B5D1E] dark:hover:text-[#10B981] transition-colors underline decoration-dotted underline-offset-4 whitespace-nowrap"
           >
             Ciclista Denuncie
+          </a>
+          <span className="opacity-30">|</span>
+          <a 
+            href="https://bicinosplanosms.vercel.app" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="hover:text-[#0B5D1E] dark:hover:text-[#10B981] transition-colors underline decoration-dotted underline-offset-4 whitespace-nowrap"
+          >
+            Bici nos Planos MS
           </a>
           <span className="opacity-30">|</span>
           <a 
@@ -225,6 +256,6 @@ export default function Index() {
 
     {/* Footer */}
     <Footer />
-    </ThemeProvider>
+    </>
   );
 }

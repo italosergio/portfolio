@@ -147,7 +147,7 @@
   href="https://github.com/..."
   target="_blank"
   rel="noopener noreferrer"
-  aria-label="GitHub - Italo Sergio (abre em nova aba)"
+  aria-label="GitHub - Ítalo Sérgio (abre em nova aba)"
 >
   <Github aria-hidden="true" />
 </a>

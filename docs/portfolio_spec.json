@@ -1,16 +1,16 @@
 {
   "metadata": {
     "project_name": "Portfolio v2",
-    "owner": "Italo Sergio",
+    "owner": "Ítalo Sérgio",
     "created_at": "2025-01-23",
     "last_updated": "2025-01-23",
     "version": "3.0.0",
     "purpose": "Documentação completa do portfolio - perfil, conteúdo e especificações"
   },
   "professional_info": {
-    "name": "Italo Sergio",
+    "name": "Ítalo Sérgio",
     "experience_years": 5,
-    "area": "Migração e Desenvolvimento",
+    "area": "Desenvolvimento",
     "focus": "Sustentabilidade, Ativismo, Mobilidade Urbana",
     "emails": {
       "primary": "italo@linuxmail.org",
