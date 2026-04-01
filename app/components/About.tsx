@@ -29,11 +29,12 @@ export default function About() {
             <div className="relative">
               {/* Borda pixelada/glitch */}
               <div className="about-photo-border absolute -inset-4 bg-gradient-to-r from-[#0B5D1E] to-[#06B6D4] rounded-sm opacity-20 blur-xl" />
-              <div className="relative aspect-square bg-[#6B7280] rounded-sm overflow-hidden shadow-2xl">
-                {/* Placeholder para foto */}
-                <div className="absolute inset-0 flex items-center justify-center text-white text-6xl font-bold">
-                  IS
-                </div>
+              <div className="relative aspect-square rounded-sm overflow-hidden shadow-2xl">
+                <img
+                  src="/profile.webp"
+                  alt="Italo Sergio - Desenvolvedor Full Stack"
+                  className="w-full h-full object-cover"
+                />
               </div>
               {/* Elemento decorativo */}
               <div className="absolute -bottom-6 -right-6 w-32 h-32 border-4 border-[#0B5D1E] dark:border-[#10B981] rounded-sm" />

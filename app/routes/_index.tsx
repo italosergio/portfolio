@@ -176,6 +176,15 @@ export default function Index() {
           </a>
           <span className="opacity-30">|</span>
           <a 
+            href="https://ciclistadenuncie.vercel.app" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="hover:text-[#0B5D1E] dark:hover:text-[#10B981] transition-colors underline decoration-dotted underline-offset-4 whitespace-nowrap"
+          >
+            Ciclista Denuncie
+          </a>
+          <span className="opacity-30">|</span>
+          <a 
             href="https://bicicultura.org.br" 
             target="_blank" 
             rel="noopener noreferrer"
