@@ -7,26 +7,29 @@ const projects = [
     description: "Observatório que reúne visualização em mapa de todos os dados de pesquisa da Ameciclo num só lugar.",
     impact: "Plataforma completa de dados sobre mobilidade urbana sustentável",
     tech: ["Remix", "TypeScript", "React", "Tailwind CSS"],
+    image: "/projects/ciclodados.png",
     links: {
       demo: "https://ameciclo.org/dados/ciclodados",
     },
   },
   {
     id: 2,
-    name: "DOM - Diagnóstico Orçamentário Municipal",
-    description: "Plataforma de análise e diagnóstico de orçamentos municipais voltados para mobilidade.",
-    impact: "Transparência e acompanhamento de investimentos públicos em mobilidade",
-    tech: ["Remix", "TypeScript", "React", "Tailwind CSS"],
+    name: "Ciclista Denuncie",
+    description: "Mapeamento colaborativo de violência no trânsito contra ciclistas, dando visibilidade ao que ciclistas vivem nas ruas.",
+    impact: "Ferramenta de denúncia e conscientização sobre segurança viária para ciclistas",
+    tech: ["React Router", "TypeScript", "Firebase", "Tailwind CSS"],
+    image: "/projects/ciclistadenuncie.png",
     links: {
-      demo: "https://dom.ameciclo.org",
+      demo: "https://ciclistadenuncie.vercel.app",
     },
   },
   {
     id: 3,
     name: "Ameciclo",
-    description: "Migração e Desenvolvimento de Plataforma. Migração Next.js → Remix com 502 commits.",
+    description: "Migração Next.js → Remix com melhorias de UX, performance, acessibilidade, filtros, busca e adaptação de mapas e tabelas das plataformas de dados.",
     impact: "Fusão de múltiplas plataformas em um único observatório interativo",
     tech: ["Remix", "TypeScript", "React", "Tailwind CSS"],
+    image: "/projects/ameciclo.png",
     links: {
       demo: "https://ameciclo.org",
     },
@@ -36,7 +39,8 @@ const projects = [
     name: "Bici nos Planos MS",
     description: "Plataforma de advocacy para políticas públicas de mobilidade sustentável.",
     impact: "Ferramenta para promoção da bicicleta como meio de transporte",
-    tech: ["React", "TypeScript", "Tailwind CSS"],
+    tech: ["React Router", "TypeScript", "Tailwind CSS"],
+    image: "/projects/bicinosplanos.png",
     links: {
       demo: "https://bicinosplanosms.vercel.app",
     },
@@ -44,10 +48,22 @@ const projects = [
   },
   {
     id: 5,
+    name: "DOM - Diagnóstico Orçamentário Municipal",
+    description: "Plataforma de análise e diagnóstico de orçamentos municipais voltados para mobilidade.",
+    impact: "Transparência e acompanhamento de investimentos públicos em mobilidade",
+    tech: ["React", "Tailwind CSS"],
+    image: "/projects/dom.png",
+    links: {
+      demo: "https://dom.ameciclo.org",
+    },
+  },
+  {
+    id: 6,
     name: "Bicicultura Brasília 2024 & 14º Fórum Mundial da Bicicleta",
     description: "Redesign e desenvolvimento para o 14º Fórum Mundial da Bicicleta.",
     impact: "Centenas de ciclistas participaram através da plataforma",
-    tech: ["React", "TypeScript", "Design"],
+    tech: ["WordPress", "Divi", "MySQL"],
+    image: "/projects/bicicultura.png",
     links: {
       demo: "https://bicicultura.org.br",
     },
@@ -90,11 +106,13 @@ export default function Projects() {
                 </div>
               )}
               
-              {/* Imagem Placeholder */}
-              <div className="relative h-48 bg-gradient-to-br from-[#0B5D1E]/20 to-[#06B6D4]/20 overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center text-6xl font-bold text-[#0B5D1E]/10 dark:text-[#10B981]/10">
-                  {project.name.charAt(0)}
-                </div>
+              {/* Imagem do Projeto */}
+              <div className="relative h-48 overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={`Screenshot do projeto ${project.name}`}
+                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#F9FAFB] dark:from-[#1E293B] to-transparent opacity-50" />
               </div>
 
