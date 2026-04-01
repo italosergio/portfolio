@@ -1,6 +1,9 @@
 import { Leaf, Bike, Database, Target } from "lucide-react";
+import { useLanguage } from "~/lib/LanguageContext";
 
 export default function About() {
+  const { t } = useLanguage();
+
   return (
     <section id="sobre" aria-labelledby="about-title" className="about-section relative py-20 md:py-32 px-4 overflow-hidden bg-[#F9FAFB] dark:bg-[#1E293B]">
       {/* Grid Pixelado - Azul Ciano */}
@@ -32,7 +35,7 @@ export default function About() {
               <div className="relative aspect-square rounded-sm overflow-hidden shadow-2xl">
                 <img
                   src="/profile.webp"
-                  alt="Italo Sergio - Desenvolvedor Full Stack"
+                  alt="Ítalo Sérgio - Desenvolvedor Full Stack"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -46,24 +49,24 @@ export default function About() {
             {/* Tag */}
             <div className="inline-block px-4 py-2 bg-[#0B5D1E]/10 dark:bg-[#10B981]/10 rounded-full">
               <span className="text-sm font-medium text-[#0B5D1E] dark:text-[#10B981]">
-                Sobre Mim
+                {t.about.tag}
               </span>
             </div>
 
             {/* Título */}
             <h2 id="about-title" className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
               <span className="text-[#1F2937] dark:text-white">
-                Desenvolvedor com Propósito
+                {t.about.title}
               </span>
             </h2>
 
             {/* Descrição */}
             <div className="space-y-4 text-lg text-[#6B7280] dark:text-[#94A3B8]">
               <p>
-                5 anos de experiência em <strong className="text-[#0B5D1E] dark:text-[#10B981]">desenvolvimento de plataformas</strong> que transformam dados públicos em ferramentas para políticas públicas sustentáveis.
+                {t.about.p1} <strong className="text-[#0B5D1E] dark:text-[#10B981]">{t.about.p1Bold}</strong> {t.about.p1End}
               </p>
               <p>
-                Especializado em <strong className="text-[#0B5D1E] dark:text-[#10B981]">mapas interativos, visualização de dados e acessibilidade</strong>, atuando com movimentos e organizações focados em mobilidade urbana e impacto social.
+                {t.about.p2} <strong className="text-[#0B5D1E] dark:text-[#10B981]">{t.about.p2Bold}</strong>{t.about.p2End}
               </p>
             </div>
 
@@ -71,19 +74,19 @@ export default function About() {
             <div className="grid grid-cols-2 gap-4 pt-6" role="list" aria-label="Valores principais">
               <div className="about-card p-4 bg-white dark:bg-[#0F172A] rounded-sm shadow-lg" role="listitem">
                 <Leaf className="w-8 h-8 mb-2 text-[#0B5D1E] dark:text-[#10B981]" aria-hidden="true" />
-                <div className="font-bold text-[#1F2937] dark:text-white">Sustentabilidade</div>
+                <div className="font-bold text-[#1F2937] dark:text-white">{t.about.sustainability}</div>
               </div>
               <div className="about-card p-4 bg-white dark:bg-[#0F172A] rounded-sm shadow-lg" role="listitem">
                 <Bike className="w-8 h-8 mb-2 text-[#0B5D1E] dark:text-[#10B981]" aria-hidden="true" />
-                <div className="font-bold text-[#1F2937] dark:text-white">Ativismo</div>
+                <div className="font-bold text-[#1F2937] dark:text-white">{t.about.activism}</div>
               </div>
               <div className="about-card p-4 bg-white dark:bg-[#0F172A] rounded-sm shadow-lg" role="listitem">
                 <Database className="w-8 h-8 mb-2 text-[#0B5D1E] dark:text-[#10B981]" aria-hidden="true" />
-                <div className="font-bold text-[#1F2937] dark:text-white">Dados Públicos</div>
+                <div className="font-bold text-[#1F2937] dark:text-white">{t.about.publicData}</div>
               </div>
               <div className="about-card p-4 bg-white dark:bg-[#0F172A] rounded-sm shadow-lg" role="listitem">
                 <Target className="w-8 h-8 mb-2 text-[#0B5D1E] dark:text-[#10B981]" aria-hidden="true" />
-                <div className="font-bold text-[#1F2937] dark:text-white">Impacto Social</div>
+                <div className="font-bold text-[#1F2937] dark:text-white">{t.about.socialImpact}</div>
               </div>
             </div>
           </div>

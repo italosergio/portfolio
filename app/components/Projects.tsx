@@ -1,76 +1,125 @@
 import { ExternalLink, Github, Sparkles } from "lucide-react";
+import { useLanguage } from "~/lib/LanguageContext";
+import type { Locale } from "~/lib/i18n";
 
-const projects = [
+const projects: Array<{
+  id: number;
+  name: string;
+  description: Record<Locale, string>;
+  impact: Record<Locale, string>;
+  tech: string[];
+  image: string;
+  links: { demo: string };
+  inProgress?: boolean;
+}> = [
   {
     id: 1,
     name: "Ciclodados",
-    description: "Observatório de dados abertos sobre mobilidade urbana com mapas interativos, tabelas dinâmicas e visualização geográfica de pesquisas.",
-    impact: "Dados públicos transformados em ferramentas para políticas de mobilidade",
+    description: {
+      pt: "Observatório de dados abertos sobre mobilidade urbana com mapas interativos, tabelas dinâmicas e visualização geográfica de pesquisas.",
+      en: "Open data observatory on urban mobility with interactive maps, dynamic tables and geographic visualization of research.",
+      es: "Observatorio de datos abiertos sobre movilidad urbana con mapas interactivos, tablas dinámicas y visualización geográfica de investigaciones.",
+    },
+    impact: {
+      pt: "Dados públicos transformados em ferramentas para políticas de mobilidade",
+      en: "Public data transformed into tools for mobility policies",
+      es: "Datos públicos transformados en herramientas para políticas de movilidad",
+    },
     tech: ["Remix", "TypeScript", "React", "Tailwind CSS"],
     image: "/projects/ciclodados.png",
-    links: {
-      demo: "https://ameciclo.org/dados/ciclodados",
-    },
+    links: { demo: "https://ameciclo.org/dados/ciclodados" },
   },
   {
     id: 2,
     name: "Ciclista Denuncie",
-    description: "Mapeamento colaborativo de violência no trânsito com autenticação, mapa interativo, moderação e histórico de edições.",
-    impact: "Ferramenta de denúncia e conscientização sobre segurança viária",
+    description: {
+      pt: "Mapeamento colaborativo de violência no trânsito com autenticação, mapa interativo, moderação e histórico de edições.",
+      en: "Collaborative mapping of traffic violence with authentication, interactive map, moderation and edit history.",
+      es: "Mapeo colaborativo de violencia vial con autenticación, mapa interactivo, moderación e historial de ediciones.",
+    },
+    impact: {
+      pt: "Ferramenta de denúncia e conscientização sobre segurança viária",
+      en: "Reporting and awareness tool for road safety",
+      es: "Herramienta de denuncia y concientización sobre seguridad vial",
+    },
     tech: ["React Router", "TypeScript", "Firebase", "Tailwind CSS"],
     image: "/projects/ciclistadenuncie.png",
-    links: {
-      demo: "https://ciclistadenuncie.vercel.app",
-    },
+    links: { demo: "https://ciclistadenuncie.vercel.app" },
   },
   {
     id: 3,
     name: "Ameciclo",
-    description: "Migração Next.js → Remix com melhorias de UX, performance, acessibilidade, filtros, busca e adaptação de mapas e tabelas de dados públicos.",
-    impact: "Múltiplas plataformas de dados unificadas em um observatório interativo",
+    description: {
+      pt: "Migração Next.js → Remix com melhorias de UX, performance, acessibilidade, filtros, busca e adaptação de mapas e tabelas de dados públicos.",
+      en: "Next.js → Remix migration with UX, performance, accessibility improvements, filters, search and public data maps/tables adaptation.",
+      es: "Migración Next.js → Remix con mejoras de UX, rendimiento, accesibilidad, filtros, búsqueda y adaptación de mapas y tablas de datos públicos.",
+    },
+    impact: {
+      pt: "Múltiplas plataformas de dados unificadas em um observatório interativo",
+      en: "Multiple data platforms unified into an interactive observatory",
+      es: "Múltiples plataformas de datos unificadas en un observatorio interactivo",
+    },
     tech: ["Remix", "TypeScript", "React", "Tailwind CSS"],
     image: "/projects/ameciclo.png",
-    links: {
-      demo: "https://ameciclo.org",
-    },
+    links: { demo: "https://ameciclo.org" },
   },
   {
     id: 4,
     name: "Bici nos Planos MS",
-    description: "Plataforma de advocacy com visualização de dados e mapas para políticas públicas de mobilidade sustentável.",
-    impact: "Ferramenta de articulação e promoção da mobilidade ativa",
+    description: {
+      pt: "Plataforma de advocacy com visualização de dados e mapas para políticas públicas de mobilidade sustentável.",
+      en: "Advocacy platform with data visualization and maps for sustainable mobility public policies.",
+      es: "Plataforma de advocacy con visualización de datos y mapas para políticas públicas de movilidad sostenible.",
+    },
+    impact: {
+      pt: "Ferramenta de articulação e promoção da mobilidade ativa",
+      en: "Tool for articulation and promotion of active mobility",
+      es: "Herramienta de articulación y promoción de la movilidad activa",
+    },
     tech: ["React Router", "TypeScript", "Tailwind CSS"],
     image: "/projects/bicinosplanos.png",
-    links: {
-      demo: "https://bicinosplanosms.vercel.app",
-    },
+    links: { demo: "https://bicinosplanosms.vercel.app" },
     inProgress: true,
   },
   {
     id: 5,
     name: "DOM - Diagnóstico Orçamentário Municipal",
-    description: "Plataforma de análise e diagnóstico de orçamentos municipais com dados abertos voltados para mobilidade.",
-    impact: "Transparência orçamentária e acompanhamento de investimentos públicos",
+    description: {
+      pt: "Plataforma de análise e diagnóstico de orçamentos municipais com dados abertos voltados para mobilidade.",
+      en: "Platform for analysis and diagnosis of municipal budgets with open data focused on mobility.",
+      es: "Plataforma de análisis y diagnóstico de presupuestos municipales con datos abiertos enfocados en movilidad.",
+    },
+    impact: {
+      pt: "Transparência orçamentária e acompanhamento de investimentos públicos",
+      en: "Budget transparency and tracking of public investments",
+      es: "Transparencia presupuestaria y seguimiento de inversiones públicas",
+    },
     tech: ["React", "Tailwind CSS"],
     image: "/projects/dom.png",
-    links: {
-      demo: "https://dom.ameciclo.org",
-    },
+    links: { demo: "https://dom.ameciclo.org" },
   },
   {
     id: 6,
     name: "Bicicultura Brasília 2024 & 14º Fórum Mundial da Bicicleta",
-    description: "Desenvolvimento da plataforma para o 14º Fórum Mundial da Bicicleta com gestão de conteúdo e inscrições.",
-    impact: "Centenas de participantes inscritos e engajados através da plataforma",
+    description: {
+      pt: "Desenvolvimento da plataforma para o 14º Fórum Mundial da Bicicleta e Bicultura Brasília com gestão de conteúdo e inscrições.",
+      en: "Platform development for the 14th World Bicycle and Bicicultura Forum with content management and registrations.",
+      es: "Desarrollo de la plataforma para el 14º Foro Mundial de la Bicicleta e Bicicultura con gestión de contenido e inscripciones.",
+    },
+    impact: {
+      pt: "Centenas de participantes inscritos e engajados através da plataforma",
+      en: "Hundreds of participants registered and engaged through the platform",
+      es: "Cientos de participantes inscritos y comprometidos a través de la plataforma",
+    },
     tech: ["WordPress", "Divi", "MySQL"],
     image: "/projects/bicicultura.png",
-    links: {
-      demo: "https://bicicultura.org.br",
-    },
+    links: { demo: "https://bicicultura.org.br" },
   },
 ];
 
 export default function Projects() {
+  const { locale, t } = useLanguage();
+
   return (
     <section id="projetos" aria-labelledby="projects-title" className="relative py-20 md:py-32 px-4 bg-white dark:bg-[#0F172A]">
       <div className="max-w-7xl mx-auto">
@@ -78,14 +127,14 @@ export default function Projects() {
         <div className="text-center mb-16">
           <div className="inline-block px-4 py-2 bg-[#0B5D1E]/10 dark:bg-[#10B981]/10 rounded-full mb-6">
             <span className="text-sm font-medium text-[#0B5D1E] dark:text-[#10B981]">
-              Projetos em Destaque
+              {t.projects.tag}
             </span>
           </div>
           <h2 id="projects-title" className="text-4xl md:text-5xl font-bold text-[#1F2937] dark:text-white mb-4">
-            Impacto Social através do Código
+            {t.projects.title}
           </h2>
           <p className="text-lg text-[#6B7280] dark:text-[#94A3B8] max-w-3xl mx-auto">
-            Por cidades mais humanas e sustentáveis através do uso da bicicleta.
+            {t.projects.subtitle}
           </p>
         </div>
 
@@ -101,7 +150,7 @@ export default function Projects() {
               {project.inProgress && (
                 <div className="absolute top-4 right-4 z-10">
                   <span className="px-3 py-1 bg-[#06B6D4] text-white text-xs font-medium rounded-full">
-                    Em Andamento
+                    {t.projects.inProgress}
                   </span>
                 </div>
               )}
@@ -127,14 +176,14 @@ export default function Projects() {
 
                 {/* Descrição */}
                 <p className="text-[#6B7280] dark:text-[#94A3B8] text-sm min-h-[4rem]">
-                  {project.description}
+                  {project.description[locale]}
                 </p>
 
                 {/* Impacto */}
                 <div className="p-3 bg-[#0B5D1E]/5 dark:bg-[#10B981]/5 rounded-sm flex items-start gap-2 min-h-[4rem]">
                   <Sparkles className="w-4 h-4 text-[#0B5D1E] dark:text-[#10B981] flex-shrink-0 mt-0.5" aria-hidden="true" />
                   <p className="text-xs text-[#0B5D1E] dark:text-[#10B981] font-medium">
-                    {project.impact}
+                    {project.impact[locale]}
                   </p>
                 </div>
 
@@ -160,7 +209,7 @@ export default function Projects() {
                     className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#0891B2] to-[#10B981] hover:from-[#06B6D4] hover:to-[#0B5D1E] text-white rounded-sm transition-all text-sm font-medium"
                   >
                     <ExternalLink className="w-4 h-4" aria-hidden="true" />
-                    Ver Projeto
+                    {t.projects.viewProject}
                   </a>
                 </div>
               </div>

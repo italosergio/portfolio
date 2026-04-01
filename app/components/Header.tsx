@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import ThemeToggle from "~/components/ThemeToggle";
+import { useLanguage } from "~/lib/LanguageContext";
 import { X } from "lucide-react";
 
 export default function Header() {
@@ -16,6 +17,8 @@ export default function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const { t } = useLanguage();
 
   return (
     <header
@@ -34,13 +37,13 @@ export default function Header() {
               href="#sobre"
               className="text-[#1F2937] dark:text-white hover:text-[#0B5D1E] dark:hover:text-[#10B981] transition-colors font-medium"
             >
-              Sobre
+              {t.nav.about}
             </a>
             <a
               href="#projetos"
               className="text-[#1F2937] dark:text-white hover:text-[#0B5D1E] dark:hover:text-[#10B981] transition-colors font-medium"
             >
-              Projetos
+              {t.nav.projects}
             </a>
           </div>
 
@@ -50,7 +53,7 @@ export default function Header() {
               href="#"
               className="text-xl md:text-2xl font-bold text-[#0B5D1E] dark:text-[#10B981] hover:scale-105 transition-transform flex items-end gap-1"
             >
-              italo<span className="text-[#06B6D4]">.dev</span>
+              ítalo<span className="text-[#06B6D4]">&lt;dev/&gt;</span>
               <span className="text-[10px] text-[#6B7280] dark:text-[#94A3B8] font-normal pb-0.5 relative group">
                 v3
                 <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
@@ -67,13 +70,13 @@ export default function Header() {
               href="#skills"
               className="text-[#1F2937] dark:text-white hover:text-[#0B5D1E] dark:hover:text-[#10B981] transition-colors font-medium"
             >
-              Skills
+              {t.nav.skills}
             </a>
             <a
               href="#contato"
               className="px-6 py-2 bg-gradient-to-r from-[#0891B2] to-[#10B981] hover:brightness-110 text-white rounded-sm transition-all font-medium"
             >
-              Contato
+              {t.nav.contact}
             </a>
           </div>
 
@@ -135,32 +138,31 @@ export default function Header() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="text-2xl font-bold text-[#1F2937] dark:text-white hover:text-[#0B5D1E] dark:hover:text-[#10B981] transition-colors py-3"
                 >
-                  Sobre
+                  {t.nav.about}
                 </a>
                 <a
                   href="#projetos"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="text-2xl font-bold text-[#1F2937] dark:text-white hover:text-[#0B5D1E] dark:hover:text-[#10B981] transition-colors py-3"
                 >
-                  Projetos
+                  {t.nav.projects}
                 </a>
                 <a
                   href="#skills"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="text-2xl font-bold text-[#1F2937] dark:text-white hover:text-[#0B5D1E] dark:hover:text-[#10B981] transition-colors py-3"
                 >
-                  Skills
+                  {t.nav.skills}
                 </a>
                 <a
                   href="#contato"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="text-2xl font-bold text-[#1F2937] dark:text-white hover:text-[#0B5D1E] dark:hover:text-[#10B981] transition-colors py-3"
                 >
-                  Contato
+                  {t.nav.contact}
                 </a>
               </nav>
 
-              {/* Theme Toggle */}
               <div className="mt-auto">
                 <ThemeToggle />
               </div>
