@@ -6,6 +6,7 @@ import Header from "~/components/Header";
 import About from "~/components/About";
 import Projects from "~/components/Projects";
 import Skills from "~/components/Skills";
+import Timeline from "~/components/Timeline";
 import Contact from "~/components/Contact";
 import Footer from "~/components/Footer";
 import BikeAnimation from "~/components/BikeAnimation";
@@ -203,7 +204,7 @@ function PageContent() {
             rel="noopener noreferrer"
             className="hover:text-[#0B5D1E] dark:hover:text-[#10B981] transition-colors underline decoration-dotted underline-offset-4 whitespace-nowrap"
           >
-            Ciclista Denuncie
+            Ciclista, Denuncie!
           </a>
           <span className="opacity-30">|</span>
           <a 
@@ -221,7 +222,7 @@ function PageContent() {
             rel="noopener noreferrer"
             className="hover:text-[#0B5D1E] dark:hover:text-[#10B981] transition-colors underline decoration-dotted underline-offset-4 whitespace-nowrap"
           >
-            Ciclista Denuncie
+            Ciclista, Denuncie!
           </a>
           <span className="opacity-30">|</span>
           <a 
@@ -258,6 +259,9 @@ function PageContent() {
 
       {/* Seção Skills */}
       <Skills />
+
+      {/* Seção Trajetória */}
+      <Timeline />
 
       {/* Seção Contato */}
       <Contact />

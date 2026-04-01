@@ -7,6 +7,7 @@ export const translations = {
       about: "Sobre",
       projects: "Projetos",
       skills: "Skills",
+      journey: "Trajetória",
       contact: "Contato",
     },
     hero: {
@@ -70,6 +71,7 @@ export const translations = {
       about: "About",
       projects: "Projects",
       skills: "Skills",
+      journey: "Journey",
       contact: "Contact",
     },
     hero: {
@@ -133,6 +135,7 @@ export const translations = {
       about: "Sobre",
       projects: "Proyectos",
       skills: "Skills",
+      journey: "Trayectoria",
       contact: "Contacto",
     },
     hero: {

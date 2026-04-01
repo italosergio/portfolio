@@ -45,6 +45,12 @@ export default function Header() {
             >
               {t.nav.projects}
             </a>
+            <a
+              href="#trajetoria"
+              className="text-[#1F2937] dark:text-white hover:text-[#0B5D1E] dark:hover:text-[#10B981] transition-colors font-medium"
+            >
+              {t.nav.journey}
+            </a>
           </div>
 
           {/* Logo e Toggle - Centralizado */}
@@ -153,6 +159,13 @@ export default function Header() {
                   className="text-2xl font-bold text-[#1F2937] dark:text-white hover:text-[#0B5D1E] dark:hover:text-[#10B981] transition-colors py-3"
                 >
                   {t.nav.skills}
+                </a>
+                <a
+                  href="#trajetoria"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-2xl font-bold text-[#1F2937] dark:text-white hover:text-[#0B5D1E] dark:hover:text-[#10B981] transition-colors py-3"
+                >
+                  {t.nav.journey}
                 </a>
                 <a
                   href="#contato"

@@ -37,6 +37,9 @@ export default function Footer() {
               <a href="#skills" className="text-[#94A3B8] hover:text-[#10B981] transition-colors">
                 {t.nav.skills}
               </a>
+              <a href="#trajetoria" className="text-[#94A3B8] hover:text-[#10B981] transition-colors">
+                {t.nav.journey}
+              </a>
               <a href="#contato" className="text-[#94A3B8] hover:text-[#10B981] transition-colors">
                 {t.nav.contact}
               </a>
