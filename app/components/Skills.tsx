@@ -34,7 +34,7 @@ const areas: Array<{
       en: "Geographic data visualization with collaborative maps, dynamic filters and information layers.",
       es: "Visualización geográfica de datos con mapas colaborativos, filtros dinámicos y capas de información.",
     },
-    tech: ["MapLibre", "GeoJSON", "Dados Abertos"],
+    tech: ["MapLibre", "Leaflet", "Mapbox", "GeoJSON", "Dados Abertos"],
   },
   {
     icon: Globe,
@@ -70,15 +70,16 @@ export default function Skills() {
   const { locale, t } = useLanguage();
 
   return (
-    <section id="skills" aria-labelledby="skills-title" className="relative py-20 md:py-32 px-4 bg-[#F9FAFB] dark:bg-[#1E293B]">
-      <div className="max-w-7xl mx-auto">
+    <section id="skills" aria-labelledby="skills-title" className="relative py-20 md:py-32 px-4 overflow-hidden" style={{ backgroundImage: "url('/stack-background.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
+      <div className="absolute inset-0 bg-[#F9FAFB]/30 dark:bg-[#1E293B]/40" />
+      <div className="relative z-10 max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <div className="inline-block px-4 py-2 bg-[#0B5D1E]/10 dark:bg-[#10B981]/10 rounded-full mb-6">
             <span className="text-sm font-medium text-[#0B5D1E] dark:text-[#10B981]">
               {t.skills.tag}
             </span>
           </div>
-          <h2 id="skills-title" className="text-4xl md:text-5xl font-bold text-[#1F2937] dark:text-white mb-4">
+          <h2 id="skills-title" className="text-4xl md:text-5xl font-bold text-white mb-4 keep-white">
             {t.skills.title}
           </h2>
         </div>

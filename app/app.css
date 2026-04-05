@@ -76,6 +76,10 @@
   color: white !important;
 }
 
+.theme-front .keep-white {
+  color: white !important;
+}
+
 .theme-front .text-\[\#6B7280\],
 .theme-front .dark\:text-\[\#94A3B8\] {
   color: #495057 !important;

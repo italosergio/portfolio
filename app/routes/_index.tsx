@@ -8,6 +8,7 @@ import Projects from "~/components/Projects";
 import Skills from "~/components/Skills";
 import Timeline from "~/components/Timeline";
 import Contact from "~/components/Contact";
+import GitHubProfile from "~/components/GitHubProfile";
 import Footer from "~/components/Footer";
 import BikeAnimation from "~/components/BikeAnimation";
 import MatrixRain from "~/components/MatrixRain";
@@ -265,6 +266,9 @@ function PageContent() {
 
       {/* Seção Contato */}
       <Contact />
+
+      {/* Seção GitHub */}
+      <GitHubProfile />
     </div>
 
     {/* Footer */}

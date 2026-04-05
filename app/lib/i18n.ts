@@ -60,6 +60,10 @@ export const translations = {
       placeholder: "Sua mensagem",
       send: "Enviar via WhatsApp",
     },
+    github: {
+      bio: "Programador e Desenvolvedor Full Stack",
+      viewProfile: "Ver Perfil no GitHub",
+    },
     footer: {
       built: "Feito com",
       and: "e",
@@ -124,6 +128,10 @@ export const translations = {
       placeholder: "Your message",
       send: "Send via WhatsApp",
     },
+    github: {
+      bio: "Full Stack Developer & Programmer",
+      viewProfile: "View GitHub Profile",
+    },
     footer: {
       built: "Built with",
       and: "and",
@@ -187,6 +195,10 @@ export const translations = {
       title: "¿Listo para crear o desarrollar algo con propósito?",
       placeholder: "Tu mensaje",
       send: "Enviar por WhatsApp",
+    },
+    github: {
+      bio: "Programador y Desarrollador Full Stack",
+      viewProfile: "Ver Perfil en GitHub",
     },
     footer: {
       built: "Hecho con",
