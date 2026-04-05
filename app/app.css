@@ -1,5 +1,27 @@
 @import "tailwindcss";
 
+/* Pixel art scrollbar - hide native */
+::-webkit-scrollbar {
+  display: none;
+}
+html {
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+@-moz-document url-prefix() {
+  * {
+    font-weight: inherit;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    font-synthesis: none;
+  }
+}
+
 @keyframes bikeRide {
   from { left: -30px; }
   to { left: 100%; }

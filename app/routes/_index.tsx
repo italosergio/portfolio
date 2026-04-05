@@ -15,6 +15,7 @@ import MatrixRain from "~/components/MatrixRain";
 import Toast from "~/components/Toast";
 import { useKonamiCode } from "~/lib/useKonamiCode";
 import LanguageSelector from "~/components/LanguageSelector";
+import PixelScrollbar from "~/components/PixelScrollbar";
 
 export const meta: MetaFunction = () => {
   return [
@@ -79,6 +80,7 @@ function PageContent() {
 
   return (
     <>
+      <PixelScrollbar />
       <Header />
       <LanguageSelector />
       {showBikes && (
