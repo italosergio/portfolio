@@ -22,7 +22,7 @@ export default function GitHubProfile() {
             {/* Photo with pixel border */}
             <div className="shrink-0 border-b-2 sm:border-b-0 sm:border-r-2 border-[#0B5D1E]/30 dark:border-[#10B981]/30 overflow-hidden">
               <img
-                src="/github-profile.png"
+                src="/profile.webp"
                 alt="Ítalo Sérgio - GitHub Profile"
                 className="w-full sm:w-[480px] h-auto sm:h-full object-cover"
               />

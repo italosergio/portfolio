@@ -18,8 +18,10 @@ import { useSecretCode } from "~/lib/useSecretCode";
 import { trackPageView, initClickTracking } from "~/lib/analytics";
 import LanguageSelector from "~/components/LanguageSelector";
 import PixelScrollbar from "~/components/PixelScrollbar";
+import AudioPlayer from "~/components/AudioPlayer";
 import AnalyticsPanel from "~/components/AnalyticsPanel";
 import LiveCursors from "~/components/LiveCursors";
+import GlitchText from "~/components/GlitchText";
 
 export const meta: MetaFunction = () => {
   return [
@@ -35,6 +37,61 @@ export default function Index() {
         <PageContent />
       </ThemeProvider>
     </LanguageProvider>
+  );
+}
+
+function TypingText({ text }: { text: string }) {
+  const [displayed, setDisplayed] = useState("");
+  const [done, setDone] = useState(false);
+
+  useEffect(() => {
+    let i = 0;
+    const id = setInterval(() => {
+      i++;
+      setDisplayed(text.slice(0, i));
+      if (i >= text.length) { clearInterval(id); setDone(true); }
+    }, 50);
+    return () => clearInterval(id);
+  }, [text]);
+
+  return (
+    <span className="text-[9px] text-[#10B981]/60 font-mono" style={{ textShadow: "0 0 4px rgba(16,185,129,0.3)" }}>
+      {displayed}
+      <span className={`${done ? "animate-pulse" : ""} ml-px`}>▌</span>
+    </span>
+  );
+}
+
+function KonamiHint() {
+  const zones = [
+    { left: "3%", top: "8%" },
+    { left: "55%", top: "8%" },
+    { left: "3%", top: "45%" },
+    { left: "55%", top: "45%" },
+    { left: "3%", top: "75%" },
+    { left: "55%", top: "75%" },
+  ];
+  const [idx, setIdx] = useState(0);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const loop = () => {
+      setIdx(Math.floor(Math.random() * zones.length));
+      setVisible(true);
+      setTimeout(() => setVisible(false), 5000);
+    };
+    loop();
+    const id = setInterval(loop, 7000);
+    return () => clearInterval(id);
+  }, []);
+
+  return (
+    <div
+      className="absolute pointer-events-none z-10 font-mono text-[10px] sm:text-lg text-[#10B981] tracking-widest transition-opacity duration-700 select-none whitespace-nowrap"
+      style={{ left: zones[idx].left, top: zones[idx].top, opacity: visible ? 0.4 : 0, maxWidth: "90vw" }}
+    >
+      ↑↑↓↓←→←→
+    </div>
   );
 }
 
@@ -100,6 +157,7 @@ function PageContent() {
   return (
     <>
       <PixelScrollbar />
+      <AudioPlayer />
       <Header />
       <LanguageSelector />
       {showBikes && (
@@ -111,7 +169,7 @@ function PageContent() {
       {toast && <Toast message={toast} onClose={() => setToast(null)} />}
       <div className="min-h-screen bg-white dark:bg-[var(--bg)]">
         {/* Hero Section */}
-        <section className="relative h-screen flex items-center justify-center overflow-hidden px-4">
+        <section className="relative flex items-center justify-center overflow-hidden px-4" style={{ height: "100dvh" }}>
         {/* Grid Pixelado Animado - Verde */}
         <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
           <div 
@@ -186,10 +244,10 @@ function PageContent() {
           {/* Título Principal */}
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-5 tracking-tight" style={{ fontFamily: 'Karla, sans-serif' }}>
             <span className="block text-[#1F2937] dark:text-white mb-2">
-              {t.hero.title1}
+              <GlitchText>{t.hero.title1}</GlitchText>
             </span>
-            <span className="block bg-gradient-to-r from-[#0B5D1E] via-[#10B981] to-[#06B6D4] bg-clip-text text-transparent">
-              {t.hero.title2}
+            <span className="block">
+              <GlitchText className="bg-gradient-to-r from-[#0B5D1E] via-[#10B981] to-[#06B6D4] bg-clip-text text-transparent">{t.hero.title2}</GlitchText>
             </span>
           </h1>
           
@@ -199,27 +257,23 @@ function PageContent() {
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <div className="flex flex-col items-center gap-2 mt-24">
             <a
-              href="#projetos"
-              className="hero-cta-primary group px-6 py-2.5 bg-gradient-to-r from-[#0891B2] to-[#10B981] hover:brightness-110 text-white rounded-sm shadow-lg hover:shadow-xl transition-all duration-300 font-medium flex items-center gap-2 text-sm"
+              href="#sobre"
+              onClick={(e) => { e.preventDefault(); const el = document.getElementById("sobre"); if (el) { const top = el.getBoundingClientRect().top + window.scrollY - 80; window.scrollTo({ top, behavior: "smooth" }); } }}
+              className="hero-cta-primary group px-6 py-2.5 bg-[#0F172A] hover:bg-[#1E293B] text-[#10B981] rounded-sm shadow-[0_0_15px_rgba(16,185,129,0.3)] hover:shadow-[0_0_25px_rgba(16,185,129,0.5)] transition-all duration-300 font-medium flex items-center gap-2 text-sm border border-[#10B981]/30 btn-glitch"
             >
-              {t.hero.cta1}
-              <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              {t.hero.cta3}
+              <svg className="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
               </svg>
             </a>
-            <a
-              href="#contato"
-              className="px-6 py-2.5 bg-transparent hover:bg-[#F9FAFB] dark:hover:bg-[#1E293B] text-[#1F2937] dark:text-white border-2 border-[#1F2937] dark:border-white rounded-sm transition-all duration-300 font-medium text-sm"
-            >
-              {t.hero.cta2}
-            </a>
+            <TypingText text="clique para uma experiência mais imersiva" />
           </div>
         </div>
 
         {/* Links Discretos de Projetos - Fundo do Hero */}
-        <div className="absolute bottom-14 sm:bottom-20 left-0 right-0 flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-[9px] sm:text-[10px] text-[#6B7280] dark:text-[#94A3B8] px-4 max-w-full">
+        <div className="absolute bottom-4 sm:bottom-8 left-0 right-0 flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-[9px] sm:text-[10px] text-[#6B7280] dark:text-[#94A3B8] px-4 max-w-full">
           <span className="opacity-60">{t.hero.projectsLabel}</span>
           <a 
             href="https://ameciclo.org/dados/ciclodados" 
@@ -285,20 +339,9 @@ function PageContent() {
           </a>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce">
-          <svg
-            className="w-5 h-5 text-[#6B7280] dark:text-[#94A3B8]"
-            fill="none"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-          </svg>
-        </div>
+        {/* Konami hint */}
+        <KonamiHint />
+
       </section>
 
       {/* Seção Sobre */}
@@ -326,7 +369,7 @@ function PageContent() {
 
     {/* Analytics overlay */}
     {showAnalytics && (
-      <div className="fixed top-0 left-0 right-0 bottom-0 z-[9998] bg-[#0F172A] overflow-y-auto" style={{ height: "100lvh" }}>
+      <div data-analytics-panel className="fixed top-0 left-0 right-0 bottom-0 z-[9998] bg-[#0F172A] overflow-y-auto" style={{ height: "100lvh" }}>
         <button onClick={() => { setShowAnalytics(false); document.body.style.overflow = ""; }} className="fixed top-4 right-4 text-white/70 hover:text-white text-3xl z-10">×</button>
         <AnalyticsPanel />
       </div>

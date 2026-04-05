@@ -35,9 +35,9 @@ const projects: Array<{
     id: 2,
     name: "Ciclista, Denuncie!",
     description: {
-      pt: "Mapeamento colaborativo de violência no trânsito com autenticação, mapa interativo, moderação e histórico de edições.",
-      en: "Collaborative mapping of traffic violence with authentication, interactive map, moderation and edit history.",
-      es: "Mapeo colaborativo de violencia vial con autenticación, mapa interactivo, moderación e historial de ediciones.",
+      pt: "Violência no trânsito não começa no atropelamento. É hora de dar visibilidade ao que você vive nas ruas.",
+      en: "Traffic violence doesn't start with a collision. It's time to give visibility to what you experience on the streets.",
+      es: "La violencia vial no empieza en el atropello. Es hora de dar visibilidad a lo que vives en las calles.",
     },
     impact: {
       pt: "Ferramenta de denúncia e conscientização sobre segurança viária",

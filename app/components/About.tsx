@@ -53,13 +53,13 @@ export default function About() {
         {/* Layout Assimétrico */}
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Lado Esquerdo - Foto com efeito */}
-          <div className="relative order-2 md:order-1">
+          <div className="relative order-1">
             <div className="relative">
               {/* Borda pixelada/glitch */}
               <div className="about-photo-border absolute -inset-4 bg-gradient-to-r from-[#0B5D1E] to-[#06B6D4] rounded-sm opacity-20 blur-xl" />
-              <div className="relative aspect-square rounded-sm overflow-hidden shadow-2xl">
+              <div className="relative aspect-[3/2] rounded-sm overflow-hidden shadow-2xl">
                 <img
-                  src="/profile.webp"
+                  src="/github-profile.png"
                   alt="Ítalo Sérgio - Desenvolvedor Full Stack"
                   className="w-full h-full object-cover"
                 />
@@ -70,7 +70,7 @@ export default function About() {
           </div>
 
           {/* Lado Direito - Texto em camadas */}
-          <div className="relative order-1 md:order-2 space-y-6">
+          <div className="relative order-2 space-y-6">
             {/* Tag */}
             <div className="inline-block px-4 py-2 bg-[#0B5D1E]/10 dark:bg-[#10B981]/10 rounded-full">
               <span className="text-sm font-medium text-[#0B5D1E] dark:text-[#10B981]">
@@ -88,7 +88,7 @@ export default function About() {
             {/* Descrição */}
             <div className="space-y-4 text-lg text-[#6B7280] dark:text-[#94A3B8]">
               <p>
-                {t.about.p1} <strong className="text-[#0B5D1E] dark:text-[#10B981]">{t.about.p1Bold}</strong> {t.about.p1End}
+                {t.about.p1} <strong className="text-[#0B5D1E] dark:text-[#10B981]">{t.about.p1Bold}</strong>{t.about.p1End} <strong className="text-[#0B5D1E] dark:text-[#10B981]">{t.about.p1Bold2}</strong>{t.about.p1End2} <strong className="text-[#0B5D1E] dark:text-[#10B981]">{t.about.p1Bold3}</strong>
               </p>
               <p>
                 {t.about.p2} <strong className="text-[#0B5D1E] dark:text-[#10B981]">{t.about.p2Bold}</strong>{t.about.p2End}

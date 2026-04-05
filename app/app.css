@@ -31,6 +31,42 @@ html {
   50% { opacity: 1; }
 }
 
+@keyframes glitch {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(2px, -2px); }
+  60% { transform: translate(-1px, -1px); }
+  80% { transform: translate(1px, 1px); }
+}
+
+@keyframes glitchColor1 {
+  0%, 100% { clip-path: inset(0 0 0 0); transform: translate(0); }
+  20% { clip-path: inset(20% 0 60% 0); transform: translate(-3px, 0); }
+  40% { clip-path: inset(50% 0 10% 0); transform: translate(3px, 0); }
+  60% { clip-path: inset(10% 0 70% 0); transform: translate(-2px, 0); }
+  80% { clip-path: inset(70% 0 5% 0); transform: translate(2px, 0); }
+}
+
+@keyframes glitchColor2 {
+  0%, 100% { clip-path: inset(0 0 0 0); transform: translate(0); }
+  20% { clip-path: inset(60% 0 10% 0); transform: translate(3px, 0); }
+  40% { clip-path: inset(10% 0 50% 0); transform: translate(-3px, 0); }
+  60% { clip-path: inset(70% 0 10% 0); transform: translate(2px, 0); }
+  80% { clip-path: inset(5% 0 60% 0); transform: translate(-2px, 0); }
+}
+
+@keyframes btnGlitch {
+  0%, 90%, 100% { transform: translate(0); box-shadow: 0 0 15px rgba(16,185,129,0.3); }
+  92% { transform: translate(-2px, 1px); box-shadow: 3px 0 0 #06B6D4, -3px 0 0 #10B981, 0 0 20px rgba(16,185,129,0.6); }
+  94% { transform: translate(2px, -1px); box-shadow: -2px 0 0 #10B981, 2px 0 0 #06B6D4, 0 0 20px rgba(6,182,212,0.6); }
+  96% { transform: translate(-1px, -1px); box-shadow: 2px 0 0 #06B6D4, -2px 0 0 #10B981, 0 0 25px rgba(16,185,129,0.5); }
+  98% { transform: translate(1px, 1px); box-shadow: -1px 0 0 #10B981, 1px 0 0 #06B6D4, 0 0 15px rgba(16,185,129,0.3); }
+}
+
+.btn-glitch {
+  animation: btnGlitch 3s ease-in-out infinite;
+}
+
 :root {
   /* Tema Claro */
   --primary: #0B5D1E;

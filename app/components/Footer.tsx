@@ -1,5 +1,6 @@
 import { Github, Linkedin, Mail, Download } from "lucide-react";
 import { useLanguage } from "~/lib/LanguageContext";
+import GlitchText from "~/components/GlitchText";
 import type { Locale } from "~/lib/i18n";
 
 const downloadLabel: Record<Locale, string> = {
@@ -36,9 +37,9 @@ export default function Footer() {
           {/* Logo e Mensagem */}
           <div>
             <a href="#" className="text-2xl font-bold text-[#10B981] hover:scale-105 transition-transform inline-flex items-end gap-1 mb-4">
-              ítalo<span className="text-[#06B6D4]">&lt;dev/&gt;</span>
+              <GlitchText>ítalo</GlitchText><span className="text-[#06B6D4]"><GlitchText>{"<dev/>"}</GlitchText></span>
               <span className="text-[10px] text-[#94A3B8] font-normal pb-0.5 relative group">
-                v3
+                <GlitchText>v3</GlitchText>
                 <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
                   Versão do site
                 </span>
@@ -108,7 +109,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <div className="pt-8 border-t border-white/10 text-center text-sm text-[#94A3B8]">
-          <p>© {new Date().getFullYear()} Ítalo Sérgio Chaves da Silva. Todos os direitos reservados.</p>
+          <p>© {new Date().getFullYear()} Ítalo Sérgio Chaves da Silva - Desenvolvedor de Software. Todos os direitos reservados.</p>
         </div>
       </div>
     </footer>
