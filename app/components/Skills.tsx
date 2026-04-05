@@ -86,11 +86,16 @@ export default function Skills() {
 
   return (
     <section ref={sectionRef} id="skills" aria-labelledby="skills-title" className="relative py-20 md:py-32 px-4 overflow-hidden">
-      <div
-        ref={bgRef}
-        className="absolute -inset-20"
-        style={{ backgroundImage: "url('/stack-background.png')", backgroundSize: "cover", backgroundPosition: "center top 50px" }}
-      />
+      <div ref={bgRef} className="absolute -inset-20">
+        <div
+          className="absolute inset-0 bg-cover sm:hidden"
+          style={{ backgroundImage: "url('/stack-background-mobile.png')", backgroundPosition: "center top 50px" }}
+        />
+        <div
+          className="absolute inset-0 bg-cover hidden sm:block"
+          style={{ backgroundImage: "url('/stack-background.png')", backgroundPosition: "center top 50px" }}
+        />
+      </div>
       <div className="absolute inset-0 bg-[#F9FAFB]/30 dark:bg-[#1E293B]/40" />
       <div className="relative z-10 max-w-7xl mx-auto">
         <div className="text-center mb-16">
