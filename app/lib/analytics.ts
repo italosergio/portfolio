@@ -43,10 +43,11 @@ export function trackEvent(category: string, action: string, label?: string) {
 }
 
 const lastClickPos = { x: 0, y: 0 };
-document.addEventListener("mousedown", (e) => { lastClickPos.x = e.clientX; lastClickPos.y = e.clientY; });
-document.addEventListener("touchstart", (e) => { if (e.touches[0]) { lastClickPos.x = e.touches[0].clientX; lastClickPos.y = e.touches[0].clientY; } }, { passive: true });
 
 export function initClickTracking() {
+  document.addEventListener("mousedown", (e) => { lastClickPos.x = e.clientX; lastClickPos.y = e.clientY; });
+  document.addEventListener("touchstart", (e) => { if (e.touches[0]) { lastClickPos.x = e.touches[0].clientX; lastClickPos.y = e.touches[0].clientY; } }, { passive: true });
+
   let lastEvent = "";
   let lastTime = 0;
 

@@ -40,6 +40,8 @@ export default function AnalyticsPanel() {
   const [views, setViews] = useState<PageView[]>([]);
   const [events, setEvents] = useState<ClickEvent[]>([]);
   const [selectedEvent, setSelectedEvent] = useState<ClickEvent | null>(null);
+  const [eventsTab, setEventsTab] = useState<"recent" | "all">("recent");
+  const [viewsTab, setViewsTab] = useState<"recent" | "all">("recent");
 
   useEffect(() => {
     const unsub1 = onValue(ref(rtdb, "pageviews"), (snap) => {
@@ -164,10 +166,13 @@ export default function AnalyticsPanel() {
         ))}
       </div>
 
-      {/* Recent events */}
-      <h2 className="text-sm text-[#94A3B8] mb-3">Últimos eventos</h2>
+      {/* Events */}
+      <div className="flex items-center gap-3 mb-3">
+        <button onClick={() => setEventsTab("recent")} className={`text-sm ${eventsTab === "recent" ? "text-[#10B981]" : "text-[#94A3B8] hover:text-white"}`}>Últimos eventos</button>
+        <button onClick={() => setEventsTab("all")} className={`text-sm ${eventsTab === "all" ? "text-[#10B981]" : "text-[#94A3B8] hover:text-white"}`}>Todos os eventos ({events.length})</button>
+      </div>
       <div className="space-y-2 max-h-[30vh] overflow-y-auto mb-8">
-        {events.slice(0, 30).map((e, i) => (
+        {(eventsTab === "recent" ? events.slice(0, 30) : events).map((e, i) => (
           <div key={i} onClick={() => setSelectedEvent(e)} className="bg-white/5 p-3 rounded-sm text-xs flex justify-between items-start gap-4 cursor-pointer hover:bg-white/10 transition-colors">
             <div>
               <span className="text-[#F59E0B]">{e.category}</span>
@@ -216,10 +221,13 @@ export default function AnalyticsPanel() {
         </div>
       )}
 
-      {/* Recent views */}
-      <h2 className="text-sm text-[#94A3B8] mb-3">Últimos acessos</h2>
+      {/* Views */}
+      <div className="flex items-center gap-3 mb-3">
+        <button onClick={() => setViewsTab("recent")} className={`text-sm ${viewsTab === "recent" ? "text-[#10B981]" : "text-[#94A3B8] hover:text-white"}`}>Últimos acessos</button>
+        <button onClick={() => setViewsTab("all")} className={`text-sm ${viewsTab === "all" ? "text-[#10B981]" : "text-[#94A3B8] hover:text-white"}`}>Todos os acessos ({views.length})</button>
+      </div>
       <div className="space-y-2 max-h-[50vh] overflow-y-auto">
-        {views.slice(0, 50).map((v, i) => (
+        {(viewsTab === "recent" ? views.slice(0, 50) : views).map((v, i) => (
           <div key={i} className="bg-white/5 p-3 rounded-sm text-xs flex justify-between items-start gap-4">
             <div>
               <span className="text-[#10B981]">{v.path}</span>

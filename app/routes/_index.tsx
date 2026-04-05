@@ -19,6 +19,7 @@ import { trackPageView, initClickTracking } from "~/lib/analytics";
 import LanguageSelector from "~/components/LanguageSelector";
 import PixelScrollbar from "~/components/PixelScrollbar";
 import AudioPlayer from "~/components/AudioPlayer";
+import ScrollToTop from "~/components/ScrollToTop";
 import AnalyticsPanel from "~/components/AnalyticsPanel";
 import LiveCursors from "~/components/LiveCursors";
 import GlitchText from "~/components/GlitchText";
@@ -158,6 +159,7 @@ function PageContent() {
     <>
       <PixelScrollbar />
       <AudioPlayer />
+      <ScrollToTop />
       <Header />
       <LanguageSelector />
       {showBikes && (
