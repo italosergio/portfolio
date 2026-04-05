@@ -14,8 +14,12 @@ import BikeAnimation from "~/components/BikeAnimation";
 import MatrixRain from "~/components/MatrixRain";
 import Toast from "~/components/Toast";
 import { useKonamiCode } from "~/lib/useKonamiCode";
+import { useSecretCode } from "~/lib/useSecretCode";
+import { trackPageView, initClickTracking } from "~/lib/analytics";
 import LanguageSelector from "~/components/LanguageSelector";
 import PixelScrollbar from "~/components/PixelScrollbar";
+import AnalyticsPanel from "~/components/AnalyticsPanel";
+import LiveCursors from "~/components/LiveCursors";
 
 export const meta: MetaFunction = () => {
   return [
@@ -67,6 +71,21 @@ function PageContent() {
   const [showBikes, setShowBikes] = useState(false);
   const [fadeOut, setFadeOut] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
+  const [showAnalytics, setShowAnalytics] = useState(false);
+
+  useSecretCode(useCallback(() => setShowAnalytics(a => {
+    const next = !a;
+    document.body.style.overflow = next ? "hidden" : "";
+    return next;
+  }), []));
+
+  const tracked = useRef(false);
+  useEffect(() => {
+    if (tracked.current) return;
+    tracked.current = true;
+    trackPageView("/");
+    initClickTracking();
+  }, []);
 
   useKonamiCode(
     useCallback(() => {
@@ -303,6 +322,15 @@ function PageContent() {
 
     {/* Footer */}
     <Footer />
+    <LiveCursors />
+
+    {/* Analytics overlay */}
+    {showAnalytics && (
+      <div className="fixed top-0 left-0 right-0 bottom-0 z-[9998] bg-[#0F172A] overflow-y-auto" style={{ height: "100lvh" }}>
+        <button onClick={() => { setShowAnalytics(false); document.body.style.overflow = ""; }} className="fixed top-4 right-4 text-white/70 hover:text-white text-3xl z-10">×</button>
+        <AnalyticsPanel />
+      </div>
+    )}
     </>
   );
 }
