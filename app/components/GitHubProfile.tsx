@@ -5,21 +5,7 @@ export default function GitHubProfile() {
   const { t } = useLanguage();
 
   return (
-    <section className="relative py-20 px-4 bg-[#F9FAFB] dark:bg-[#1E293B] overflow-hidden">
-      {/* Pixel grid background */}
-      <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(11, 93, 30, 0.3) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(11, 93, 30, 0.3) 1px, transparent 1px)
-            `,
-            backgroundSize: "8px 8px",
-          }}
-        />
-      </div>
-
+    <section className="relative py-20 px-4">
       <div className="relative z-10 max-w-5xl mx-auto">
         {/* Terminal-style card */}
         <div className="border-2 border-[#0B5D1E]/30 dark:border-[#10B981]/30 bg-white dark:bg-[#0F172A] shadow-xl"

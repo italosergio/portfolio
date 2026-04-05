@@ -17,7 +17,7 @@ function DownloadButton({ locale }: { locale: Locale }) {
   return (
     <button
       onClick={handleDownload}
-      className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#0891B2] to-[#10B981] hover:brightness-110 text-white rounded-sm transition-all text-sm font-medium w-full justify-center"
+      className="inline-flex items-center gap-2 px-3 py-1.5 bg-gradient-to-r from-[#0891B2] to-[#10B981] hover:brightness-110 text-white rounded-sm transition-all text-xs font-medium"
       aria-label={downloadLabel[locale]}
     >
       <Download className="w-4 h-4" aria-hidden="true" />
@@ -103,6 +103,7 @@ export default function Footer() {
               </a>
             </div>
           </div>
+
         </div>
 
         {/* Copyright */}

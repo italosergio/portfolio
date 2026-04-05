@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { Map, BarChart3, Globe, Shield } from "lucide-react";
 import { useLanguage } from "~/lib/LanguageContext";
 import type { Locale } from "~/lib/i18n";
@@ -68,9 +69,28 @@ const areas: Array<{
 
 export default function Skills() {
   const { locale, t } = useLanguage();
+  const bgRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const section = sectionRef.current;
+      const bg = bgRef.current;
+      if (!section || !bg) return;
+      const offset = section.getBoundingClientRect().top * -0.3;
+      bg.style.transform = `translateY(${offset}px)`;
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <section id="skills" aria-labelledby="skills-title" className="relative py-20 md:py-32 px-4 overflow-hidden" style={{ backgroundImage: "url('/stack-background.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
+    <section ref={sectionRef} id="skills" aria-labelledby="skills-title" className="relative py-20 md:py-32 px-4 overflow-hidden">
+      <div
+        ref={bgRef}
+        className="absolute -inset-20"
+        style={{ backgroundImage: "url('/stack-background.png')", backgroundSize: "cover", backgroundPosition: "center top 50px" }}
+      />
       <div className="absolute inset-0 bg-[#F9FAFB]/30 dark:bg-[#1E293B]/40" />
       <div className="relative z-10 max-w-7xl mx-auto">
         <div className="text-center mb-16">

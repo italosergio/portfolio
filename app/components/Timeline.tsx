@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from "react";
-import { ChevronLeft, ChevronRight, ChevronDown, Star, ExternalLink, Github } from "lucide-react";
+import { useState, useEffect, useRef, useMemo } from "react";
+import { ChevronLeft, ChevronRight, ChevronDown, Star, ExternalLink, Github, Zap, HardHat, Sigma, Bike, GraduationCap, Code, Terminal, Map, BarChart3, Globe, Megaphone, FileText, Database, Users, Landmark, CalendarDays, Wrench, MapPin, Shield } from "lucide-react";
 import { useLanguage } from "~/lib/LanguageContext";
 import type { Locale } from "~/lib/i18n";
 
@@ -424,6 +424,50 @@ function ImageCarousel({ images }: { images: string[] }) {
   );
 }
 
+const milestoneIcons = [
+  [Zap, HardHat, Sigma, Zap, HardHat, Sigma],           // Engenharia Elétrica
+  [Bike, Users, Megaphone, Bike, Users, Bike],            // Ameciclo Voluntário
+  [Code, Terminal, GraduationCap, Code, Terminal, Code],   // Formação Dev
+  [Map, MapPin, Database, Map, Bike, MapPin],              // IDECICLO
+  [Terminal, Code, Database, FileText, Terminal, Code],     // Ciclomputador
+  [BarChart3, Database, Globe, FileText, BarChart3, Globe], // LOA Clima
+  [Bike, Users, Megaphone, CalendarDays, Bike, Users],     // Fórum Nordestino
+  [BarChart3, Database, Landmark, FileText, Globe, Database], // DOM
+  [Globe, CalendarDays, Bike, Users, Megaphone, Globe],    // Bicicultura
+  [Wrench, Users, Database, Shield, Code, Terminal],       // Central Ameciclista
+  [Map, Database, Globe, BarChart3, Code, MapPin],         // Ciclodados
+  [Globe, Map, BarChart3, Bike, Code, Database],           // Bici nos Planos
+  [MapPin, Shield, Map, Users, Database, Bike],            // Ciclista Denuncie
+];
+
+function SectionFloatingIcons() {
+  const allIcons = useMemo(() => milestoneIcons.flat().filter((_, i) => i % 5 === 0), []);
+  const items = useMemo(() =>
+    allIcons.map(() => ({
+      top: `${Math.random() * 90}%`,
+      duration: `${14 + Math.random() * 20}s`,
+      delay: `${-Math.random() * 15}s`,
+      size: `${16 + Math.random() * 24}px`,
+    })), [allIcons]);
+
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+      {allIcons.map((Icon, i) => (
+        <Icon
+          key={i}
+          className="absolute text-[#10B981]/30 dark:text-[#10B981]/20"
+          style={{
+            top: items[i].top,
+            width: items[i].size,
+            height: items[i].size,
+            animation: `bikeRide ${items[i].duration} linear ${items[i].delay} infinite, bikePulse 4s ease-in-out ${items[i].delay} infinite`,
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
 export default function Timeline() {
   const { locale } = useLanguage();
   const [showAll, setShowAll] = useState(false);
@@ -441,8 +485,9 @@ export default function Timeline() {
   };
 
   return (
-    <section id="trajetoria" aria-labelledby="timeline-title" ref={sectionRef} className="relative py-20 md:py-32 px-4 bg-white dark:bg-[#0F172A]">
-      <div className="max-w-4xl mx-auto">
+    <section id="trajetoria" aria-labelledby="timeline-title" ref={sectionRef} className="relative py-20 md:py-32 px-4 bg-white dark:bg-[#0F172A] overflow-hidden">
+      <SectionFloatingIcons />
+      <div className="relative z-10 max-w-4xl mx-auto">
         <div className="text-center mb-16">
           <div className="inline-block px-4 py-2 bg-[#0B5D1E]/10 dark:bg-[#10B981]/10 rounded-full mb-6">
             <span className="text-sm font-medium text-[#0B5D1E] dark:text-[#10B981]">

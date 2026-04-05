@@ -1,8 +1,17 @@
 import { Leaf, Bike, Database, Target } from "lucide-react";
+import { useMemo } from "react";
 import { useLanguage } from "~/lib/LanguageContext";
 
 export default function About() {
   const { t } = useLanguage();
+
+  const bikes = useMemo(() =>
+    Array.from({ length: 12 }, (_, i) => ({
+      top: `${8 + (i * 7.5) % 85}%`,
+      duration: `${12 + Math.random() * 20}s`,
+      delay: `${-Math.random() * 15}s`,
+      size: `${14 + Math.random() * 30}px`,
+    })), []);
 
   return (
     <section id="sobre" aria-labelledby="about-title" className="about-section relative py-20 md:py-32 px-4 overflow-hidden bg-[#F9FAFB] dark:bg-[#1E293B]">
@@ -23,6 +32,22 @@ export default function About() {
       {/* Elementos geométricos de fundo - Verde e Azul */}
       <div className="absolute top-20 right-0 w-48 md:w-72 h-48 md:h-72 bg-[#10B981]/10 dark:bg-[#10B981]/5 rounded-full blur-3xl" />
       <div className="absolute bottom-20 left-0 w-64 md:w-96 h-64 md:h-96 bg-[#06B6D4]/10 dark:bg-[#22D3EE]/5 rounded-full blur-3xl" />
+
+      {/* Bicicletinhas */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {bikes.map((b, i) => (
+          <Bike
+            key={i}
+            className="absolute text-[#10B981]/30 dark:text-[#10B981]/25"
+            style={{
+              top: b.top,
+              width: b.size,
+              height: b.size,
+              animation: `bikeRide ${b.duration} linear ${b.delay} infinite, bikePulse 4s ease-in-out ${b.delay} infinite`,
+            }}
+          />
+        ))}
+      </div>
 
       <div className="max-w-7xl mx-auto">
         {/* Layout Assimétrico */}

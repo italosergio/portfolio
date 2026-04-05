@@ -1,5 +1,15 @@
 @import "tailwindcss";
 
+@keyframes bikeRide {
+  from { left: -30px; }
+  to { left: 100%; }
+}
+
+@keyframes bikePulse {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
 :root {
   /* Tema Claro */
   --primary: #0B5D1E;

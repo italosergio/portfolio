@@ -1,5 +1,5 @@
 import type { MetaFunction } from "react-router";
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import { ThemeProvider } from "~/lib/ThemeContext";
 import { LanguageProvider, useLanguage } from "~/lib/LanguageContext";
 import Header from "~/components/Header";
@@ -30,6 +30,34 @@ export default function Index() {
         <PageContent />
       </ThemeProvider>
     </LanguageProvider>
+  );
+}
+
+function ParallaxSection({ children }: { children: React.ReactNode }) {
+  const bgRef = useRef<HTMLDivElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const wrapper = wrapperRef.current;
+      const bg = bgRef.current;
+      if (!wrapper || !bg) return;
+      const offset = wrapper.getBoundingClientRect().top * -0.3;
+      bg.style.transform = `translateY(${offset}px)`;
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <div ref={wrapperRef} className="relative overflow-hidden bg-[#F9FAFB] dark:bg-[#1E293B]">
+      <div
+        ref={bgRef}
+        className="absolute -inset-20 opacity-20"
+        style={{ backgroundImage: "url('/footer-logo.png')", backgroundSize: "cover", backgroundPosition: "top" }}
+      />
+      {children}
+    </div>
   );
 }
 
@@ -264,11 +292,11 @@ function PageContent() {
       {/* Seção Trajetória */}
       <Timeline />
 
-      {/* Seção Contato */}
-      <Contact />
-
-      {/* Seção GitHub */}
-      <GitHubProfile />
+      {/* Seção Contato + GitHub */}
+      <ParallaxSection>
+        <Contact />
+        <GitHubProfile />
+      </ParallaxSection>
     </div>
 
     {/* Footer */}
