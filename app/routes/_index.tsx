@@ -54,7 +54,7 @@ function ParallaxSection({ children }: { children: React.ReactNode }) {
       <div
         ref={bgRef}
         className="absolute -inset-20 opacity-20"
-        style={{ backgroundImage: "url('/footer-logo.png')", backgroundSize: "cover", backgroundPosition: "top" }}
+        style={{ backgroundImage: "url('/stack-background-mobile.png')", backgroundSize: "cover", backgroundPosition: "top" }}
       />
       {children}
     </div>
