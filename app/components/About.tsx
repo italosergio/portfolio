@@ -1,6 +1,7 @@
 import { Leaf, Bike, Database, Target } from "lucide-react";
 import { useMemo } from "react";
 import { useLanguage } from "~/lib/LanguageContext";
+import OptimizedImage from "~/components/OptimizedImage";
 
 export default function About() {
   const { t } = useLanguage();
@@ -58,7 +59,7 @@ export default function About() {
               {/* Borda pixelada/glitch */}
               <div className="about-photo-border absolute -inset-4 bg-gradient-to-r from-[#0B5D1E] to-[#06B6D4] rounded-sm opacity-20 blur-xl" />
               <div className="relative aspect-[3/2] rounded-sm overflow-hidden shadow-2xl">
-                <img
+                <OptimizedImage
                   src="/github-profile.png"
                   alt="Ítalo Sérgio - Desenvolvedor Full Stack"
                   className="w-full h-full object-cover"

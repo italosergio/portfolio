@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useMemo } from "react";
 import { ChevronLeft, ChevronRight, ChevronDown, Star, ExternalLink, Github, Zap, HardHat, Sigma, Bike, GraduationCap, Code, Terminal, Map, BarChart3, Globe, Megaphone, FileText, Database, Users, Landmark, CalendarDays, Wrench, MapPin, Shield } from "lucide-react";
 import { useLanguage } from "~/lib/LanguageContext";
 import type { Locale } from "~/lib/i18n";
+import { useNetworkStatus } from "~/lib/useNetworkStatus";
 
 const milestones: Array<{
   year: string;
@@ -300,6 +301,20 @@ const milestones: Array<{
 function ImageCarousel({ images }: { images: string[] }) {
   const [current, setCurrent] = useState(0);
   const [expanded, setExpanded] = useState(false);
+  const { quality } = useNetworkStatus();
+  const [inView, setInView] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setInView(true); obs.disconnect(); } },
+      { rootMargin: "200px" }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
 
   useEffect(() => {
     if (expanded) return;
@@ -323,23 +338,40 @@ function ImageCarousel({ images }: { images: string[] }) {
   const prev = () => setCurrent((c) => (c === 0 ? images.length - 1 : c - 1));
   const next = () => setCurrent((c) => (c === images.length - 1 ? 0 : c + 1));
 
+  // On low network, show a compact placeholder instead of images
+  if (quality === "low") {
+    return (
+      <div ref={ref} className="mt-3 rounded-sm bg-gray-200 dark:bg-gray-700 h-20 flex items-center justify-center">
+        <p className="text-xs text-gray-500 dark:text-gray-400">
+          {images.length} foto{images.length > 1 ? "s" : ""} (rede lenta — toque para ver)
+        </p>
+      </div>
+    );
+  }
+
   return (
     <>
       {/* Thumbnail no card */}
       <div
+        ref={ref}
         className="relative mt-3 rounded-sm overflow-hidden cursor-pointer h-40"
         onClick={() => setExpanded(true)}
       >
-        {images.map((src, idx) => (
+        {inView ? images.map((src, idx) => (
           <img
             key={src}
-            src={src}
+            src={idx === current || idx === (current + 1) % images.length ? src : undefined}
+            data-src={src}
             alt=""
+            loading="lazy"
+            decoding="async"
             className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
               idx === current ? "opacity-100" : "opacity-0"
             }`}
           />
-        ))}
+        )) : (
+          <div className="w-full h-full bg-gray-200 dark:bg-gray-700 animate-pulse" />
+        )}
         {images.length > 1 && (
           <div className="absolute bottom-1.5 left-1/2 -translate-x-1/2 flex gap-1">
             {images.map((_, idx) => (

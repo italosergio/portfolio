@@ -2,6 +2,7 @@ import { ExternalLink, Github, Sparkles, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { useLanguage } from "~/lib/LanguageContext";
 import type { Locale } from "~/lib/i18n";
+import OptimizedImage from "~/components/OptimizedImage";
 
 const projects: Array<{
   id: number;
@@ -189,7 +190,7 @@ function ProjectCard({ project, locale, t }: { project: typeof projects[0]; loca
       )}
 
       <div className="relative h-48 overflow-hidden">
-        <img
+        <OptimizedImage
           src={project.image}
           alt={`Screenshot do projeto ${project.name}`}
           className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"

@@ -1,5 +1,6 @@
 import { MapPin, Building2, FolderGit2, Users, GitCommitHorizontal, GitPullRequest, Eye } from "lucide-react";
 import { useLanguage } from "~/lib/LanguageContext";
+import OptimizedImage from "~/components/OptimizedImage";
 
 export default function GitHubProfile() {
   const { t } = useLanguage();
@@ -21,7 +22,7 @@ export default function GitHubProfile() {
           <div className="flex flex-col sm:flex-row items-stretch">
             {/* Photo with pixel border */}
             <div className="shrink-0 border-b-2 sm:border-b-0 sm:border-r-2 border-[#0B5D1E]/30 dark:border-[#10B981]/30 overflow-hidden">
-              <img
+              <OptimizedImage
                 src="/profile.webp"
                 alt="Ítalo Sérgio - GitHub Profile"
                 className="w-full sm:w-[480px] h-auto sm:h-full object-cover"

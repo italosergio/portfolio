@@ -23,6 +23,7 @@ import ScrollToTop from "~/components/ScrollToTop";
 import AnalyticsPanel from "~/components/AnalyticsPanel";
 import LiveCursors from "~/components/LiveCursors";
 import GlitchText from "~/components/GlitchText";
+import { useNetworkStatus } from "~/lib/useNetworkStatus";
 
 export const meta: MetaFunction = () => {
   return [
@@ -99,6 +100,7 @@ function KonamiHint() {
 function ParallaxSection({ children }: { children: React.ReactNode }) {
   const bgRef = useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
+  const { quality } = useNetworkStatus();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -114,11 +116,13 @@ function ParallaxSection({ children }: { children: React.ReactNode }) {
 
   return (
     <div ref={wrapperRef} className="relative overflow-hidden bg-[#F9FAFB] dark:bg-[#1E293B]">
-      <div
-        ref={bgRef}
-        className="absolute -inset-20 opacity-20"
-        style={{ backgroundImage: "url('/stack-background-mobile.png')", backgroundSize: "cover", backgroundPosition: "top" }}
-      />
+      {quality !== "low" && (
+        <div
+          ref={bgRef}
+          className="absolute -inset-20 opacity-20"
+          style={{ backgroundImage: "url('/stack-background-mobile.png')", backgroundSize: "cover", backgroundPosition: "top" }}
+        />
+      )}
       {children}
     </div>
   );
