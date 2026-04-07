@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 
-export const APP_VERSION = "3.4.0";
+export const APP_VERSION = "3.4.1";
 
 const changelog = [
-  { version: "3.4.0", date: "2026-04-06", desc: "ClickHeatmap, AnalyticsPanel interativo, dev mode, VersionBadge com changelog, CDRV" },
+  { version: "3.4.1", date: "2026-04-06", desc: "Fix modal de versao (flickering, scroll lock, portal), processo CDRV" },
+  { version: "3.4.0", date: "2026-04-06", desc: "ClickHeatmap, AnalyticsPanel interativo, dev mode, VersionBadge com changelog" },
   { version: "3.3.3", date: "2026-04-06", desc: "Otimizacao de carregamento para redes lentas" },
   { version: "3.3.2", date: "2026-04-05", desc: "Scroll to top, analytics tabs, mobile event tracking" },
   { version: "3.3.1", date: "2026-04-05", desc: "Glitch effects, audio player, enriched analytics, konami mobile" },
