@@ -6,7 +6,7 @@
 ## Regras de Desenvolvimento
 
 - **Nunca usar emoticons/emojis** em textos de UI (toasts, labels, tags, placeholders). Sempre usar texto limpo com icones Lucide quando necessario.
-- **Versionamento semver v3.X.Y** — ver processo CDRV na secao "Git e Versionamento".
+- **Versionamento semver v3.X.Y** — ver processos CDRV e CDGV na secao "Git e Versionamento". CDGV e o padrao.
 - **Modais devem bloquear scroll da pagina** — ao abrir modal, setar `document.body.style.overflow = "hidden"` e restaurar ao fechar. Scroll deve funcionar apenas dentro do modal.
 
 ## Convenções de Código
@@ -88,13 +88,25 @@ Processo padrao de commit do projeto. **SEMPRE** seguir esta ordem:
    - Nova entrada no array `changelog` do VersionBadge com data, versao e descricao resumida que cubra TODAS as mudancas da sequencia
    - Mensagem: `chore: bump version to X.Y.Z`
 
+### CDGV — Commit Detalhado Granular Versionado (PREFERIDO)
+
+Variante granular do CDRV. **Usar por padrao** salvo instrucao contraria.
+
+Diferenca do CDRV: em vez de agrupar por responsabilidade, cada mudanca individual vira um commit separado. Mais commits, mais granularidade, mais versoes no historico.
+
+1. **Um commit por mudanca individual** — cada funcionalidade, fix, ajuste ou melhoria pontual e um commit isolado, mesmo que sejam do mesmo arquivo ou componente
+2. **Commits detalhados** — mensagem com titulo conventional commit + corpo explicando a mudanca especifica
+3. **Ultimo commit: versionamento** — OBRIGATORIO, mesmo regras do CDRV
+   - Cada commit da sequencia gera uma entrada individual no changelog do VersionBadge
+   - Se a sequencia tem 5 commits, o changelog ganha 5 novas versoes (cada uma com seu PATCH/MINOR)
+
 Regras de versao (semver):
 - **PATCH** (3.3.X): fixes, melhorias pontuais, ajustes de UI
 - **MINOR** (3.X.0): funcionalidades novas significativas
 - **MAJOR** (X.0.0): redesign total
 
 **IMPORTANTE — Erros a evitar:**
-- **NUNCA commitar sem versionar** — nao importa se o CDRV ainda nao existia, se houve commits, deve haver bump. Sem excecao.
+- **NUNCA commitar sem versionar** — nao importa se o CDRV/CDGV ainda nao existia, se houve commits, deve haver bump. Sem excecao.
 - **A versao deve refletir TUDO que entrou** — analisar todos os commits da sequencia pra decidir se e PATCH, MINOR ou MAJOR. Se tem feat novo significativo, e MINOR no minimo.
 - **O changelog deve descrever o conjunto** — nao apenas o ultimo fix, mas todas as mudancas desde a ultima versao.
 
