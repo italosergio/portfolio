@@ -1,6 +1,7 @@
 import { Github, Linkedin, Mail, Download } from "lucide-react";
 import { useLanguage } from "~/lib/LanguageContext";
 import GlitchText from "~/components/GlitchText";
+import VersionBadge from "~/components/VersionBadge";
 import type { Locale } from "~/lib/i18n";
 
 const downloadLabel: Record<Locale, string> = {
@@ -38,12 +39,7 @@ export default function Footer() {
           <div>
             <a href="#" className="text-2xl font-bold text-[#10B981] hover:scale-105 transition-transform inline-flex items-end gap-1 mb-4">
               <GlitchText>ítalo</GlitchText><span className="text-[#06B6D4]"><GlitchText>{"<dev/>"}</GlitchText></span>
-              <span className="text-[10px] text-[#94A3B8] font-normal pb-0.5 relative group">
-                <GlitchText>v3</GlitchText>
-                <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-                  Versão do site
-                </span>
-              </span>
+              <VersionBadge />
             </a>
             <p className="text-[#94A3B8] text-sm mb-4">
               {t.footer.built} 💚 {t.footer.and} {t.footer.purpose}
