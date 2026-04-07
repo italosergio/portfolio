@@ -1,5 +1,6 @@
-import { Github, Linkedin, Mail, Download } from "lucide-react";
+import { Github, Linkedin, Mail, Download, Eye } from "lucide-react";
 import { useLanguage } from "~/lib/LanguageContext";
+import { useState, useEffect } from "react";
 import GlitchText from "~/components/GlitchText";
 import VersionBadge from "~/components/VersionBadge";
 import type { Locale } from "~/lib/i18n";
@@ -30,9 +31,37 @@ function DownloadButton({ locale }: { locale: Locale }) {
 
 export default function Footer() {
   const { locale, t } = useLanguage();
+  const [eyeVisible, setEyeVisible] = useState(false);
+  const [eyePos, setEyePos] = useState({ left: "50%", top: "50%" });
+
+  useEffect(() => {
+    const positions = [
+      { left: "92%", top: "15%" },
+      { left: "5%", top: "70%" },
+      { left: "92%", top: "70%" },
+      { left: "45%", top: "85%" },
+      { left: "75%", top: "40%" },
+      { left: "5%", top: "30%" },
+    ];
+    const loop = () => {
+      setEyePos(positions[Math.floor(Math.random() * positions.length)]);
+      setEyeVisible(true);
+      setTimeout(() => setEyeVisible(false), 3000);
+    };
+    const id = setInterval(loop, 8000);
+    setTimeout(loop, 2000);
+    return () => clearInterval(id);
+  }, []);
 
   return (
-    <footer role="contentinfo" className="relative bg-[#1F2937] dark:bg-[#0F172A] text-white py-12 px-4">
+    <footer role="contentinfo" className="relative bg-[#1F2937] dark:bg-[#0F172A] text-white py-12 px-4 overflow-hidden">
+      <div
+        className="absolute pointer-events-none transition-opacity duration-1000"
+        style={{ left: eyePos.left, top: eyePos.top, opacity: eyeVisible ? 1 : 0 }}
+        aria-hidden="true"
+      >
+        <Eye className="w-8 h-8 text-[#10B981]/30" />
+      </div>
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Logo e Mensagem */}
