@@ -1,6 +1,7 @@
 import { useEffect, useState, useMemo } from "react";
 import { ref, onValue } from "firebase/database";
 import { rtdb } from "~/lib/firebase";
+import { Smartphone, Monitor } from "lucide-react";
 
 function Row({ label, value, color }: { label: string; value: string; color?: string }) {
   return (
@@ -185,9 +186,11 @@ export default function AnalyticsPanel({ onShowHeatmap }: { onShowHeatmap?: () =
         <h1 className="text-3xl font-bold text-[#10B981]">Analytics</h1>
         <button
           onClick={onShowHeatmap}
-          className="px-3 py-1.5 text-xs bg-[#10B981]/20 text-[#10B981] border border-[#10B981]/30 rounded-sm hover:bg-[#10B981]/30 transition-colors"
+          className="px-3 py-1.5 text-xs bg-[#10B981]/20 text-[#10B981] border border-[#10B981]/30 rounded-sm hover:bg-[#10B981]/30 transition-colors flex items-center gap-1.5"
         >
-          🔥 Mostrar cliques na tela
+          <Smartphone className="w-4 h-4 sm:hidden" />
+          <Monitor className="w-4 h-4 hidden sm:block" />
+          Cliques
         </button>
       </div>
 
