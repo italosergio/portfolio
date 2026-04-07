@@ -20,6 +20,7 @@ export default function LiveCursors({ name }: { name?: string }) {
   const myRef = useRef(ref(rtdb, `cursors/${SESSION_ID}`));
   const throttle = useRef(0);
   const [myPos, setMyPos] = useState(0);
+  const [mouseXY, setMouseXY] = useState<{ x: number; y: number } | null>(null);
 
   const nameRef = useRef(name);
   useEffect(() => { nameRef.current = name; }, [name]);
@@ -44,6 +45,7 @@ export default function LiveCursors({ name }: { name?: string }) {
       throttle.current = now;
       const y = parseFloat(((e.clientY + window.scrollY) / document.documentElement.scrollHeight * 100).toFixed(2));
       setMyPos(y);
+      setMouseXY({ x: e.clientX, y: e.clientY });
       set(myRef.current, {
         x: parseFloat(((e.clientX / window.innerWidth) * 100).toFixed(1)),
         y,
@@ -138,6 +140,15 @@ export default function LiveCursors({ name }: { name?: string }) {
           </div>
         );
       })}
+
+      {name && mouseXY && !IS_MOBILE && (
+        <div
+          className="fixed pointer-events-none z-[9998] transition-all duration-75"
+          style={{ left: mouseXY.x + 12, top: mouseXY.y + 12 }}
+        >
+          <span className="text-[10px] px-1 rounded-sm text-white font-mono" style={{ background: "#FF6B00", boxShadow: "0 0 8px #FF6B0080" }}>{name}</span>
+        </div>
+      )}
     </>
   );
 }
