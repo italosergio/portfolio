@@ -1,5 +1,6 @@
 {
-  "name": "my-react-router-app",
+  "name": "portfolio-italo",
+  "version": "3.3.3",
   "private": true,
   "type": "module",
   "scripts": {
