@@ -3,6 +3,11 @@
 > Este arquivo serve como memória para assistentes de IA durante o desenvolvimento.
 > Adicione aqui padrões, decisões e boas práticas adotadas no projeto.
 
+## Regras de Desenvolvimento
+
+- **Nunca usar emoticons/emojis** em textos de UI (toasts, labels, tags, placeholders). Sempre usar texto limpo com icones Lucide quando necessario.
+- **Versionamento semver v3.X.Y** — todo commit deve atualizar a versao no `package.json` e em `app/components/VersionBadge.tsx` (constante `APP_VERSION` e array `changelog`). PATCH para fixes/melhorias pontuais, MINOR para funcionalidades novas significativas, MAJOR para redesign total.
+
 ## Convenções de Código
 
 ### Nomenclatura
