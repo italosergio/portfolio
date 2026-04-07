@@ -1,5 +1,5 @@
-import { useState } from "react";
-import GlitchText from "~/components/GlitchText";
+import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 
 export const APP_VERSION = "3.3.3";
 
@@ -20,16 +20,21 @@ const changelog = [
 export default function VersionBadge() {
   const [open, setOpen] = useState(false);
 
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
+
   return (
     <>
       <button
         onClick={() => setOpen(true)}
         className="text-[10px] text-[#6B7280] dark:text-[#94A3B8] font-normal pb-0.5 hover:text-[#10B981] dark:hover:text-[#10B981] transition-colors cursor-pointer"
       >
-        <GlitchText>{`v${APP_VERSION}`}</GlitchText>
+        v{APP_VERSION}
       </button>
 
-      {open && (
+      {open && createPortal(
         <div className="fixed inset-0 z-[10000] flex items-center justify-center bg-black/70" onClick={() => setOpen(false)}>
           <div className="bg-[#1E293B] border border-white/10 rounded-sm p-6 max-w-md w-full mx-4 font-mono text-xs max-h-[80vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
             <div className="flex justify-between items-center mb-4">
@@ -46,7 +51,8 @@ export default function VersionBadge() {
               ))}
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );
