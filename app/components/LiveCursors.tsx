@@ -106,7 +106,7 @@ export default function LiveCursors({ name }: { name?: string }) {
       </div>
 
       {Object.entries(cursors).map(([id, c], i) => {
-        const color = COLORS[i % COLORS.length];
+        const color = c.name ? "#FF6B00" : COLORS[i % COLORS.length];
         return (
           <div key={id} className="fixed pointer-events-none z-[9997]">
             <div
