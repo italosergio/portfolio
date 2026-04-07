@@ -5,7 +5,13 @@ import ThemeToggle from "~/components/ThemeToggle";
 import { useLanguage } from "~/lib/LanguageContext";
 import GlitchText from "~/components/GlitchText";
 import VersionBadge from "~/components/VersionBadge";
-import { X } from "lucide-react";
+import { X, ArrowUp, ArrowDown, ArrowLeft, ArrowRight } from "lucide-react";
+
+const KonamiArrows = () => (
+  <span className="inline-flex items-center gap-px">
+    {[ArrowUp,ArrowUp,ArrowDown,ArrowDown,ArrowLeft,ArrowRight,ArrowLeft,ArrowRight].map((I,i) => <I key={i} className="w-2.5 h-2.5" strokeWidth={3} />)}
+  </span>
+);
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -62,7 +68,7 @@ export default function Header() {
               href="#"
               className="text-xl md:text-2xl font-bold text-[#0B5D1E] dark:text-[#10B981] hover:scale-105 transition-transform flex items-end gap-1"
             >
-              <GlitchText>ítalo</GlitchText><span className="text-[#06B6D4]"><GlitchText>{"<dev/>"}</GlitchText></span>
+              <GlitchText hoverText="it4l0">ítalo</GlitchText><span className="text-[#06B6D4]"><GlitchText hoverText={<KonamiArrows />}>{"<dev/>"}</GlitchText></span>
               <span className="relative"><VersionBadge /></span>
             </a>
             <ThemeToggle />
