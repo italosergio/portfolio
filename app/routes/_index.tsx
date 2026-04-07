@@ -15,7 +15,7 @@ import MatrixRain from "~/components/MatrixRain";
 import Toast from "~/components/Toast";
 import { useKonamiCode } from "~/lib/useKonamiCode";
 import { useSecretCode } from "~/lib/useSecretCode";
-import { trackPageView, initClickTracking } from "~/lib/analytics";
+import { trackPageView, initClickTracking, setDevMode, isDevMode } from "~/lib/analytics";
 import LanguageSelector from "~/components/LanguageSelector";
 import PixelScrollbar from "~/components/PixelScrollbar";
 import AudioPlayer from "~/components/AudioPlayer";
@@ -23,6 +23,7 @@ import ScrollToTop from "~/components/ScrollToTop";
 import AnalyticsPanel from "~/components/AnalyticsPanel";
 import LiveCursors from "~/components/LiveCursors";
 import GlitchText from "~/components/GlitchText";
+import ClickHeatmap from "~/components/ClickHeatmap";
 import { useNetworkStatus } from "~/lib/useNetworkStatus";
 
 export const meta: MetaFunction = () => {
@@ -134,6 +135,54 @@ function PageContent() {
   const [fadeOut, setFadeOut] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
   const [showAnalytics, setShowAnalytics] = useState(false);
+  const [showHeatmap, setShowHeatmap] = useState(false);
+
+  const toggleHeatmap = useCallback(() => {
+    setShowHeatmap(h => !h);
+  }, []);
+
+  // Esc closes analytics panel
+  useEffect(() => {
+    if (!showAnalytics) return;
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Escape") { setShowAnalytics(false); document.body.style.overflow = ""; }
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [showAnalytics]);
+
+  // Key "1" to toggle heatmap (desktop)
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "1" && !e.ctrlKey && !e.metaKey && !e.altKey) {
+        const tag = (e.target as HTMLElement).tagName;
+        if (tag === "INPUT" || tag === "TEXTAREA") return;
+        toggleHeatmap();
+      }
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [toggleHeatmap]);
+
+  // "it4l0" dev mode — disables tracking
+  const [devActive, setDevActive] = useState(false);
+
+  const devBuf = useRef("");
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      devBuf.current += e.key;
+      if (devBuf.current.length > 10) devBuf.current = devBuf.current.slice(-10);
+      if (devBuf.current.endsWith("it4l0")) {
+        const next = !isDevMode();
+        setDevMode(next);
+        setDevActive(next);
+        setToast(next ? "Dev mode: tracking desativado" : "Tracking reativado");
+        devBuf.current = "";
+      }
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, []);
 
   useSecretCode(useCallback(() => setShowAnalytics(a => {
     const next = !a;
@@ -165,6 +214,11 @@ function PageContent() {
       <AudioPlayer />
       <ScrollToTop />
       <Header />
+      {devActive && (
+        <div className="fixed top-24 right-4 z-[9997] px-2 py-1 bg-[#F59E0B]/20 border border-[#F59E0B]/30 rounded-sm font-mono text-[10px] text-[#F59E0B] backdrop-blur-sm">
+          dev mode
+        </div>
+      )}
       <LanguageSelector />
       {showBikes && (
         <div className={`transition-opacity duration-1000 ${fadeOut ? 'opacity-0' : 'opacity-100'}`}>
@@ -249,8 +303,15 @@ function PageContent() {
 
           {/* Título Principal */}
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-5 tracking-tight" style={{ fontFamily: 'Karla, sans-serif' }}>
-            <span className="block text-[#1F2937] dark:text-white mb-2">
+            <span className="block text-[#1F2937] dark:text-white mb-2 relative">
               <GlitchText>{t.hero.title1}</GlitchText>
+              {/* Mobile: tap the "c" in "Tecnologia" to toggle heatmap */}
+              <span
+                className="absolute sm:hidden"
+                style={{ left: "2.1ch", top: 0, width: "1ch", height: "100%" }}
+                onClick={toggleHeatmap}
+                aria-hidden="true"
+              />
             </span>
             <span className="block">
               <GlitchText className="bg-gradient-to-r from-[#0B5D1E] via-[#10B981] to-[#06B6D4] bg-clip-text text-transparent">{t.hero.title2}</GlitchText>
@@ -377,9 +438,12 @@ function PageContent() {
     {showAnalytics && (
       <div data-analytics-panel className="fixed top-0 left-0 right-0 bottom-0 z-[9998] bg-[#0F172A] overflow-y-auto" style={{ height: "100lvh" }}>
         <button onClick={() => { setShowAnalytics(false); document.body.style.overflow = ""; }} className="fixed top-4 right-4 text-white/70 hover:text-white text-3xl z-10">×</button>
-        <AnalyticsPanel />
+        <AnalyticsPanel onShowHeatmap={() => { setShowAnalytics(false); document.body.style.overflow = ""; setShowHeatmap(true); }} />
       </div>
     )}
+
+    {/* Click heatmap over real page */}
+    {showHeatmap && <ClickHeatmap onClose={() => { setShowHeatmap(false); setShowAnalytics(true); document.body.style.overflow = "hidden"; }} />}
     </>
   );
 }
