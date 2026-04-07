@@ -6,7 +6,8 @@
 ## Regras de Desenvolvimento
 
 - **Nunca usar emoticons/emojis** em textos de UI (toasts, labels, tags, placeholders). Sempre usar texto limpo com icones Lucide quando necessario.
-- **Versionamento semver v3.X.Y** — todo commit deve atualizar a versao no `package.json` e em `app/components/VersionBadge.tsx` (constante `APP_VERSION` e array `changelog`). PATCH para fixes/melhorias pontuais, MINOR para funcionalidades novas significativas, MAJOR para redesign total.
+- **Versionamento semver v3.X.Y** — ver processo CDRV na secao "Git e Versionamento".
+- **Modais devem bloquear scroll da pagina** — ao abrir modal, setar `document.body.style.overflow = "hidden"` e restaurar ao fechar. Scroll deve funcionar apenas dentro do modal.
 
 ## Convenções de Código
 
@@ -74,6 +75,23 @@ export default function ComponentName() {
 - **Ícones**: Lucide React
 
 ## Git e Versionamento
+
+### CDRV — Commit Detalhado por Responsabilidade e Versionamento
+
+Processo padrao de commit do projeto. Sempre seguir esta ordem:
+
+1. **Agrupar mudancas por responsabilidade** — cada commit deve conter apenas arquivos relacionados a uma unica responsabilidade (ex: componente novo, lib, integracao, docs)
+2. **Commits detalhados** — mensagem com titulo conventional commit + corpo listando cada mudanca relevante
+3. **Ultimo commit: versionamento** — sempre o ultimo commit da sequencia, contendo:
+   - Bump de `version` no `package.json`
+   - Bump de `APP_VERSION` em `app/components/VersionBadge.tsx`
+   - Nova entrada no array `changelog` do VersionBadge com data, versao e descricao resumida
+   - Mensagem: `chore: bump version to X.Y.Z`
+
+Regras de versao (semver):
+- **PATCH** (3.3.X): fixes, melhorias pontuais, ajustes de UI
+- **MINOR** (3.X.0): funcionalidades novas significativas
+- **MAJOR** (X.0.0): redesign total
 
 ### Commits
 - Mensagens em português
