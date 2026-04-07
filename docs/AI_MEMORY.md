@@ -78,20 +78,25 @@ export default function ComponentName() {
 
 ### CDRV — Commit Detalhado por Responsabilidade e Versionamento
 
-Processo padrao de commit do projeto. Sempre seguir esta ordem:
+Processo padrao de commit do projeto. **SEMPRE** seguir esta ordem:
 
 1. **Agrupar mudancas por responsabilidade** — cada commit deve conter apenas arquivos relacionados a uma unica responsabilidade (ex: componente novo, lib, integracao, docs)
 2. **Commits detalhados** — mensagem com titulo conventional commit + corpo listando cada mudanca relevante
-3. **Ultimo commit: versionamento** — sempre o ultimo commit da sequencia, contendo:
+3. **Ultimo commit: versionamento** — OBRIGATORIO, sempre o ultimo commit da sequencia, contendo:
    - Bump de `version` no `package.json`
    - Bump de `APP_VERSION` em `app/components/VersionBadge.tsx`
-   - Nova entrada no array `changelog` do VersionBadge com data, versao e descricao resumida
+   - Nova entrada no array `changelog` do VersionBadge com data, versao e descricao resumida que cubra TODAS as mudancas da sequencia
    - Mensagem: `chore: bump version to X.Y.Z`
 
 Regras de versao (semver):
 - **PATCH** (3.3.X): fixes, melhorias pontuais, ajustes de UI
 - **MINOR** (3.X.0): funcionalidades novas significativas
 - **MAJOR** (X.0.0): redesign total
+
+**IMPORTANTE — Erros a evitar:**
+- **NUNCA commitar sem versionar** — nao importa se o CDRV ainda nao existia, se houve commits, deve haver bump. Sem excecao.
+- **A versao deve refletir TUDO que entrou** — analisar todos os commits da sequencia pra decidir se e PATCH, MINOR ou MAJOR. Se tem feat novo significativo, e MINOR no minimo.
+- **O changelog deve descrever o conjunto** — nao apenas o ultimo fix, mas todas as mudancas desde a ultima versao.
 
 ### Commits
 - Mensagens em português
