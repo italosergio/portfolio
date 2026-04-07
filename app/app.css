@@ -55,6 +55,14 @@ html {
   80% { clip-path: inset(5% 0 60% 0); transform: translate(-2px, 0); }
 }
 
+@keyframes glitchIcon {
+  0%, 85%, 100% { transform: translate(0); filter: none; }
+  87% { transform: translate(-3px, 1px); filter: drop-shadow(3px 0 0 #06B6D4) drop-shadow(-3px 0 0 #10B981); }
+  89% { transform: translate(2px, -1px); filter: drop-shadow(-2px 0 0 #06B6D4); }
+  91% { transform: translate(-1px, 2px); filter: drop-shadow(2px 0 0 #10B981); }
+  93% { transform: translate(0); filter: none; }
+}
+
 @keyframes btnGlitch {
   0%, 90%, 100% { transform: translate(0); box-shadow: 0 0 15px rgba(16,185,129,0.3); }
   92% { transform: translate(-2px, 1px); box-shadow: 3px 0 0 #06B6D4, -3px 0 0 #10B981, 0 0 20px rgba(16,185,129,0.6); }
