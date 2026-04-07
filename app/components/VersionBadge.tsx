@@ -5,7 +5,9 @@ export const APP_VERSION = "3.15.4";
 
 const REPO = "https://github.com/italosergio/portfolio_v2";
 
-const changelog = [
+type Entry = { version: string; date: string; desc: string; commit?: string; egg?: string };
+
+const changelog: Entry[] = [
   { version: "3.15.4", date: "2026-04-06", desc: "Dicas de easter eggs no hover do olho no footer", commit: "53f5ace" },
   { version: "3.15.3", date: "2026-04-06", desc: "Efeito glitch no icone de olho do footer", commit: "d34933e" },
   { version: "3.15.2", date: "2026-04-06", desc: "Icone de olho flutuante com fade in/out no footer", commit: "5819f50" },
@@ -37,19 +39,25 @@ const changelog = [
   { version: "3.5.2", date: "2026-04-05", desc: "Live cursors em tempo real", commit: "d3d3a9a" },
   { version: "3.5.1", date: "2026-04-05", desc: "Secret code para abrir painel de analytics", commit: "d3d3a9a" },
   { version: "3.5.0", date: "2026-04-05", desc: "Firebase analytics com tracking de pageviews", commit: "d3d3a9a" },
+  { version: "3.4.20", date: "2026-04-05", desc: "Sequencia secreta de direcoes", egg: "↑↑↓↓←→←→ — O lendario Konami Code. Digite essa sequencia no teclado (ou faca os swipes no mobile) para ativar o Bike Mode: chuva de caracteres Matrix cobre a tela enquanto bicicletas cruzam em todas as direcoes. Quando a cortina digital se dissolve, o painel secreto de Analytics e revelado por tras." },
   { version: "3.4.2", date: "2026-04-05", desc: "Font smoothing e redesign dos cards de contato", commit: "d30f0d4" },
   { version: "3.4.1", date: "2026-04-05", desc: "Floating icons na timeline da trajetoria", commit: "d30f0d4" },
   { version: "3.4.0", date: "2026-04-05", desc: "Pixel scrollbar com trail effect", commit: "d30f0d4" },
+  { version: "3.3.3", date: "2026-04-05", desc: "Cursor fantasma multiplayer", egg: "Cursores de outros visitantes aparecem em tempo real na tela. Cada cursor tem uma cor unica e se move suavemente. Voce nunca esta sozinho neste portfolio — outros olhos estao explorando ao mesmo tempo." },
   { version: "3.3.1", date: "2026-04-05", desc: "Fix referencia da imagem parallax mobile", commit: "6c185b9" },
   { version: "3.3.0", date: "2026-04-05", desc: "Stack background responsivo para mobile", commit: "def37d6" },
+  { version: "3.2.7", date: "2026-04-05", desc: "Modo invisivel do desenvolvedor", egg: "Digite 'it4l0' (com o numero 4 no lugar do a e 0 no lugar do o) em qualquer lugar da pagina. O tracking de analytics e desativado e um badge 'dev mode' aparece no canto. Digite novamente para reativar. Passe o mouse em 'italo' no header ou footer para ver a dica." },
   { version: "3.2.4", date: "2026-04-05", desc: "Melhorias no footer logo e skills", commit: "93b6a9b" },
   { version: "3.2.3", date: "2026-04-05", desc: "Cards de contato melhorados", commit: "93b6a9b" },
   { version: "3.2.2", date: "2026-04-05", desc: "Floating icons e parallax backgrounds", commit: "93b6a9b" },
   { version: "3.2.1", date: "2026-04-05", desc: "Stack background image e skills Leaflet/Mapbox", commit: "8f0eafb" },
   { version: "3.2.0", date: "2026-04-05", desc: "Secao GitHub Profile", commit: "8f0eafb" },
+  { version: "3.1.5", date: "2026-04-01", desc: "Mapa de calor oculto", egg: "Pressione a tecla '1' no teclado (ou toque na letra 'c' de 'Tecnologia' no mobile) para revelar um heatmap de todos os cliques dos visitantes. Pontos verdes brilhantes mostram onde cada pessoa clicou, com tooltip detalhado ao passar o mouse." },
   { version: "3.1.2", date: "2026-04-01", desc: "Download portfolio PDF no footer com jsPDF", commit: "5b8e902" },
   { version: "3.1.1", date: "2026-04-01", desc: "Fix mobile menu z-index e tema claro", commit: "272dac2" },
   { version: "3.1.0", date: "2026-04-01", desc: "Secao Trajetoria com timeline interativa e galeria de fotos", commit: "dfea762" },
+  { version: "3.0.5", date: "2026-04-01", desc: "Painel de controle secreto", egg: "Existe um codigo secreto de direcoes (diferente do Konami) que abre e fecha um painel completo de Analytics. Visualize pageviews, eventos, graficos por periodo, dispositivos e muito mais. O acesso e exclusivo para quem conhece a sequencia." },
+  { version: "3.0.4", date: "2026-04-01", desc: "O olho que tudo ve", egg: "Um icone de olho aparece e desaparece aleatoriamente no footer. Passe o mouse para receber dicas cripticas sobre os easter eggs escondidos. No mobile, toque nele para ver a mensagem. Ele sabe mais do que parece." },
   { version: "3.0.3", date: "2026-04-01", desc: "Foco em dados, mapas e acessibilidade", commit: "51d4e1a" },
   { version: "3.0.2", date: "2026-04-01", desc: "Imagens de perfil e projetos", commit: "d19ecc7" },
   { version: "3.0.1", date: "2026-01-23", desc: "Implementacao completa do portfolio v3 com tema dual e animacoes", commit: "df4408b" },
@@ -58,11 +66,32 @@ const changelog = [
 
 export default function VersionBadge() {
   const [open, setOpen] = useState(false);
+  const [eggModal, setEggModal] = useState<Entry | null>(null);
+  const [eggPhase, setEggPhase] = useState<"enter" | "visible" | "leave">("enter");
+  const [eggData, setEggData] = useState<Entry | null>(null);
+
+  const openEgg = (entry: Entry) => {
+    setEggData(entry);
+    setEggPhase("enter");
+    setEggModal(entry);
+    setTimeout(() => setEggPhase("visible"), 600);
+  };
+
+  const closeEgg = () => {
+    setEggPhase("leave");
+    setTimeout(() => { setEggModal(null); setEggData(null); }, 600);
+  };
 
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
+    document.body.style.overflow = open || eggModal ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
-  }, [open]);
+  }, [open, eggModal]);
+
+  useEffect(() => {
+    if (!eggModal || eggPhase !== "visible") return;
+    const t = setTimeout(closeEgg, 15000);
+    return () => clearTimeout(t);
+  }, [eggModal, eggPhase]);
 
   return (
     <>
@@ -81,7 +110,17 @@ export default function VersionBadge() {
               <button onClick={() => setOpen(false)} className="text-white/50 hover:text-white text-lg">x</button>
             </div>
             <div className="space-y-3">
-              {changelog.map((entry, i) => (
+              {changelog.map((entry, i) => entry.egg ? (
+                <button
+                  key={entry.version}
+                  onClick={() => openEgg(entry)}
+                  className={`flex gap-3 hover:bg-white/5 rounded-sm px-1 -mx-1 py-0.5 transition-colors text-left w-full text-[#94A3B8]`}
+                >
+                  <span className="shrink-0 font-bold w-14">v{entry.version}</span>
+                  <span className="shrink-0 text-[#64748B] w-20">{entry.date}</span>
+                  <span className="hover:underline">{entry.desc}</span>
+                </button>
+              ) : (
                 <a
                   key={entry.version}
                   href={`${REPO}/commit/${entry.commit}`}
@@ -95,6 +134,31 @@ export default function VersionBadge() {
                 </a>
               ))}
             </div>
+          </div>
+        </div>,
+        document.body
+      )}
+
+      {eggModal && createPortal(
+        <div
+          className="fixed inset-0 z-[10001] flex items-center justify-center bg-black/80"
+          onClick={closeEgg}
+        >
+          <div
+            className="relative bg-[#0F172A] border border-[#10B981]/30 rounded-sm p-6 max-w-sm w-full mx-4 font-mono text-sm text-[#10B981] text-center space-y-3"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="text-lg font-bold">v{eggModal.version}</div>
+            <span className="inline-block px-3 py-1 bg-[#06B6D4]/10 border border-[#06B6D4]/30 rounded-sm text-[10px] text-[#06B6D4] pointer-events-none select-none">{"<voce achou um Egg/>"}</span>
+            <div className="text-[#94A3B8] text-xs leading-relaxed">{eggModal.egg}</div>
+            <div className="text-[8px] text-[#64748B] animate-pulse">desaparece em 15s</div>
+            {eggPhase !== "visible" && (
+              <>
+                <div className="absolute inset-0 text-[#10B981]" style={{ animation: "glitchColor1 200ms steps(2) infinite" }} />
+                <div className="absolute inset-0 text-[#06B6D4]" style={{ animation: "glitchColor2 200ms steps(2) infinite" }} />
+                <div className="absolute inset-0" style={{ animation: "glitch 100ms steps(2) infinite" }} />
+              </>
+            )}
           </div>
         </div>,
         document.body
