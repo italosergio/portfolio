@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 
-export const APP_VERSION = "3.15.4";
+export const APP_VERSION = "3.16.0";
 
 const REPO = "https://github.com/italosergio/portfolio_v2";
 
 type Entry = { version: string; date: string; desc: string; commit?: string; egg?: string };
 
 const changelog: Entry[] = [
+  { version: "3.16.0", date: "2026-04-06", desc: "Easter eggs no console, efeito cortina no MatrixRain e modal de eggs no changelog", commit: "b27aa7d" },
   { version: "3.15.4", date: "2026-04-06", desc: "Dicas de easter eggs no hover do olho no footer", commit: "53f5ace" },
   { version: "3.15.3", date: "2026-04-06", desc: "Efeito glitch no icone de olho do footer", commit: "d34933e" },
   { version: "3.15.2", date: "2026-04-06", desc: "Icone de olho flutuante com fade in/out no footer", commit: "5819f50" },
