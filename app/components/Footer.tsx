@@ -53,6 +53,18 @@ export default function Footer() {
     return () => clearInterval(id);
   }, []);
 
+  const [eyeGlitch, setEyeGlitch] = useState(false);
+  useEffect(() => {
+    let timeout: ReturnType<typeof setTimeout>;
+    const trigger = () => {
+      setEyeGlitch(true);
+      setTimeout(() => setEyeGlitch(false), 200);
+      timeout = setTimeout(trigger, [1000, 2000, 3000][Math.floor(Math.random() * 3)]);
+    };
+    timeout = setTimeout(trigger, 2000);
+    return () => clearTimeout(timeout);
+  }, []);
+
   return (
     <footer role="contentinfo" className="relative bg-[#1F2937] dark:bg-[#0F172A] text-white py-12 px-4 overflow-hidden">
       <div
@@ -61,6 +73,12 @@ export default function Footer() {
         aria-hidden="true"
       >
         <Eye className="w-8 h-8 text-[#10B981]/30" />
+        {eyeGlitch && (
+          <>
+            <Eye className="absolute inset-0 w-8 h-8 text-[#10B981]" style={{ animation: "glitchColor1 200ms steps(2) forwards" }} />
+            <Eye className="absolute inset-0 w-8 h-8 text-[#06B6D4]" style={{ animation: "glitchColor2 200ms steps(2) forwards" }} />
+          </>
+        )}
       </div>
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
