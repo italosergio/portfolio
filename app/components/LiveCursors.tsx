@@ -8,17 +8,21 @@ interface Cursor {
   y: number;
   ts: number;
   mobile?: boolean;
+  name?: string;
 }
 
 const SESSION_ID = Math.random().toString(36).slice(2, 10);
 const COLORS = ["#10B981", "#06B6D4", "#F59E0B", "#EF4444", "#8B5CF6", "#EC4899"];
 const IS_MOBILE = typeof navigator !== "undefined" && /Mobi|Android/i.test(navigator.userAgent);
 
-export default function LiveCursors() {
+export default function LiveCursors({ name }: { name?: string }) {
   const [cursors, setCursors] = useState<Record<string, Cursor>>({});
   const myRef = useRef(ref(rtdb, `cursors/${SESSION_ID}`));
   const throttle = useRef(0);
   const [myPos, setMyPos] = useState(0);
+
+  const nameRef = useRef(name);
+  useEffect(() => { nameRef.current = name; }, [name]);
 
   useEffect(() => {
     onDisconnect(myRef.current).remove();
@@ -45,6 +49,7 @@ export default function LiveCursors() {
         y,
         ts: now,
         mobile: false,
+        ...(nameRef.current && { name: nameRef.current }),
       });
     };
 
@@ -56,7 +61,7 @@ export default function LiveCursors() {
       const centerY = window.scrollY + window.innerHeight / 2;
       const y = parseFloat((centerY / document.documentElement.scrollHeight * 100).toFixed(2));
       setMyPos(y);
-      set(myRef.current, { x: 50, y, ts: now, mobile: true });
+      set(myRef.current, { x: 50, y, ts: now, mobile: true, ...(nameRef.current && { name: nameRef.current }) });
     };
 
     if (IS_MOBILE) {
@@ -125,7 +130,7 @@ export default function LiveCursors() {
                   <path d="M0 0L16 12H6L0 20V0Z" fill={color} />
                 </svg>
                 <span className="text-[10px] ml-1 px-1 rounded-sm text-white" style={{ background: color }}>
-                  visitor
+                  {c.name || "visitor"}
                 </span>
               </div>
             )}

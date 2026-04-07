@@ -456,7 +456,7 @@ function PageContent() {
 
     {/* Footer */}
     <Footer />
-    <LiveCursors />
+    <LiveCursors name={devActive ? "italo" : undefined} />
 
     {/* Analytics overlay */}
     {showAnalytics && (
