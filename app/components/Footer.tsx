@@ -39,7 +39,7 @@ export default function Footer() {
           <div>
             <a href="#" className="text-2xl font-bold text-[#10B981] hover:scale-105 transition-transform inline-flex items-end gap-1 mb-4">
               <GlitchText>ítalo</GlitchText><span className="text-[#06B6D4]"><GlitchText>{"<dev/>"}</GlitchText></span>
-              <VersionBadge />
+              <span className="relative"><VersionBadge /></span>
             </a>
             <p className="text-[#94A3B8] text-sm mb-4">
               {t.footer.built} 💚 {t.footer.and} {t.footer.purpose}

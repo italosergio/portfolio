@@ -63,7 +63,7 @@ export default function Header() {
               className="text-xl md:text-2xl font-bold text-[#0B5D1E] dark:text-[#10B981] hover:scale-105 transition-transform flex items-end gap-1"
             >
               <GlitchText>ítalo</GlitchText><span className="text-[#06B6D4]"><GlitchText>{"<dev/>"}</GlitchText></span>
-              <VersionBadge />
+              <span className="relative"><VersionBadge /></span>
             </a>
             <ThemeToggle />
           </div>
