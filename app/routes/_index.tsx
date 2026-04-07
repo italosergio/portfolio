@@ -196,12 +196,34 @@ function PageContent() {
     tracked.current = true;
     trackPageView("/");
     initClickTracking();
+    if (!(window as any).__egg) {
+      (window as any).__egg = true;
+      console.log(`%c
+              ████████
+           ███▓▓▓▓▓▓▓▓███
+         ██▓▓▓▓▓▓▓▓▓▓▓▓▓▓██
+        █▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓█
+       █▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓█
+      █▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓█
+      █░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░█
+      █░░░░░▓▓▓▓▓▓▓▓▓▓▓▓░░░░░█
+      █░░░░░░░░░░░░░░░░░░░░░░█
+       █░░░░░░░░░░░░░░░░░░░░█
+        █░░░░░░░░░░░░░░░░░░█
+         ██░░░░░░░░░░░░░░██
+           ███░░░░░░░░███
+              ████████
+`, "color: #06B6D4; font-size: 16px; line-height: 1.1; font-family: monospace;");
+      console.log("%c🥚", "font-size: 14px; padding: 8px 0;");
+    }
   }, []);
 
   useKonamiCode(
     useCallback(() => {
       setShowBikes(true);
       setFadeOut(false);
+      setShowAnalytics(true);
+      document.body.style.overflow = "hidden";
       setToast("Bike Mode Ativado! 🚴");
       setTimeout(() => setFadeOut(true), 9000);
       setTimeout(() => setShowBikes(false), 10000);
@@ -221,10 +243,12 @@ function PageContent() {
       )}
       <LanguageSelector />
       {showBikes && (
-        <div className={`transition-opacity duration-1000 ${fadeOut ? 'opacity-0' : 'opacity-100'}`}>
-          <MatrixRain />
-          <BikeAnimation />
-        </div>
+        <>
+          <MatrixRain fadeOut={fadeOut} />
+          <div className={`transition-opacity duration-1000 ${fadeOut ? 'opacity-0' : 'opacity-100'}`}>
+            <BikeAnimation />
+          </div>
+        </>
       )}
       {toast && <Toast message={toast} onClose={() => setToast(null)} />}
       <div className="min-h-screen bg-white dark:bg-[var(--bg)]">
@@ -443,7 +467,7 @@ function PageContent() {
     )}
 
     {/* Click heatmap over real page */}
-    {showHeatmap && <ClickHeatmap onClose={() => { setShowHeatmap(false); setShowAnalytics(true); document.body.style.overflow = "hidden"; }} />}
+    {showHeatmap && <ClickHeatmap onClose={() => setShowHeatmap(false)} />}
     </>
   );
 }

@@ -6,9 +6,19 @@ import {
   Scripts,
   ScrollRestoration,
 } from "react-router";
+import { useEffect } from "react";
 
 import type { Route } from "./+types/root";
 import "./app.css";
+
+const EGG_ART = `
+%c██████████████████████████████████████████████████
+██                                              ██
+██  🥚  The best easter eggs are the ones       ██
+██      you almost didn't find.                 ██
+██                                              ██
+██████████████████████████████████████████████████
+`;
 
 export const links: Route.LinksFunction = () => [
   { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
@@ -33,7 +43,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         {children}
         <ScrollRestoration />
         <Scripts />
@@ -42,7 +52,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
+export function HydrateFallback() {
+  return null;
+}
+
 export default function App() {
+  useEffect(() => {
+    console.log(EGG_ART, "color:#10B981;font-family:monospace;font-size:12px;line-height:1.4");
+  }, []);
   return <Outlet />;
 }
 
