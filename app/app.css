@@ -21,6 +21,11 @@ html {
   }
 }
 
+@keyframes matrixCurtain {
+  from { mask-position: 0 0; -webkit-mask-position: 0 0; }
+  to { mask-position: 0 -100vh; -webkit-mask-position: 0 -100vh; }
+}
+
 @keyframes bikeRide {
   from { left: -30px; }
   to { left: 100%; }

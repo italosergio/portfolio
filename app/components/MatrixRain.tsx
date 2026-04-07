@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-export default function MatrixRain() {
+export default function MatrixRain({ fadeOut }: { fadeOut?: boolean }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -45,6 +45,13 @@ export default function MatrixRain() {
     <canvas
       ref={canvasRef}
       className="fixed inset-0 pointer-events-none z-[9999]"
+      style={fadeOut ? {
+        maskImage: "linear-gradient(to bottom, transparent, black 100%)",
+        WebkitMaskImage: "linear-gradient(to bottom, transparent, black 100%)",
+        maskSize: "100% 200%",
+        WebkitMaskSize: "100% 200%",
+        animation: "matrixCurtain 1.5s ease-in forwards",
+      } : undefined}
     />
   );
 }
