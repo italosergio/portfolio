@@ -1,13 +1,17 @@
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 
-export const APP_VERSION = "3.16.0";
+export const APP_VERSION = "3.16.4";
 
 const REPO = "https://github.com/italosergio/portfolio_v2";
 
 type Entry = { version: string; date: string; desc: string; commit?: string; egg?: string };
 
 const changelog: Entry[] = [
+  { version: "3.16.4", date: "2026-04-07", desc: "Cursor do dev aparece laranja neon para outros visitantes", commit: "6f822d6" },
+  { version: "3.16.3", date: "2026-04-07", desc: "Label com nome seguindo o cursor do mouse no dev mode", commit: "53c6c64" },
+  { version: "3.16.2", date: "2026-04-07", desc: "Cursor proprio laranja neon no dev mode", commit: "a9d3094" },
+  { version: "3.16.1", date: "2026-04-07", desc: "Nome do dev no cursor ao ativar dev mode (it4l0)", commit: "88c69ac" },
   { version: "3.16.0", date: "2026-04-06", desc: "Easter eggs no console, efeito cortina no MatrixRain e modal de eggs no changelog", commit: "b27aa7d" },
   { version: "3.15.4", date: "2026-04-06", desc: "Dicas de easter eggs no hover do olho no footer", commit: "53f5ace" },
   { version: "3.15.3", date: "2026-04-06", desc: "Efeito glitch no icone de olho do footer", commit: "d34933e" },
