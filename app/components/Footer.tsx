@@ -106,6 +106,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className="pt-8 border-t border-white/10 text-center text-sm text-[#94A3B8]">
           <p>© {new Date().getFullYear()} Ítalo Sérgio Chaves da Silva - Desenvolvedor de Software. Todos os direitos reservados.</p>
+          <p className="mt-3 text-[10px] text-[#64748B]/50 tracking-widest">nem tudo que esta aqui e visivel. explore.</p>
         </div>
       </div>
     </footer>
