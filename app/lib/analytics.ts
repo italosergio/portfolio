@@ -2,6 +2,7 @@ import { ref, push } from "firebase/database";
 import { rtdb } from "./firebase";
 
 export function trackPageView(path: string) {
+  if (devMode) return;
   const conn = (navigator as any).connection;
   push(ref(rtdb, "pageviews"), {
     path,
@@ -25,6 +26,7 @@ export function trackPageView(path: string) {
 }
 
 export function trackEvent(category: string, action: string, label?: string) {
+  if (devMode) return;
   push(ref(rtdb, "events"), {
     category,
     action,
@@ -43,6 +45,10 @@ export function trackEvent(category: string, action: string, label?: string) {
 }
 
 const lastClickPos = { x: 0, y: 0 };
+
+let devMode = false;
+export function isDevMode() { return devMode; }
+export function setDevMode(v: boolean) { devMode = v; }
 
 export function initClickTracking() {
   document.addEventListener("mousedown", (e) => { lastClickPos.x = e.clientX; lastClickPos.y = e.clientY; });
