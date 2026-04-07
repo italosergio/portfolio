@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 
-export const APP_VERSION = "3.14.0";
+export const APP_VERSION = "3.14.1";
 
 const REPO = "https://github.com/italosergio/portfolio_v2";
 
 const changelog = [
+  { version: "3.14.1", date: "2026-04-06", desc: "Links para commits do GitHub no modal de versoes", commit: "c5cbe2a" },
   { version: "3.14.0", date: "2026-04-06", desc: "Processo CDRV documentado, regras de versionamento e modal scroll lock", commit: "becc071" },
   { version: "3.13.1", date: "2026-04-06", desc: "Reposicionar VersionBadge dentro da logo no Header e Footer", commit: "88c7757" },
   { version: "3.13.0", date: "2026-04-06", desc: "Fix modal flickering com createPortal e scroll lock ao abrir modal", commit: "8952b9f" },
