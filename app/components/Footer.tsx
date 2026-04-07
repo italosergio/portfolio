@@ -54,6 +54,16 @@ export default function Footer() {
   }, []);
 
   const [eyeGlitch, setEyeGlitch] = useState(false);
+  const [hint, setHint] = useState("");
+  const hints = [
+    "os classicos nunca morrem... ↑↑↓↓",
+    "algumas direcoes levam a lugares ocultos",
+    "digite o nome do criador... do seu jeito",
+    "o numero 1 revela o invisivel",
+    "nem todo toque e acidental",
+    "a versao conta mais do que parece",
+    "este olho ve mais do que voce imagina",
+  ];
   useEffect(() => {
     let timeout: ReturnType<typeof setTimeout>;
     const trigger = () => {
@@ -68,9 +78,10 @@ export default function Footer() {
   return (
     <footer role="contentinfo" className="relative bg-[#1F2937] dark:bg-[#0F172A] text-white py-12 px-4 overflow-hidden">
       <div
-        className="absolute pointer-events-none transition-opacity duration-1000"
+        className="absolute pointer-events-auto transition-opacity duration-1000 group cursor-default"
         style={{ left: eyePos.left, top: eyePos.top, opacity: eyeVisible ? 1 : 0 }}
         aria-hidden="true"
+        onMouseEnter={() => setHint(hints[Math.floor(Math.random() * hints.length)])}
       >
         <Eye className="w-8 h-8 text-[#10B981]/30" />
         {eyeGlitch && (
@@ -79,6 +90,9 @@ export default function Footer() {
             <Eye className="absolute inset-0 w-8 h-8 text-[#06B6D4]" style={{ animation: "glitchColor2 200ms steps(2) forwards" }} />
           </>
         )}
+        <span className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 px-2 py-1 bg-[#0F172A]/90 border border-[#10B981]/20 rounded-sm text-[10px] text-[#10B981] font-mono whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          {hint}
+        </span>
       </div>
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
