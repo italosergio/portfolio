@@ -1,11 +1,16 @@
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 
-export const APP_VERSION = "3.14.2";
+export const APP_VERSION = "3.15.4";
 
 const REPO = "https://github.com/italosergio/portfolio_v2";
 
 const changelog = [
+  { version: "3.15.4", date: "2026-04-06", desc: "Dicas de easter eggs no hover do olho no footer", commit: "53f5ace" },
+  { version: "3.15.3", date: "2026-04-06", desc: "Efeito glitch no icone de olho do footer", commit: "d34933e" },
+  { version: "3.15.2", date: "2026-04-06", desc: "Icone de olho flutuante com fade in/out no footer", commit: "5819f50" },
+  { version: "3.15.1", date: "2026-04-06", desc: "Texto secreto 'explore' abaixo do copyright no footer", commit: "08f6fb2" },
+  { version: "3.15.0", date: "2026-04-06", desc: "Keyframe glitchIcon para animacao de icones", commit: "27bf97c" },
   { version: "3.14.2", date: "2026-04-06", desc: "Processo CDGV documentado como estrategia padrao de commit", commit: "f24041f" },
   { version: "3.14.1", date: "2026-04-06", desc: "Links para commits do GitHub no modal de versoes", commit: "c5cbe2a" },
   { version: "3.14.0", date: "2026-04-06", desc: "Processo CDRV documentado, regras de versionamento e modal scroll lock", commit: "becc071" },
