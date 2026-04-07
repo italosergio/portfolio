@@ -95,11 +95,12 @@ export default function LiveCursors({ name }: { name?: string }) {
       >
         <div
           className="w-2 h-2 rounded-full shrink-0"
-          style={{ background: "#fff", boxShadow: "0 0 6px #fff, 0 0 12px #fff" }}
+          style={{ background: name ? "#FF6B00" : "#fff", boxShadow: name ? "0 0 8px #FF6B00, 0 0 20px #FF6B00, 0 0 40px #FF6B0060" : "0 0 6px #fff, 0 0 12px #fff" }}
         />
         {IS_MOBILE && (
-          <Smartphone className="w-3 h-3 text-white" style={{ filter: "drop-shadow(0 0 4px #fff)" }} />
+          <Smartphone className="w-3 h-3" style={{ color: name ? "#FF6B00" : "#fff", filter: `drop-shadow(0 0 4px ${name ? "#FF6B00" : "#fff"})` }} />
         )}
+        {name && <span className="text-[10px] ml-1 px-1 rounded-sm text-white" style={{ background: "#FF6B00", boxShadow: "0 0 8px #FF6B0080" }}>{name}</span>}
       </div>
 
       {Object.entries(cursors).map(([id, c], i) => {
